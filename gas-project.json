@@ -5,6 +5,14 @@
       "Code": {
         "path": "/home/jhathaway/email_email_email/gmail-gmail-gmail/Code.js",
         "type": "server_js"
+      },
+      "msgConsumers": {
+        "path": "/home/jhathaway/email_email_email/gmail-gmail-gmail/msgConsumers.js",
+        "type": "server_js"
+      },
+      "util": {
+        "path": "/home/jhathaway/email_email_email/gmail-gmail-gmail/util.js",
+        "type": "server_js"
       }
     }
   }
