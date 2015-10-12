@@ -38,10 +38,11 @@ function extractHeaders(rawMessage) {
   for (i = 0; i < headerLines.length; i++) {
     var headerMatch = parseHeaderRegex.exec(headerLines[i]);
     if (headerMatch[1] !== "") {
-      if (headers.hasOwnProperty(headerMatch[1])) {
-        headers[headerMatch[1]].push(headerMatch[2]);
+      var headerField = headerMatch[1].toLowerCase();
+      if (headers.hasOwnProperty(headerField)) {
+        headers[headerField].push(headerMatch[2]);
       } else {
-        headers[headerMatch[1]] = [headerMatch[2]];
+        headers[headerField] = [headerMatch[2]];
       }
     }
   }

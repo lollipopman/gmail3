@@ -1,67 +1,67 @@
 {
-  "Delivered-To": [
+  "delivered-to": [
     "jesse@mbuki-mvuki.org"
   ],
-  "Received": [
+  "received": [
     "by 10.50.124.73 with SMTP id mg9csp362227igb; Sat, 3 Oct 2015 03:39:44 -0700 (PDT)",
     "from pond3.drhinternet.net (pond3.drhinternet.net. [70.47.67.13]) by mx.google.com with SMTP id 143si14172232qhc.102.2015.10.03.03.39.43 for <jesse@mbuki-mvuki.org>; Sat, 03 Oct 2015 03:39:44 -0700 (PDT)",
     "(GreenArrow 27516 invoked from network); 3 Oct 2015 10:39:43 -0000",
     "from unknown (HELO mw.drhinternet.net) (70.47.67.8) by relay.drhinternet.net with SMTP; 3 Oct 2015 10:39:43 -0000",
     "(qmail 4190 invoked by uid 99); 3 Oct 2015 10:39:43 -0000"
   ],
-  "X-Received": [
+  "x-received": [
     "by 10.140.27.161 with SMTP id 30mr25695276qgx.4.1443868784072; Sat, 03 Oct 2015 03:39:44 -0700 (PDT)"
   ],
-  "Return-Path": [
+  "return-path": [
     "<return-6-9808-jesse=mbuki-mvuki.org@drhinternet.net>"
   ],
-  "Received-SPF": [
+  "received-spf": [
     "pass (google.com: domain of return-6-9808-jesse=mbuki-mvuki.org@drhinternet.net designates 70.47.67.13 as permitted sender) client-ip=70.47.67.13;"
   ],
-  "Authentication-Results": [
+  "authentication-results": [
     "mx.google.com; spf=pass (google.com: domain of return-6-9808-jesse=mbuki-mvuki.org@drhinternet.net designates 70.47.67.13 as permitted sender) smtp.mailfrom=return-6-9808-jesse=mbuki-mvuki.org@drhinternet.net; dkim=pass header.i=@drhinternet.net; dkim=pass header.i=@m-w.com"
   ],
-  "DKIM-Signature": [
+  "dkim-signature": [
     "v=1; a=rsa-sha1; c=relaxed/relaxed; d=drhinternet.net; s=d01; h=Received:Received:DKIM-Signature: Comment:DomainKey-Signature:Date:Message-ID:To:Subject:From: Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding; bh=BEmlia8Q3/OQ/8XUIHKEolX44ao=; b=fp937Hg1DK0CUYu/S/EvyrCujp/8c KyPXh6uUmL0BorPid7/MXyb/yGLFoSprBuGa9w3ivGlG97K8NId6ezHuM6wB58bq jnYkrFod8zVQAGDRkWFTudjagzXCm3Vjf8tk+r4ClSyAlSf+++Pl/mrU8BiDnw/l zmYRpRlZHrCSjs=",
     "v=1; a=rsa-sha1; c=relaxed/relaxed; d=m-w.com; s=wod_html.wod2; h=Comment:DomainKey-Signature:Date:Message-ID: To:Subject:From:Reply-To:MIME-Version:Content-Type: Content-Transfer-Encoding; bh=BEmlia8Q3/OQ/8XUIHKEolX44ao=; b=LG I/Yzuu5olsedbRE+4/uxjgoBiHH0Wy3KowYqIHj7GHKjV8ZX03OTgC2jEWpI2oQ7 Q/CBF2TzxODBvWKqy0bsBv99EQZLgNbi8CAvh3MjPO+l1B6pPlYIznZNOmlLm+xp GQvps9G3uUoewABZ3dmDgKKix5g0AIfxoVVgwBdO8="
   ],
-  "Comment": [
+  "comment": [
     "DomainKeys? See http://antispam.yahoo.com/domainkeys"
   ],
-  "DomainKey-Signature": [
+  "domainkey-signature": [
     "a=rsa-sha1; q=dns; c=nofws; s=wod_html.wod2; d=m-w.com; b=RRE8dvVxEvztjlV5oqktRmL9WXtPrRUA/wmCZlGddFSv8gd/LnmqO0BiI5u9u8Q7hpQR4v6eFk5O1jHvk8aMD/T28gDisj0DLZx90u9ZF5N1wI9WjzFgGc5tx+h2DcxvjUpO3ETwdNKm2vuMR5aXFpkYgcjdyZ1Eyk3BZ2uexjM=  ;"
   ],
-  "Date": [
+  "date": [
     "3 Oct 2015 10:39:43 -0000"
   ],
-  "Message-ID": [
+  "message-id": [
     "<20151003103943.4188.qmail@mw.drhinternet.net>"
   ],
-  "To": [
+  "to": [
     "jesse@mbuki-mvuki.org"
   ],
-  "Subject": [
+  "subject": [
     "Haplology - plus, how the months got their names"
   ],
-  "From": [
+  "from": [
     "\"M-W's Word of the Day\" <word@m-w.com>"
   ],
-  "Reply-To": [
+  "reply-to": [
     "word@m-w.com"
   ],
-  "MIME-Version": [
+  "mime-version": [
     "1.0"
   ],
-  "X-CampaignID": [
+  "x-campaignid": [
     "mw:9808"
   ],
-  "X-Mailer-Info": [
+  "x-mailer-info": [
     "BQN4BFk0MJVhqaubnKbgqaubo3cNpzMzpapfAt"
   ],
-  "Content-Type": [
+  "content-type": [
     "text/html; charset=\"UTF-8\""
   ],
-  "Content-Transfer-Encoding": [
+  "content-transfer-encoding": [
     "quoted-printable"
   ]
 }
