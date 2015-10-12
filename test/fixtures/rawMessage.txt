@@ -1,0 +1,805 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: jesse@mbuki-mvuki.org
+Received: by 10.50.124.73 with SMTP id mg9csp362227igb;
+        Sat, 3 Oct 2015 03:39:44 -0700 (PDT)
+X-Received: by 10.140.27.161 with SMTP id 30mr25695276qgx.4.1443868784072;
+        Sat, 03 Oct 2015 03:39:44 -0700 (PDT)
+Return-Path: <return-6-9808-jesse=mbuki-mvuki.org@drhinternet.net>
+Received: from pond3.drhinternet.net (pond3.drhinternet.net. [70.47.67.13])
+        by mx.google.com with SMTP id 143si14172232qhc.102.2015.10.03.03.39.43
+        for <jesse@mbuki-mvuki.org>;
+        Sat, 03 Oct 2015 03:39:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of return-6-9808-jesse=mbuki-mvuki.org@drhinternet.net designates 70.47.67.13 as permitted sender) client-ip=70.47.67.13;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of return-6-9808-jesse=mbuki-mvuki.org@drhinternet.net designates 70.47.67.13 as permitted sender) smtp.mailfrom=return-6-9808-jesse=mbuki-mvuki.org@drhinternet.net;
+       dkim=pass header.i=@drhinternet.net;
+       dkim=pass header.i=@m-w.com
+Received: (GreenArrow 27516 invoked from network); 3 Oct 2015 10:39:43 -0000
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed;
+	d=drhinternet.net; s=d01; h=Received:Received:DKIM-Signature:
+	Comment:DomainKey-Signature:Date:Message-ID:To:Subject:From:
+	Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=BEmlia8Q3/OQ/8XUIHKEolX44ao=; b=fp937Hg1DK0CUYu/S/EvyrCujp/8c
+	KyPXh6uUmL0BorPid7/MXyb/yGLFoSprBuGa9w3ivGlG97K8NId6ezHuM6wB58bq
+	jnYkrFod8zVQAGDRkWFTudjagzXCm3Vjf8tk+r4ClSyAlSf+++Pl/mrU8BiDnw/l
+	zmYRpRlZHrCSjs=
+Received: from unknown (HELO mw.drhinternet.net) (70.47.67.8)
+  by relay.drhinternet.net with SMTP; 3 Oct 2015 10:39:43 -0000
+Received: (qmail 4190 invoked by uid 99); 3 Oct 2015 10:39:43 -0000
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; d=m-w.com;
+	s=wod_html.wod2; h=Comment:DomainKey-Signature:Date:Message-ID:
+	To:Subject:From:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding; bh=BEmlia8Q3/OQ/8XUIHKEolX44ao=; b=LG
+	I/Yzuu5olsedbRE+4/uxjgoBiHH0Wy3KowYqIHj7GHKjV8ZX03OTgC2jEWpI2oQ7
+	Q/CBF2TzxODBvWKqy0bsBv99EQZLgNbi8CAvh3MjPO+l1B6pPlYIznZNOmlLm+xp
+	GQvps9G3uUoewABZ3dmDgKKix5g0AIfxoVVgwBdO8=
+Comment: DomainKeys? See http://antispam.yahoo.com/domainkeys
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws;
+  s=wod_html.wod2; d=m-w.com;
+  b=RRE8dvVxEvztjlV5oqktRmL9WXtPrRUA/wmCZlGddFSv8gd/LnmqO0BiI5u9u8Q7hpQR4v6eFk5O1jHvk8aMD/T28gDisj0DLZx90u9ZF5N1wI9WjzFgGc5tx+h2DcxvjUpO3ETwdNKm2vuMR5aXFpkYgcjdyZ1Eyk3BZ2uexjM=  ;
+Date: 3 Oct 2015 10:39:43 -0000
+Message-ID: <20151003103943.4188.qmail@mw.drhinternet.net>
+To: jesse@mbuki-mvuki.org
+Subject: Haplology - plus, how the months got their names
+From: "M-W's Word of the Day" <word@m-w.com>
+Reply-To: word@m-w.com
+MIME-Version: 1.0
+X-CampaignID: mw:9808
+X-Mailer-Info: BQN4BFk0MJVhqaubnKbgqaubo3cNpzMzpapfAt
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://w=
+ww.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"=
+ />
+<title>Merriam-Webster's Word of the Day</title>
+</head>
+
+
+<body>
+
+<div style=3D"position: relative; left: 0px; top: 0px;">
+
+
+<!-- Begin Takeover header -->
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"> <tbody> <tr> =
+ <td align=3D"right" valign=3D"top" width=3D"49%">   <a href=3D"http://w=
+ww.drhinternet.net/mw/link.php?M=3D2103613&amp;N=3D9808&amp;L=3D12061&am=
+p;C=3D7b90c08dc1dccc3d0cde0a3a4e9911be" rel=3D"nofollow"><img src=3D"htt=
+p://li.mw.drhinternet.net/imp?s=3D18045&amp;layout=3Dleft&amp;li=3D6&amp=
+;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" border=3D"0" alt=3D"=
+"/></a>  </td>  <td valign=3D"top" width=3D"2%">
+<!-- End Takeover header -->
+
+
+<!-- ns:insert -->
+
+<!-- TABLE1 Parent table BEGINS -->
+<table width=3D"800" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" al=
+ign=3D"left" style=3D"position: absolute; left: 0px; top: 0px;" >
+<!-- WOD HEADER-->
+  <tr>
+    <td>
+      <a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;=
+N=3D9808&amp;L=3D12141"><img src=3D"http://www.drhinternet.net/images/wo=
+dhtml2010/wod2015_header_wod_800px.jpg" width=3D"800" height=3D"147" alt=
+=3D"Merriam-Webster's Word of the Day" border=3D"0" usemap=3D"#header" s=
+tyle=3D"border: none; margin: 0px; padding: 0px;" /></a>
+      <map name=3D"header" id=3D"header">
+        <area shape=3D"rect" coords=3D"0,0,146,146" href=3D"http://www.m=
+erriam-webster.com/?utm_campaign=3Dnewsletter&amp;utm_medium=3Demail&amp=
+;utm_source=3Dwotd&amp;utm_content=3Dlogo" alt=3D""/>
+      </map>
+    </td>
+  </tr>
+<!-- CONTENT PARENT AREA BEGINS-->
+  <tr>
+   <td>
+  =20
+   <!-- NESTED TABLE 1 BEGINS -->
+   <table width=3D"800" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+>
+  <tr>
+    <td width=3D"12" style=3D"font: normal 20px Arial, Helvetica, sans-s=
+erif; line-height: 20px">&nbsp;</td>
+    <td height=3D"25">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>
+
+   <!-- DATE/WORD/SOCIAL TABLE BEGINS -->
+   <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+"><tr><td>
+
+     <p style=3D"font: normal 13px Arial, Helvetica, sans-serif; color:#=
+5F636A; line-height: 17px; margin: 0px; padding: 0px;">October 3</p>
+
+     <p style=3D"font: normal 30px Avenir, Arial, Helvetica, sans-serif;=
+ color:#223645; white-space: nowrap; margin: 0px; padding: 0px;">haplolo=
+gy =20
+       <a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp=
+;N=3D9808&amp;L=3D13886" style=3D"border: none;"><img src=3D"http://www.=
+drhinternet.net/images/wodhtml2010/wod2015_icon_blue_audio_prod.jpg" wid=
+th=3D"21" height=3D"19" alt=3D"audio pron" border=3D"0" style=3D"border:=
+ none;"/></a>=20
+<span style=3D"font: italic 12px Arial, Helvetica, sans-serif; color:#5F=
+636A; white-space: nowrap;">&nbsp;&nbsp;\hap-LAH-luh-jee\</span>
+<br />
+</p>
+
+     <div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+
+   <!-- DATE/WORD/SOCIAL TABLE SPLIT -->
+   </td><td>
+
+
+     <!-- SOCIAL MEDIA TABLE BEGINS -->
+     <table width=3D"260" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" style=3D"float: right; background:url(http://www.drhinternet.net/imag=
+es/wodhtml2010/wod2015_icon_calendar_gray_tilt.gif) no-repeat right; hei=
+ght: 68px;">
+      <tr>
+       <td width=3D"5">&nbsp; </td>
+       <td width=3D"255">
+       <div style=3D"font: normal 16px Verdana, Geneva, sans-serif; colo=
+r:#223645; margin: 0px; padding: 0px;">Share the Word of the Day</div>
+
+<!-- SOCIAL MEDIA ICON LINKS BEGINS -->
+<table cellspacing=3D"6" cellpadding=3D"6" border=3D"0" style=3D"margin:=
+ 0px; padding: 0px; border: none; bgcolor: #ffffff;" width=3D"180">
+ <tr>
+   <td>
+     <a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=
+=3D9808&amp;L=3D4431&amp;C=3D7b90c08dc1dccc3d0cde0a3a4e9911be">
+<img src=3D"http://www.drhinternet.net/images/wodhtml2010/icon_share_thi=
+s_wod_via_facebook.gif" alt=3D"Facebook share feature" width=3D"26" heig=
+ht=3D"20" border=3D"0" style=3D"border: 0px; margin: 0px; padding: 0px;"=
+/>
+     </a>
+   </td>
+   <td>
+     <a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=
+=3D9808&amp;L=3D4432&amp;C=3D7b90c08dc1dccc3d0cde0a3a4e9911be">
+<img src=3D"http://www.drhinternet.net/images/wodhtml2010/twitter-bird-1=
+6x16.png" alt=3D"Twitter share feature" width=3D"16" height=3D"16" borde=
+r=3D"0" style=3D"border: 0px; margin: 0px; padding: 0px;"/>
+     </a>
+   </td>
+   <td>
+     <a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=
+=3D9808&amp;L=3D4433&amp;C=3D7b90c08dc1dccc3d0cde0a3a4e9911be">
+<img src=3D"http://www.drhinternet.net/images/wodhtml2010/icon_share_thi=
+s_wod_via_digg.gif" alt=3D"Digg share feature" width=3D"26" height=3D"20=
+" border=3D"0" style=3D"border: 0px; margin: 0px; padding: 0px;"/>
+     </a>
+   </td>
+   <td>
+     <a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=
+=3D9808&amp;L=3D7741&amp;C=3D7b90c08dc1dccc3d0cde0a3a4e9911be">
+<img src=3D"http://www.drhinternet.net/images/wodhtml2010/icon_share_thi=
+s_wod_via_post.gif" alt=3D"Po.st share feature" width=3D"26" height=3D"2=
+0" border=3D"0" style=3D"border: 0px; margin: 0px; padding: 0px;"/>
+     </a>
+   </td>
+   <td>
+     <a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=
+=3D9808&amp;L=3D4435&amp;C=3D7b90c08dc1dccc3d0cde0a3a4e9911be">
+     <img src=3D"http://www.drhinternet.net/images/wodhtml2010/icon_shar=
+e_this_wod_via_email.gif" alt=3D"E-mail this Word of the Day to a friend=
+" width=3D"26" height=3D"20" border=3D"0" style=3D"border: 0px; margin: =
+0px; padding: 0px;"/>
+     </a>
+  </td>
+ </tr>
+</table>
+
+       </td>
+      </tr>
+     </table>
+     <!-- SOCIAL MEDIA TABLE ENDS -->
+
+   <!-- DATE/WORD/SOCIAL TABLE ENDS -->
+   </td></tr></table>
+
+<img src=3D"http://www.drhinternet.net/images/wodhtml2010/wod2015_big_le=
+ader_dots_783px_top.gif" width=3D"783" height=3D"15" alt=3D"dots" border=
+=3D"0" style=3D"clear:right; border: none;" />
+
+     <div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+
+   <!-- DEFINITION/AMPERSAND/EXAMPLES/ADS TABLE BEGINS -->
+   <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+"><tr><td width=3D"500">
+
+<div style=3D"font: normal 17px Arial, Helvetica, sans-serif; color:#223=
+645;">
+Definition
+</div>
+
+<div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+
+<div style=3D"font: italic 13px Arial, Helvetica, sans-serif; color:#5F6=
+36A; text-align: left;">
+<i>noun</i>
+</div>
+
+<div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+
+<div style=3D"font: normal 14px Arial, Helvetica, sans-serif; color: #00=
+0000; margin: 0px; padding: 0px; text-align: left;">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"400">
+<tr>
+<td width=3D'25' valign=3D'top'><div style=3D"font: normal 13px Arial, H=
+elvetica, sans-serif; color: #7E7E7E; margin: 0px; padding: 0px; text-al=
+ign: left;"><b>:</b></div></td>
+<td width=3D'375' valign=3D'top'><div style=3D"font: normal 13px Arial, =
+Helvetica, sans-serif; color: #000000; margin: 0px; padding: 0px; text-a=
+lign: left;"><div>contraction of a word by omission of one or more simil=
+ar sounds or syllables</div></div></td>
+</tr>
+</table>
+
+
+</div>
+
+<div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+
+<!-- Ampersand section BEGINS -->
+<img src=3D"http://www.drhinternet.net/images/wodhtml2010/wod2015_ampers=
+and_dot_section_top.gif" width=3D"385" height=3D"13" alt=3D"dots" border=
+=3D"0" style=3D"border: none;" /><br />
+
+<table width=3D"438" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+  <tr>
+    <td><img src=3D"http://www.drhinternet.net/images/wodhtml2010/wod201=
+5_ampersand_graphic.gif" width=3D"86" height=3D"68" alt=3D"ampersand" bo=
+rder=3D"0" style=3D"border: none; float: left;"/> </td>
+    <td style=3D"font: normal 14px Verdana, Arial, Helvetica, sans-serif=
+; color: #223645; line-height: 17px;">Sept- means &quot;seven&quot;; oct=
+o- &quot;eight.&quot; September is the 9th month; October is the 10th. H=
+uh? <a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=3D=
+9808&amp;L=3D12686">How the months got their names.</a></td>
+  </tr>
+</table>
+
+<img src=3D"http://www.drhinternet.net/images/wodhtml2010/wod2015_ampers=
+and_dot_section_btm.gif" width=3D"385" height=3D"13" alt=3D"dots" border=
+=3D"0" style=3D"border:none;" />
+<!-- Ampersand section ENDS -->
+
+<div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+
+<div style=3D"font: normal 17px Verdana, Geneva, sans-serif; color:#2236=
+45">Examples</div>
+
+<div style=3D"font-size: 11px; line-height: 11px;">&nbsp;</div>
+
+<div style=3D"font: normal 14px Arial, Helvetica, sans-serif; color: #22=
+3645; line-height: 17px;">
+<div>
+	The speech therapist assured the child&#39;s parents that &quot;the ten=
+dency towards <em>haplology</em> will likely correct itself with age.&qu=
+ot;</div>
+<div>
+	&nbsp;</div>
+<div>
+	&quot;<em>Haplology</em> is responsible for a variety of forms found in=
+ rapid speech in English: not just probly, but also libry (library), nes=
+ry (necessary), interpretive (interpretative), and others.&quot; &mdash;=
+ Gretchen McCulloch, <em>Slate.com</em>, 4 Apr. 2014</div>
+
+</div>
+
+<div style=3D"font-size: 13px; line-height: 25px;">&nbsp;</div>
+
+<img src=3D"http://www.drhinternet.net/images/wodhtml2010/wod2015_ampers=
+and_dot_section.gif" width=3D"385" height=3D"13" alt=3D"dots" border=3D"=
+0" style=3D"border: none;" />
+
+<div style=3D"font-size: 8px; line-height: 8px;">&nbsp;</div>
+
+
+<div style=3D"font: normal 12px Arial, Helvetica, sans-serif; color: #43=
+4343; line-height: 18px; margin: 0px; padding: 0px; font-style: italic;"=
+>
+Sponsored Link
+</div>
+
+<div style=3D"font-size: 7px; line-height: 7px;">&nbsp;</div>
+
+<a target=3D"_blank" href=3D"http://www.drhinternet.net/mw/link.php?M=3D=
+2103613&amp;N=3D9808&amp;L=3D13567&amp;C=3D7b90c08dc1dccc3d0cde0a3a4e991=
+1be">
+<img border=3D"0" width=3D"385" height=3D"108" src=3D"http://www.drhinte=
+rnet.net/mw/ad__mwimpl_com.php?c=3D1028&amp;n=3D1&amp;e=3D6e1aff0cd42836=
+b3e34d8f2334854040&amp;r=3D2015-10-03" />
+</a>
+
+
+      <div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>=20=
+
+
+<img src=3D"http://www.drhinternet.net/images/wodhtml2010/wod2015_ampers=
+and_dot_section.gif" width=3D"385" height=3D"13" alt=3D"dots" border=3D"=
+0" style=3D"border: none;" />=20
+ =20
+     <div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+
+   <!-- DEFINITION/AMPERSAND/EXAMPLES/ADS TABLE SPLIT -->
+   </td>
+   <td width=3D"10" style=3D"font: normal 20px Arial, Helvetica, sans-se=
+rif; line-height: 20px">&nbsp;</td>
+   <td width=3D"300" valign=3D"top">
+
+     <!-- AD SPACE NESTED TABLE 3 BEGINS -->
+     <table width=3D"300" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0">
+      <tr>
+       <td>
+
+=20
+<!-- Begin 300x250 -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ><tr><td colspan=
+=3D"2"><a style=3D"display: block; width: 300px; height: 250px;" href=3D=
+"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=3D9808&amp;L=3D=
+12062&amp;C=3D7b90c08dc1dccc3d0cde0a3a4e9911be" rel=3D"nofollow"><img sr=
+c=3D"http://li.mw.drhinternet.net/imp?s=3D10131&amp;sz=3D300x250&amp;li=3D=
+6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" alt=3D"Word of =
+the Day 300x250" border=3D"0" width=3D"300" height=3D"250"/></a></td></t=
+r><tr style=3D"display:block; height:1px; line-height:1px;"><td><img src=
+=3D"http://li.mw.drhinternet.net/imp?s=3D10133&amp;sz=3D1x1&amp;li=3D6&a=
+mp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" height=3D"1" width=
+=3D"10" alt=3D""/></td><td><img src=3D"http://li.mw.drhinternet.net/imp?=
+s=3D10134&amp;sz=3D1x1&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f23348540=
+40&amp;p=3D9808" height=3D"1" width=3D"10" alt=3D""/></td></tr><tr><td a=
+lign=3D"left"><a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103=
+613&amp;N=3D9808&amp;L=3D12063&amp;C=3D7b90c08dc1dccc3d0cde0a3a4e9911be"=
+ rel=3D"nofollow"><img src=3D"http://li.mw.drhinternet.net/imp?s=3D3758&=
+amp;sz=3D116x15&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;=
+p=3D9808" border=3D"0" alt=3D""/></a></td><td align=3D"right"><a href=3D=
+"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=3D9808&amp;L=3D=
+12064&amp;C=3D7b90c08dc1dccc3d0cde0a3a4e9911be" rel=3D"nofollow"><img sr=
+c=3D"http://li.mw.drhinternet.net/imp?s=3D96400&amp;sz=3D69x15&amp;li=3D=
+6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" border=3D"0" al=
+t=3D""/></a></td></tr></table>
+<!-- End 300x250 -->
+
+<div style=3D"font-size: 12px; line-height: 12px;">&nbsp;</div>
+
+<!-- Begin 300x250 2 -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ><tr><td colspan=
+=3D"2"><a style=3D"display: block; width: 300px; height: 250px;" href=3D=
+"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=3D9808&amp;L=3D=
+12065&amp;C=3D7b90c08dc1dccc3d0cde0a3a4e9911be" rel=3D"nofollow"><img sr=
+c=3D"http://li.mw.drhinternet.net/imp?s=3D10132&amp;sz=3D300x250&amp;li=3D=
+6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" alt=3D"Word of =
+the Day 300x250 II" border=3D"0" width=3D"300" height=3D"250"/></a></td>=
+</tr><tr style=3D"display:block; height:1px; line-height:1px;"><td><img =
+src=3D"http://li.mw.drhinternet.net/imp?s=3D10135&amp;sz=3D1x1&amp;li=3D=
+6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" height=3D"1" wi=
+dth=3D"10" alt=3D""/></td><td><img src=3D"http://li.mw.drhinternet.net/i=
+mp?s=3D10136&amp;sz=3D1x1&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f23348=
+54040&amp;p=3D9808" height=3D"1" width=3D"10" alt=3D""/></td></tr><tr><t=
+d align=3D"left"><a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2=
+103613&amp;N=3D9808&amp;L=3D12063&amp;C=3D7b90c08dc1dccc3d0cde0a3a4e9911=
+be" rel=3D"nofollow"><img src=3D"http://li.mw.drhinternet.net/imp?s=3D37=
+58&amp;sz=3D116x15&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&a=
+mp;p=3D9808" border=3D"0" alt=3D""/></a></td><td align=3D"right"><a href=
+=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=3D9808&amp;=
+L=3D12064&amp;C=3D7b90c08dc1dccc3d0cde0a3a4e9911be" rel=3D"nofollow"><im=
+g src=3D"http://li.mw.drhinternet.net/imp?s=3D96400&amp;sz=3D69x15&amp;l=
+i=3D6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" border=3D"0=
+" alt=3D""/></a></td></tr></table>
+<!-- End 300x250 2 -->
+
+
+       </td>
+      </tr>
+
+       <tr>
+       <td height=3D"15">&nbsp; </td>
+      </tr>
+
+     </table>
+     <!-- AD SPACE NESTED TABLE 3 ENDS -->
+
+   <!-- DEFINITION/AMPERSAND/EXAMPLES/ADS TABLE ENDS -->
+   </td></tr></table>
+
+     <div style=3D"font: normal 17px Verdana, Geneva, sans-serif; color:=
+#223645">Did You Know?</div>
+    =20
+     <div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+    =20
+<div style=3D"font: normal 14px Arial, Helvetica, sans-serif; color: #22=
+3645; line-height: 17px;">
+<div>
+	Try to say &quot;pierced-ear earrings&quot; three times fast. That exer=
+cise will demonstrate why haplology happens: sometimes it&#39;s just eas=
+ier to drop a syllable and leave yourself with something that&#39;s easi=
+er to say (such as &quot;pierced earrings&quot;). American philologist M=
+aurice Bloomfield recognized the tendency to drop one of a pair of simil=
+ar syllables over 120 years ago. He has been credited with joining the c=
+ombining form <em>hapl</em>- or <em>haplo</em>- (meaning &quot;single&qu=
+ot;) with -<em>logy</em> (meaning &quot;oral or written expression&quot;=
+) to create <em>haplology</em> as a name for the phenomenon. Haplology i=
+s quite common in English, and often the contracted forms it generates s=
+pread into the written language. In fact, haplology played a role in nam=
+ing the nation that is the cradle of English: <em>England</em> was conde=
+nsed via haplology from &quot;<em>Engla land</em>.&quot;</div>
+
+</div>
+
+     <div style=3D"font-size: 20px; line-height: 25px;">&nbsp;</div>
+    =20
+<img src=3D"http://www.drhinternet.net/images/wodhtml2010/wod2015_ampers=
+and_dot_section.gif" width=3D"385" height=3D"13" alt=3D"dots" border=3D"=
+0" style=3D"border: none;" />
+
+     <div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+
+     <div style=3D"font: normal 17px Verdana, Geneva, sans-serif; color:=
+#223645">Test Your Vocabulary</div>
+
+     <div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+
+<div style=3D"font: normal 14px Arial, Helvetica, sans-serif; color: #22=
+3645; line-height: 16px;">
+<div>
+	Fill in the blanks to create a term for the loss of one or more sounds =
+at the beginning of a word, as in <em>round</em> for <em>around</em> and=
+ <em>coon </em>for <em>raccoon</em>:</div>
+<div>
+	ap _ _ er _ s _ s. <a href=3D"http://www.drhinternet.net/mw/link.php?M=3D=
+2103613&amp;N=3D9808&amp;L=3D13887">The answer is &hellip;</a></div>
+
+</div>
+
+     <div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+
+<img src=3D"http://www.drhinternet.net/images/wodhtml2010/wod2015_ampers=
+and_dot_section.gif" width=3D"385" height=3D"13" alt=3D"dots" border=3D"=
+0" style=3D"border: none;" />
+
+     <div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+
+     <div style=3D"font: normal 17px Verdana, Geneva, sans-serif; color:=
+#223645">Want More?</div>
+
+     <div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+=20
+<!-- NESTED TABLE 5 Begins -->
+<table width=3D"380" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+  <tr>=20
+=20
+<td width=3D"35"><img src=3D"http://www.drhinternet.net/images/wodhtml20=
+10/wod2015_fb_icon_wantmoresection.gif" width=3D"34" height=3D"34" alt=3D=
+"Facebook" border=3D"0" style=3D"border: none;"/></td>
+
+<td width=3D"13">&nbsp;</td>
+
+<td width=3D"136">
+<a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=3D98=
+08&amp;L=3D12142" style=3D"font: normal 13px Arial, Helvetica, sans-seri=
+f; color: #0e4b8e; line-height: 17px; text-decoration: none;">Merriam-We=
+bster<br />
+ on Facebook</a> <span style=3D"font: bold 14px Arial, Helvetica, sans-s=
+erif; color:#C00;">&raquo;</span>
+ </td>
+
+<td width=3D"12">&nbsp;</td>
+
+<td width=3D"35"><img src=3D"http://www.drhinternet.net/images/wodhtml20=
+10/wod2015_twitter_icon_wantmoresection.gif" width=3D"34" height=3D"34" =
+alt=3D"Twitter" border=3D"0" style=3D"border: none;" /></td>
+
+<td width=3D"13">&nbsp;</td>
+
+<td width=3D"136">
+<a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=3D98=
+08&amp;L=3D12143" style=3D"font: normal 13px Arial, Helvetica, sans-seri=
+f; color: #0e4b8e; line-height: 17px; text-decoration: none;">Merriam-We=
+bster<br />=20
+ on Twitter</a> <span style=3D"font: bold 14px Arial, Helvetica, sans-se=
+rif; color:#C00;">&raquo;</span>
+ </td>
+=20
+  </tr>
+</table>
+<!-- NESTED TABLE 5 Ends -->
+
+     <div style=3D"font-size: 30px; line-height: 30px;">&nbsp;</div>
+
+<!-- PROMO BEGIN -->=20
+<div style=3D"font: normal 17px Verdana, Geneva, sans-serif; color:#2236=
+45">New for Crossword Puzzle Lovers</div><div style=3D"font-size: 13px; =
+line-height: 13px;">&nbsp;</div><table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" width=3D"376"><tr><td width=3D"19">&nbsp;</td><td valign=
+=3D"top"><a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&a=
+mp;N=3D9808&amp;L=3D13552" style=3D"border: none; text-decoration: none;=
+"><img src=3D"http://www.drhinternet.net/mwmanager/promo-images/664c17de=
+bbfb3c5fd4802b440749aeb5.jpg" alt=3D"" border=3D"0" width=3D"66" height=3D=
+"100" style=3D"border: none; margin-top: 1px; width: 66px; height: 100px=
+"></img></a></td><td width=3D"15">&nbsp;</td><td valign=3D"top" width=3D=
+"269"><div style=3D"font: bold 13px Arial, Helvetica, sans-serif; line-h=
+eight: 16px; color: #D5000A; margin: 0px; padding: 0px; text-align: left=
+;">Sharpen your word game!</div><div style=3D"font-size: 10px; line-heig=
+ht: 10px; margin: 0px; padding: 0px;">&nbsp;</div><div style=3D"font: no=
+rmal 12px Arial, Helvetica, sans-serif; line-height: 15px; margin: 0px; =
+padding: 0px; text-align: left;">This new edition features 340,000 clues=
+ and answer words and 20,000 new words, including: freegan, goji, pho, a=
+nd tweep!</div><div style=3D"font-size: 10px; line-height: 10px; margin:=
+ 0px; padding: 0px;">&nbsp;</div><div style=3D"font: bold 13px Arial, He=
+lvetica, sans-serif; line-height:13px; margin: 0px; padding: 0px; text-a=
+lign: left;"><a href=3D"http://www.drhinternet.net/mw/link.php?M=3D21036=
+13&amp;N=3D9808&amp;L=3D13552" style=3D"text-decoration: underline; colo=
+r: #3675D6;">Learn More</a><span style=3D"font: bold 14px Arial, Helveti=
+ca, sans-serif; color:#C00;"> &raquo;</span></div><div style=3D"font-siz=
+e: 10px; line-height: 10px; margin: 0px; padding: 0px;">&nbsp;</div><div=
+ style=3D"font: 10px normal Arial, Helvetica, sans-serif; color: gray; l=
+ine-height: 10px;"></div></td><td width=3D"2">&nbsp;</td></tr></table>
+<!-- PROMO END -->
+
+     <div style=3D"font-size: 30px; line-height: 30px;">&nbsp;</div>
+
+    <div>
+    <a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=3D=
+9808&amp;L=3D12145" style=3D"font: normal 13px Arial, Helvetica, sans-se=
+rif; color: #0e4b8e; text-decoration:none;">More Words of the Day</a> &n=
+bsp;=20
+    <span style=3D"font: normal 15px Arial, Helvetica, sans-serif; color=
+:#999">&bull;</span> &nbsp;=20
+     <a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=
+=3D9808&amp;L=3D13899" style=3D"font: normal 13px Arial, Helvetica, sans=
+-serif; color: #0e4b8e; text-decoration:none;">Play the Word of the Day =
+Podcast</a> &nbsp;
+    <span style=3D"font: normal 15px Arial, Helvetica, sans-serif; color=
+:#999">&bull;</span> &nbsp;=20
+      <a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;=
+N=3D9808&amp;L=3D12146" style=3D"font: normal 13px Arial, Helvetica, san=
+s-serif; color: #0e4b8e; text-decoration:none;">Merriam-Webster Word Gam=
+es</a>=20
+    </div>
+
+     <div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+    =20
+<img src=3D"http://www.drhinternet.net/images/wodhtml2010/wod2015_big_le=
+ader_dots_783px.gif" width=3D"783" height=3D"15" alt=3D"dots" border=3D"=
+0" style=3D"border: none;" />
+
+     <div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+
+<!--SPONSOR LINKS BEGIN -->
+<div style=3D"font: bold 11px Arial, Helvetica, sans-serif; color: #7E7E=
+7E;">Sponsored Link</div>
+
+<div style=3D"font-size: 5px">&nbsp;</div>
+
+<a target=3D"_blank" href=3D"http://www.drhinternet.net/mw/link.php?M=3D=
+2103613&amp;N=3D9808&amp;L=3D13568&amp;C=3D7b90c08dc1dccc3d0cde0a3a4e991=
+1be">
+<img border=3D"0" width=3D"385" height=3D"108" src=3D"http://www.drhinte=
+rnet.net/mw/ad__mwimpl_com.php?c=3D1028&amp;n=3D2&amp;e=3D6e1aff0cd42836=
+b3e34d8f2334854040&amp;r=3D2015-10-03" />
+</a>
+
+<!--SPONSOR LINKS END -->
+
+     <div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+
+<img src=3D"http://www.drhinternet.net/images/wodhtml2010/wod2015_big_le=
+ader_dots_783px.gif" width=3D"783" height=3D"15" alt=3D"dots" border=3D"=
+0" style=3D"border: none;" />
+
+     <div style=3D"font-size: 13px; line-height: 13px;">&nbsp;</div>
+
+<!-- Nested Table 7 FOOTER BEGINS -->
+<table width=3D"750" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+  <tr>
+    <td valign=3D"top">
+<!-- ns:b -->
+
+<div style=3D"width: 300px; font: bold 12px Arial, Helvetica, sans-serif=
+; color: #000000; margin: 0px; padding: 0px; line-height: 17px;">
+You are receiving this email because you opted in to receive the Merriam=
+-Webster Word of the Day.
+</div>
+
+<div style=3D"font-size: 10px; line-height: 10px;">&nbsp;</div>
+
+<ul style=3D"font: normal 12px Arial, Helvetica, sans-serif; color: #000=
+000; list-style: inside; line-height: 24px; margin: 0px; padding: 0px;">=
+
+  <li>
+  <a href=3D"http://www.drhinternet.net/mw/u_confirm/2103613/7b90c08dc1d=
+ccc3d/N9808L6" style=3D"text-decoration: underline; color: #3675D6; font=
+: normal 13px Arial, Helvetica, sans-serif;">Unsubscribe jesse@mbuki-mvu=
+ki.org
+  </a>=20
+  </li>
+  <li>
+  <a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=3D=
+9808&amp;L=3D4" style=3D"text-decoration: underline; color: #3675D6; fon=
+t: normal 13px Arial, Helvetica, sans-serif;">Manage your subscription s=
+ettings
+  </a>=20
+  </li>
+</ul>
+<!-- ns:e -->
+    </td>
+
+    <td>
+<div style=3D"font: normal 11px Arial, Helvetica, sans-serif; color: #aa=
+aaaa; margin: 0px; padding: 0px; line-height: 15px;">=20
+Merriam-Webster, Inc.
+</div>
+<div style=3D"font: normal 11px Arial, Helvetica, sans-serif; color: #aa=
+aaaa; margin: 0px; padding: 0px; line-height: 15px;">=20
+47 Federal Street
+</div>
+<div style=3D"font: normal 11px Arial, Helvetica, sans-serif; color: #aa=
+aaaa; margin: 0px; padding: 0px; line-height: 15px;">=20
+P.O. Box 281
+</div>
+<div style=3D"font: normal 11px Arial, Helvetica, sans-serif; color: #aa=
+aaaa; margin: 0px; padding: 0px; line-height: 15px;">=20
+Springfield, MA 01102
+</div>=20
+<div style=3D"font: normal 11px Arial, Helvetica, sans-serif; margin: 0p=
+x; padding: 0px; line-height: 15px;">=20
+<a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=3D98=
+08&amp;L=3D7" style=3D"text-decoration: underline; color: #d92027;">www.=
+merriam-webster.com</a>
+</div>=20
+
+<div style=3D"font-size: 14px; line-height: 14px;">&nbsp;</div>
+
+<div style=3D"font: normal 11px Arial, Helvetica, sans-serif; margin: 0p=
+x; padding: 0px;">
+<a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=3D98=
+08&amp;L=3D6" style=3D"text-decoration: underline; color: #3675D6;">Priv=
+acy Policy</a>
+
+&nbsp; &bull; &nbsp;
+
+ <a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=3D9=
+808&amp;L=3D390" style=3D"text-decoration: underline; color: #3675D6;">&=
+copy; 2015 by Merriam-Webster, Incorporated
+</a>
+</div>
+
+    </td>
+  </tr>
+</table>
+<!-- Nested Table 7 FOOTER ENDS -->
+
+<div style=3D"font-size: 35px; line-height: 35px;">&nbsp;</div>
+
+<!-- ns:b -->
+<div style=3D"width: 600px; font: bold 11px Arial, Helvetica, sans-serif=
+; color: #223645; line-height: 16px; text-align: center;">
+If this Word of the Day doesn't display properly,
+    <a href=3D"http://www.drhinternet.net/mw/display.php?M=3D2103613&C=3D=
+7b90c08dc1dccc3d0cde0a3a4e9911be&L=3D6&N=3D7277&S=3D9808" style=3D"font:=
+ bold 11px Arial, Helvetica, sans-serif; color: #3675D6;">open in a web =
+browser</a> ...
+
+</div>
+
+<div style=3D"font-size: 35px; line-height: 35px;">&nbsp;</div>
+<!-- ns:e -->
+
+       </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+ <!-- NESTED TABLE 1 ENDS -->
+
+   </td>
+  </tr>
+<!-- CONTENT PARENT AREA ENDS-->
+
+</table>
+<!-- TABLE1 Parent table ENDS -->
+
+
+<!-- Begin SafeRTB -->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"40" hei=
+ght=3D"6"><tbody><tr><td><img src=3D"http://li.mw.drhinternet.net/imp?s=3D=
+17946&amp;z=3D2x1&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&am=
+p;p=3D9808" width=3D"2" height=3D"6" border=3D"0" alt=3D""/></td><td><im=
+g src=3D"http://li.mw.drhinternet.net/imp?s=3D17947&amp;sz=3D2x1&amp;li=3D=
+6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" width=3D"2" hei=
+ght=3D"6" border=3D"0" alt=3D""/></td><td><img src=3D"http://li.mw.drhin=
+ternet.net/imp?s=3D17948&amp;sz=3D2x1&amp;li=3D6&amp;m=3D6e1aff0cd42836b=
+3e34d8f2334854040&amp;p=3D9808" width=3D"2" height=3D"6" border=3D"0" al=
+t=3D""/></td><td><img src=3D"http://li.mw.drhinternet.net/imp?s=3D17949&=
+amp;sz=3D2x1&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D=
+9808" width=3D"2" height=3D"6" border=3D"0" alt=3D""/></td><td><img src=3D=
+"http://li.mw.drhinternet.net/imp?s=3D17950&amp;sz=3D2x1&amp;li=3D6&amp;=
+m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" width=3D"2" height=3D=
+"6" border=3D"0" alt=3D""/></td><td><img src=3D"http://li.mw.drhinternet=
+.net/imp?s=3D17951&amp;sz=3D2x1&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8=
+f2334854040&amp;p=3D9808" width=3D"2" height=3D"6" border=3D"0" alt=3D""=
+/></td><td><img src=3D"http://li.mw.drhinternet.net/imp?s=3D17952&amp;sz=
+=3D2x1&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808"=
+ width=3D"2" height=3D"6" border=3D"0" alt=3D""/></td><td><img src=3D"ht=
+tp://li.mw.drhinternet.net/imp?s=3D17953&amp;sz=3D2x1&amp;li=3D6&amp;m=3D=
+6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" width=3D"2" height=3D"6" =
+border=3D"0" alt=3D""/></td><td><img src=3D"http://li.mw.drhinternet.net=
+/imp?s=3D17954&amp;sz=3D2x1&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f233=
+4854040&amp;p=3D9808" width=3D"2" height=3D"6" border=3D"0" alt=3D""/></=
+td><td><img src=3D"http://li.mw.drhinternet.net/imp?s=3D17955&amp;sz=3D2=
+x1&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" wid=
+th=3D"2" height=3D"6" border=3D"0" alt=3D""/></td><td><img src=3D"http:/=
+/li.mw.drhinternet.net/imp?s=3D17956&amp;sz=3D2x1&amp;li=3D6&amp;m=3D6e1=
+aff0cd42836b3e34d8f2334854040&amp;p=3D9808" width=3D"2" height=3D"6" bor=
+der=3D"0" alt=3D""/></td><td><img src=3D"http://li.mw.drhinternet.net/im=
+p?s=3D17957&amp;sz=3D2x1&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f233485=
+4040&amp;p=3D9808" width=3D"2" height=3D"6" border=3D"0" alt=3D""/></td>=
+<td><img src=3D"http://li.mw.drhinternet.net/imp?s=3D123149812&amp;sz=3D=
+2x1&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" wi=
+dth=3D"2" height=3D"6" border=3D"0" alt=3D""/></td><td><img src=3D"http:=
+//li.mw.drhinternet.net/imp?s=3D123149813&amp;sz=3D2x1&amp;li=3D6&amp;m=3D=
+6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" width=3D"2" height=3D"6" =
+border=3D"0" alt=3D""/></td><td><img src=3D"http://li.mw.drhinternet.net=
+/imp?s=3D123149814&amp;sz=3D2x1&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8=
+f2334854040&amp;p=3D9808" width=3D"2" height=3D"6" border=3D"0" alt=3D""=
+/></td><td><img src=3D"http://li.mw.drhinternet.net/imp?s=3D123149815&am=
+p;sz=3D2x1&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9=
+808" width=3D"2" height=3D"6" border=3D"0" alt=3D""/></td><td><img src=3D=
+"http://li.mw.drhinternet.net/imp?s=3D123149816&amp;sz=3D2x1&amp;li=3D6&=
+amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" width=3D"2" heigh=
+t=3D"6" border=3D"0" alt=3D""/></td><td><img src=3D"http://li.mw.drhinte=
+rnet.net/imp?s=3D123149817&amp;sz=3D2x1&amp;li=3D6&amp;m=3D6e1aff0cd4283=
+6b3e34d8f2334854040&amp;p=3D9808" width=3D"2" height=3D"6" border=3D"0" =
+alt=3D""/></td><td><img src=3D"http://li.mw.drhinternet.net/imp?s=3D1231=
+49818&amp;sz=3D2x1&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&a=
+mp;p=3D9808" width=3D"2" height=3D"6" border=3D"0" alt=3D""/></td><td><i=
+mg src=3D"http://li.mw.drhinternet.net/imp?s=3D123149819&amp;sz=3D2x1&am=
+p;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" width=3D=
+"2" height=3D"6" border=3D"0" alt=3D""/></td></tr></tbody></table>
+<!-- End SafeRTB -->
+
+<!-- Takeover footer runs to end -->
+</td>  <td align=3D"left" valign=3D"top" width=3D"48%">   <table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" ><tr><td colspan=3D"2"><a href=3D=
+"http://www.drhinternet.net/mw/link.php?M=3D2103613&amp;N=3D9808&amp;L=3D=
+12066&amp;C=3D7b90c08dc1dccc3d0cde0a3a4e9911be" rel=3D"nofollow"><img sr=
+c=3D"http://li.mw.drhinternet.net/imp?s=3D18046&amp;layout=3Dright&amp;l=
+i=3D6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D9808" border=3D"0=
+" alt=3D""/></a></td></tr><tr style=3D"display:block; height:1px; line-h=
+eight:1px;"><td><img src=3D"http://li.mw.drhinternet.net/imp?s=3D18047&a=
+mp;sz=3D1x1&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;p=3D=
+9808" height=3D"1" width=3D"10" alt=3D""/></td><td><img src=3D"http://li=
+.mw.drhinternet.net/imp?s=3D18048&amp;sz=3D1x1&amp;li=3D6&amp;m=3D6e1aff=
+0cd42836b3e34d8f2334854040&amp;p=3D9808" height=3D"1" width=3D"10" alt=3D=
+""/></td></tr><tr><td align=3D"left"><a href=3D"http://www.drhinternet.n=
+et/mw/link.php?M=3D2103613&amp;N=3D9808&amp;L=3D12067&amp;C=3D7b90c08dc1=
+dccc3d0cde0a3a4e9911be" rel=3D"nofollow"><img src=3D"http://li.mw.drhint=
+ernet.net/imp?s=3D18050&amp;sz=3D116x15&amp;li=3D6&amp;m=3D6e1aff0cd4283=
+6b3e34d8f2334854040&amp;p=3D9808" border=3D"0" alt=3D""/></a></td><td al=
+ign=3D"right"><a href=3D"http://www.drhinternet.net/mw/link.php?M=3D2103=
+613&amp;N=3D9808&amp;L=3D12068&amp;C=3D7b90c08dc1dccc3d0cde0a3a4e9911be"=
+ rel=3D"nofollow"><img src=3D"http://li.mw.drhinternet.net/imp?s=3D18049=
+&amp;sz=3D19x15&amp;li=3D6&amp;m=3D6e1aff0cd42836b3e34d8f2334854040&amp;=
+p=3D9808" border=3D"0" alt=3D""/></a></td></tr></table>  </td> </tr> </t=
+body></table></div><img src=3D"http://www.drhinternet.net/mw/open.php?M=3D=
+2103613&amp;N=3D9808&amp;L=3D6"></body></html>
+
+
+
+</div>
+<img src=3D"http://www.drhinternet.net/mw/open.php?M=3D2103613&amp;N=3D9=
+808&amp;L=3D6"></body>
+</html>
+
+

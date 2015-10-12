@@ -22,6 +22,32 @@ function extractListId(rawMessage) {
   }
 }
 
+function unfoldHeaders(foldedHeaders) {
+  var unfoldRegex = /\r\n[ \t]+/g;
+  return foldedHeaders.replace(unfoldRegex, " ");
+}
+
+function extractHeaders(rawMessage) {
+  var i;
+  var headers = {};
+  var parseHeaderRegex = /^[ \n\t]*([^:]+):[ \t]*(.*)$/
+  var extractHeadersRegex = /\r\n\r\n/;
+  var foldedHeaders = rawMessage.split(extractHeadersRegex)[0];
+  var unfoldedHeaders = unfoldHeaders(foldedHeaders);
+  var headerLines = unfoldedHeaders.split(/\r\n/);
+  for (i = 0; i < headerLines.length; i++) {
+    var headerMatch = parseHeaderRegex.exec(headerLines[i]);
+    if (headerMatch[1] !== "") {
+      if (headers.hasOwnProperty(headerMatch[1])) {
+        headers[headerMatch[1]].push(headerMatch[2]);
+      } else {
+        headers[headerMatch[1]] = [headerMatch[2]];
+      }
+    }
+  }
+  return headers;
+}
+
 function allowPublicViewing(ID) {
   file = DriveApp.getFileById(ID);
   file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
