@@ -1,5 +1,5 @@
 function extractEmailAddress(emailAddress) {
-  emailAddressRegex = /^(?:.*<)?([^<>]+)(?:>)?$/;
+  var emailAddressRegex = /^(?:.*<)?([^<>]+)(?:>)?$/;
   return emailAddressRegex.exec(emailAddress)[1].toLowerCase();
 }
 
