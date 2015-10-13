@@ -30,7 +30,7 @@ function unfoldHeaders(foldedHeaders) {
 function extractHeaders(rawMessage) {
   var i;
   var headers = {};
-  var parseHeaderRegex = /^[ \n\t]*([^:]+):[ \t]*(.*)$/
+  var parseHeaderRegex = /^[ \n\t]*([^:]+):[ \t]*(.*)$/;
   var extractHeadersRegex = /\r\n\r\n/;
   var foldedHeaders = rawMessage.split(extractHeadersRegex)[0];
   var unfoldedHeaders = unfoldHeaders(foldedHeaders);
