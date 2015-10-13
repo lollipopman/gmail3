@@ -52,9 +52,9 @@ function getMsgConsumers() {
       sheet.appendRow(["MailingList", "Count"]);
     },
     msgFunction: function (msg) {
-      var listIdObj = extractListId(msg.getRawContent());
-      if (listIdObj.msgFromList) {
-        var listId = listIdObj.listId;
+      var headers = extractHeaders(msg.getRawContent());
+      if (headers.hasOwnProperty("list-id") && headers["list-id"].length === 1) {
+        var listId = extractEmailAddress(headers["list-id"]);
         var rows = objDB.getRows(this.db, this.name, ['MailingList','Count'], {MailingList:listId});
         if ( rows.length === 0) {
           objDB.insertRow(this.db, this.name, {MailingList:listId, Count:1} );
@@ -94,8 +94,8 @@ function getMsgConsumers() {
       sheet.appendRow(["From", "Count"]);
     },
     msgFunction: function (msg) {
-      var listIdObj = extractListId(msg.getRawContent());
-      if (! listIdObj.msgFromList) {
+      var headers = extractHeaders(msg.getRawContent());
+      if (! headers.hasOwnProperty("list-id")) {
         var rawFrom = msg.getFrom();
         var from = extractEmailAddress(rawFrom);
         var rows = objDB.getRows(this.db, this.name, ['From','Count'], {From:from});

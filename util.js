@@ -3,25 +3,6 @@ function extractEmailAddress(emailAddress) {
   return emailAddressRegex.exec(emailAddress)[1].toLowerCase();
 }
 
-function extractListId(rawMessage) {
-  listIDRegex = /\r\nlist-id:[ \t]*([^\n\r]+)\r\n/i;
-  unfoldRegex = /\r\n[ \t]+/g;
-  rawMessageUnfolded = rawMessage.replace(unfoldRegex, " ");
-  matches = listIDRegex.exec(rawMessageUnfolded);
-
-  if (matches !== null) {
-    return {
-      msgFromList: true,
-      listId: extractEmailAddress(matches[1])
-    };
-  } else {
-    return {
-      msgFromList: false,
-      listId: null
-    };
-  }
-}
-
 function unfoldHeaders(foldedHeaders) {
   var unfoldRegex = /\r\n[ \t]+/g;
   return foldedHeaders.replace(unfoldRegex, " ");
