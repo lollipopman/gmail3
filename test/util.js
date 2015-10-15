@@ -25,3 +25,12 @@ describe('extractHeaders', function() {
     assert.deepEqual(expectedHeaders, extractHeaders(rawMessage));
   });
 });
+
+describe('emailSentByRobot', function() {
+  var rawMessage = fs.readFileSync('test/fixtures/rawMessage.txt').toString();
+  var rawMessageRobot = fs.readFileSync('test/fixtures/rawMessageRobot.txt').toString();
+  it('detects whether the message is from a robot', function() {
+    assert.equal(false, emailSentByRobot(rawMessage));
+    assert.equal(true, emailSentByRobot(rawMessageRobot));
+  });
+});

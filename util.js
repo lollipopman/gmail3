@@ -34,3 +34,12 @@ function allowPublicViewing(ID) {
   file = DriveApp.getFileById(ID);
   file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
 }
+
+function emailSentByRobot(rawMessage) {
+  var headers = extractHeaders(rawMessage);
+  // This is admittedly a swiss cheese test for robots, but I am at loss to
+  // find a better method.
+  var robotRegex = /\s\(Postfix/;
+  var firstHop = headers.received[headers.received.length - 1];
+  return robotRegex.test(firstHop);
+}

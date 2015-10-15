@@ -126,9 +126,142 @@ function getMsgConsumers() {
     },
   };
 
+  var topRobotSenders = {
+    name: "Top Robot Senders",
+    db: null,
+    ssID: null,
+    chart: null,
+    initSpreadSheet: function () {
+      var ss = SpreadsheetApp.openById(this.ssID);
+      var sheet = ss.insertSheet(this.name);
+      sheet.appendRow(["From", "Count"]);
+    },
+    msgFunction: function (msg) {
+      if (emailSentByRobot(msg.getRawContent())) {
+        var rawFrom = msg.getFrom();
+        var from = extractEmailAddress(rawFrom);
+        var rows = objDB.getRows(this.db, this.name, ['From','Count'], {From:from});
+        if ( rows.length === 0) {
+          objDB.insertRow(this.db, this.name, {From:from, Count:1} );
+        } else {
+          var newCount = rows[0].Count + 1;
+          objDB.updateRow(this.db, this.name, {From:from, Count:newCount}, {From:from} );
+        }
+      }
+    },
+    graphFunction: function () {
+      var ss = SpreadsheetApp.openById(this.ssID);
+      var sheetID = ss.getSheetByName(this.name).getSheetId();
+      var encodedQuery = encodeURIComponent("select A,B order by B desc limit 10");
+      var dataSourceURL = 'https://docs.google.com/spreadsheet/tq?key=' + this.ssID;
+      dataSourceURL += '&tq=' + encodedQuery;
+      dataSourceURL += '&gid=' + sheetID;
+      dataSourceURL += '&headers=-1';
+      var chartBuilder = Charts.newBarChart()
+      .setTitle(this.name)
+      .setDimensions(1024, 768)
+      .setOption('vAxis', {title: "Sender"})
+      .setOption('hAxis', {title: "Message Count", format: "decimal"})
+      .setOption('chartArea', {left: '40%'})
+      .setDataSourceUrl(dataSourceURL);
+      this.chart = chartBuilder.build();
+    },
+  };
+
+  var topHumanSenders = {
+    name: "Top Human Senders",
+    db: null,
+    ssID: null,
+    chart: null,
+    initSpreadSheet: function () {
+      var ss = SpreadsheetApp.openById(this.ssID);
+      var sheet = ss.insertSheet(this.name);
+      sheet.appendRow(["From", "Count"]);
+    },
+    msgFunction: function (msg) {
+      if (! emailSentByRobot(msg.getRawContent())) {
+        var rawFrom = msg.getFrom();
+        var from = extractEmailAddress(rawFrom);
+        var rows = objDB.getRows(this.db, this.name, ['From','Count'], {From:from});
+        if ( rows.length === 0) {
+          objDB.insertRow(this.db, this.name, {From:from, Count:1} );
+        } else {
+          var newCount = rows[0].Count + 1;
+          objDB.updateRow(this.db, this.name, {From:from, Count:newCount}, {From:from} );
+        }
+      }
+    },
+    graphFunction: function () {
+      var ss = SpreadsheetApp.openById(this.ssID);
+      var sheetID = ss.getSheetByName(this.name).getSheetId();
+      var encodedQuery = encodeURIComponent("select A,B order by B desc limit 10");
+      var dataSourceURL = 'https://docs.google.com/spreadsheet/tq?key=' + this.ssID;
+      dataSourceURL += '&tq=' + encodedQuery;
+      dataSourceURL += '&gid=' + sheetID;
+      dataSourceURL += '&headers=-1';
+      var chartBuilder = Charts.newBarChart()
+      .setTitle(this.name)
+      .setDimensions(1024, 768)
+      .setOption('vAxis', {title: "Sender"})
+      .setOption('hAxis', {title: "Message Count", format: "decimal"})
+      .setOption('chartArea', {left: '40%'})
+      .setDataSourceUrl(dataSourceURL);
+      this.chart = chartBuilder.build();
+    },
+  };
+
+  var topApplicationErrors = {
+    name: "Top Application Errors",
+    db: null,
+    ssID: null,
+    chart: null,
+    initSpreadSheet: function () {
+      var ss = SpreadsheetApp.openById(this.ssID);
+      var sheet = ss.insertSheet(this.name);
+      sheet.appendRow(["Subject", "Count"]);
+    },
+    msgFunction: function (msg) {
+      var fullSubject = msg.getSubject();
+      // This is a crude attempt to group errors together, by only including
+      // the first three words of the error.
+      var errorRegex = /^\[Error [^\]]+\]\s\S+\s\S+\s\S+/;
+      var match = fullSubject.match(errorRegex);
+      if (match !== null) {
+        var subject = match[0];
+        var rows = objDB.getRows(this.db, this.name, ['Subject','Count'], {Subject:subject});
+        if ( rows.length === 0) {
+          objDB.insertRow(this.db, this.name, {Subject:subject, Count:1} );
+        } else {
+          var newCount = rows[0].Count + 1;
+          objDB.updateRow(this.db, this.name, {Subject:subject, Count:newCount}, {Subject:subject} );
+        }
+      }
+    },
+    graphFunction: function () {
+      var ss = SpreadsheetApp.openById(this.ssID);
+      var sheetID = ss.getSheetByName(this.name).getSheetId();
+      var encodedQuery = encodeURIComponent("select A,B order by B desc limit 10");
+      var dataSourceURL = 'https://docs.google.com/spreadsheet/tq?key=' + this.ssID;
+      dataSourceURL += '&tq=' + encodedQuery;
+      dataSourceURL += '&gid=' + sheetID;
+      dataSourceURL += '&headers=-1';
+      var chartBuilder = Charts.newBarChart()
+      .setTitle(this.name)
+      .setDimensions(1024, 768)
+      .setOption('vAxis', {title: "Application Error Partial Subject", textStyle: {fontSize: 10}})
+      .setOption('hAxis', {title: "Message Count", format: "decimal"})
+      .setOption('chartArea', {left: '50%'})
+      .setDataSourceUrl(dataSourceURL);
+      this.chart = chartBuilder.build();
+    },
+  };
+
   msgConsumers.push(topSenders);
   msgConsumers.push(topMailingLists);
   msgConsumers.push(topNonMailingListSenders);
+  msgConsumers.push(topRobotSenders);
+  msgConsumers.push(topHumanSenders);
+  msgConsumers.push(topApplicationErrors);
 
   return msgConsumers;
 }
