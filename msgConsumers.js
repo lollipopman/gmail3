@@ -1,4 +1,5 @@
-function getMsgConsumers() {
+function getMsgConsumers(scriptState) {
+  var db = objDB.open(scriptState.ssID);
   var msgConsumers = [];
 
   var topSenders = {
@@ -262,6 +263,11 @@ function getMsgConsumers() {
   msgConsumers.push(topRobotSenders);
   msgConsumers.push(topHumanSenders);
   msgConsumers.push(topApplicationErrors);
+
+  for(i = 0; i < msgConsumers.length; i += 1) {
+    msgConsumers[i].db = db;
+    msgConsumers[i].ssID = scriptState.ssID;
+  }
 
   return msgConsumers;
 }
