@@ -148,6 +148,9 @@ function deleteAtTriggers(scriptState) {
       ScriptApp.deleteTrigger(projectTriggers[i]);
     }
   }
+  scriptState.triggers = underscoreGS._reject(scriptState.triggers, function (trigger) {
+    return trigger.type === "at";
+  });
 }
 
 function setupTriggers(scriptState) {
