@@ -183,6 +183,9 @@ function setupTriggers(scriptState) {
       type: "at",
       uniqueId: trigger.getUniqueId(),
     });
+  } else {
+    Logger.log("Not scheduling any further triggers for today to avoid exceeding execution quota of 3 hours");
+    Logger.log("Running time total today " + (scriptState.dailyRunningTimeTotalSeconds / 60) + " minutes");
   }
 }
 
@@ -210,8 +213,8 @@ function main() {
     }
   }
 
-  setupTriggers(scriptState);
   scriptState.dailyRunningTimeTotalSeconds += moment().diff(scriptStartTime, 'seconds');
+  setupTriggers(scriptState);
   setScriptState(scriptState);
   lock.releaseLock();
 }
