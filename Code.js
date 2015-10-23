@@ -197,7 +197,6 @@ function main() {
   }
   var currentMonth = moment().startOf('month');
   var scriptStartTime = moment();
-
   var scriptState = getScriptState();
   var msgConsumers = getMsgConsumers(scriptState);
 
