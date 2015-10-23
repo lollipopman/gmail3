@@ -113,47 +113,19 @@ function getScriptState() {
   if ((! scriptState.hasOwnProperty("dailyRunningTimeTotalSeconds")) || scriptState.dailyRunningTimeTotalSeconds === null) {
     scriptState.dailyRunningTimeTotalSeconds = 0;
   }
+
+  if ((! scriptState.hasOwnProperty("currentDay")) || scriptState.currentDay === null) {
+    scriptState.currentDay = moment().startOf('day');
+  } else {
+    scriptState.currentDay = moment(scriptState.currentDay);
+  }
   
-  if (moment().isBefore(moment().startOf('day').add(140, 'minutes'))) {
+  // Reset the running total, if it is a new day
+  if (! moment().startOf('day').isSame(scriptState.currentDay)) {
     scriptState.dailyRunningTimeTotalSeconds = 0;
+    scriptState.currentDay = moment().startOf('day');
   }
 
-  return scriptState;
-}
-
-function incrementMonth(scriptState) {
-  Logger.log('Processing done for the current month, incrementing the month');
-  var ss = SpreadsheetApp.openById(scriptState.ssID);
-  if (ss.getSheetByName("Sheet1") !== null) {
-    ss.deleteSheet(ss.getSheetByName("Sheet1"));
-  }
-  scriptState.ssID = null;
-  scriptState.monthToProcess = scriptState.monthToProcess.endOf('month').add(1, 'days');
-  scriptState.dataPopulated = false;
-  scriptState.reportEmailed = false;
-  scriptState.threadIndex = 0;
-  return scriptState;
-}
-
-function deleteAtTriggers(scriptState) {
-  Logger.log("Deleting all existing at triggers");
-  var trigger;
-  function uniqueIdMatch(trigger) {
-      return trigger.uniqueId === projectTriggers[i].getUniqueId();
-  }
-  var projectTriggers = ScriptApp.getProjectTriggers();
-  for (var i = 0; i < projectTriggers.length; i++) {
-    trigger = underscoreGS._find(scriptState.triggers, uniqueIdMatch);
-    if (trigger === undefined || trigger.type === "at") {
-      ScriptApp.deleteTrigger(projectTriggers[i]);
-    }
-  }
-  scriptState.triggers = underscoreGS._reject(scriptState.triggers, function (trigger) {
-    return trigger.type === "at";
-  });
-}
-
-function setupTriggers(scriptState) {
   // Create a daily trigger if it does not exist
   dailyTrigger = underscoreGS._find(scriptState.triggers, function (trigger) {
     return trigger.type === "atHour";
@@ -171,10 +143,65 @@ function setupTriggers(scriptState) {
     });
   }
 
+  return scriptState;
+}
+
+function incrementMonth(scriptState) {
+  Logger.log('Processing done for the current month, incrementing the month');
+  var ss = SpreadsheetApp.openById(scriptState.ssID);
+  if (ss.getSheetByName("Sheet1") !== null) {
+    ss.deleteSheet(ss.getSheetByName("Sheet1"));
+  }
+  scriptState.ssID = null;
+  scriptState.monthToProcess = scriptState
+  .monthToProcess
+  .endOf('month')
+  .add(1, 'days')
+  .startOf('month');
+  scriptState.dataPopulated = false;
+  scriptState.reportEmailed = false;
+  scriptState.threadIndex = 0;
+  scriptState.dailyRunningTimeTotalSeconds = 0;
+  scriptState.currentDay = moment().startOf('day');
+
+  return scriptState;
+}
+
+function deleteAtTriggers(scriptState) {
+  Logger.log("Deleting all existing at triggers");
+  var trigger;
+  function uniqueIdMatchProjectTrigger(projectTrigger) {
+    return function (trigger) {
+      return trigger.uniqueId === projectTrigger.getUniqueId();
+    };
+  }
+  function uniqueIdMatch(uniqueId) {
+    return function (trigger) {
+      return trigger.uniqueId === uniqueId;
+    };
+  }
+  var projectTriggers = ScriptApp.getProjectTriggers();
+  for (var i = 0; i < projectTriggers.length; i++) {
+    trigger = underscoreGS._find(scriptState.triggers, uniqueIdMatchProjectTrigger(projectTriggers[i]));
+    if (trigger === undefined) {
+      // We have no record of this trigger, so delete it
+      ScriptApp.deleteTrigger(projectTriggers[i]);
+    } else {
+      if (trigger.type === "at") {
+        var uniqueId = projectTriggers[i].getUniqueId();
+        ScriptApp.deleteTrigger(projectTriggers[i]);
+        scriptState.triggers = underscoreGS._reject(scriptState.triggers, uniqueIdMatch(uniqueId));
+      }
+    }
+  }
+}
+
+function setupNextAtTrigger(scriptState) {
+  // Delete any previous at triggers, so we don't exceed the trigger quota
   deleteAtTriggers(scriptState);
 
-  // If less than daily run time, 3hrs, and there is still time left in the
-  // day, add new trigger
+  // If less than daily run time, 3 hours, and there is still time left in the
+  // day, add a new trigger
   if (scriptState.dailyRunningTimeTotalSeconds < (170 * 60) &&
     moment().add(35, 'minutes').date() === moment().date()) {
     Logger.log("Scheduling a new at trigger at: " + moment().add(15, "minutes").toISOString());
@@ -211,10 +238,12 @@ function main() {
     } else {
       populateData(scriptState, msgConsumers);
     }
+    scriptState.dailyRunningTimeTotalSeconds += moment().diff(scriptStartTime, 'seconds');
+    setupNextAtTrigger(scriptState);
+  } else {
+    Logger.log('Previous month processed complete, nothing todo');
   }
 
-  scriptState.dailyRunningTimeTotalSeconds += moment().diff(scriptStartTime, 'seconds');
-  setupTriggers(scriptState);
   setScriptState(scriptState);
   lock.releaseLock();
 }
