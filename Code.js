@@ -53,10 +53,9 @@ function populateData(scriptState, msgConsumers) {
   query += " -from:group.calendar.google.com -from:apps-scripts-notifications@google.com";
   query += " -from:sites.bounces.google.com";
   query += " after:" + after + " before:" + before;
-  Logger.log('Searching: ' + query);
 
+  Logger.log('Searching: ' + query);
   var threads = GmailApp.search(query, scriptState.threadIndex, batchSize);
-  Logger.log('Search Complete: ' + threads.length);
   if (threads.length === 0) {
     scriptState.dataPopulated = true;
   } else {
@@ -68,18 +67,19 @@ function populateData(scriptState, msgConsumers) {
     }
   }
   scriptState.threadIndex += batchSize;
+  Logger.log('PopulateData run complete: threads: ' + threads.length + ', threadIndex: ' + scriptState.threadIndex);
 }
 
 function setScriptState(scriptState) {
-  Logger.log("Setting script state");
   var scriptStateString = JSON.stringify(scriptState);
   PropertiesService.getUserProperties().setProperty("scriptState", scriptStateString);
+  Logger.log("New scriptState set: " + scriptStateString);
 }
 
 function getScriptState() {
   var scriptState = null;
   var scriptStateString = PropertiesService.getUserProperties().getProperty("scriptState");
-  Logger.log("Got script state: " + scriptStateString);
+  Logger.log("Retrieved scriptState: " + scriptStateString);
   if (scriptStateString === null) {
     Logger.log('No stored scriptState, creating an empty one');
     scriptState = {};
@@ -202,6 +202,7 @@ function main() {
   var msgConsumers = getMsgConsumers(scriptState);
 
   if (scriptState.monthToProcess.isBefore(currentMonth)) {
+    Logger.log('Beginning processing of month: ' + currentMonth.month());
     if (scriptState.dataPopulated) {
       if (scriptState.reportEmailed) {
         incrementMonth(scriptState);
