@@ -110,7 +110,8 @@ function getScriptState() {
     scriptState.triggers = [];
   }
 
-  if ((! scriptState.hasOwnProperty("dailyRunningTimeTotalSeconds")) || scriptState.dailyRunningTimeTotalSeconds === null) {
+  if ((! scriptState.hasOwnProperty("dailyRunningTimeTotalSeconds")) ||
+      scriptState.dailyRunningTimeTotalSeconds === null) {
     scriptState.dailyRunningTimeTotalSeconds = 0;
   }
 
