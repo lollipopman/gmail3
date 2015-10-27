@@ -147,15 +147,17 @@ function getScriptState() {
   return scriptState;
 }
 
-function incrementMonth(scriptState) {
-  Logger.log('Processing done for the current month, incrementing the month');
+function deleteSheet1(scriptState) {
   var ss = SpreadsheetApp.openById(scriptState.ssID);
   if (ss.getSheetByName("Sheet1") !== null) {
     ss.deleteSheet(ss.getSheetByName("Sheet1"));
   }
+}
+
+function incrementMonth(scriptState) {
+  Logger.log('Processing done for the current month, incrementing the month');
   scriptState.ssID = null;
-  scriptState.monthToProcess = scriptState
-  .monthToProcess
+  scriptState.monthToProcess = scriptState.monthToProcess
   .endOf('month')
   .add(1, 'days')
   .startOf('month');
@@ -225,26 +227,67 @@ function main() {
   }
   var currentMonth = moment().startOf('month');
   var scriptStartTime = moment();
-  var scriptState = getScriptState();
-  var msgConsumers = getMsgConsumers(scriptState);
+  var scriptState = null;
+  var msgConsumers = null;
+
+  try {
+    scriptState = getScriptState();
+  } catch (e) {
+    Logger.log('Error: ' + e.message);
+    return;
+  }
+
+  try {
+    msgConsumers = getMsgConsumers(scriptState);
+  } catch (e) {
+    Logger.log('Error: ' + e.message);
+    return;
+  }
 
   if (scriptState.monthToProcess.isBefore(currentMonth)) {
     Logger.log('Beginning processing of month: ' + currentMonth.month());
     if (scriptState.dataPopulated) {
       if (scriptState.reportEmailed) {
+        try {
+          deleteSheet1(scriptState);
+        } catch (e) {
+          Logger.log('Error: Unable to delete Sheet1 for the previous month: ' + e.message);
+        }
         incrementMonth(scriptState);
       } else {
-        emailReport(scriptState, msgConsumers);
+        try {
+          emailReport(scriptState, msgConsumers);
+        } catch (e) {
+          Logger.log('Error: Unable to email report for the previous month: ' + e.message);
+          return;
+        }
       }
     } else {
-      populateData(scriptState, msgConsumers);
+      try {
+        populateData(scriptState, msgConsumers);
+      } catch (e) {
+        Logger.log('Error: Unable to populate data: ' + e.message);
+        return;
+      }
     }
     scriptState.dailyRunningTimeTotalSeconds += moment().diff(scriptStartTime, 'seconds');
-    setupNextAtTrigger(scriptState);
+    try {
+      setupNextAtTrigger(scriptState);
+    } catch (e) {
+      Logger.log('Error: Unable to schedule next at trigger: ' + e.message);
+      return;
+    }
   } else {
     Logger.log('Previous month processed complete, nothing todo');
   }
 
-  setScriptState(scriptState);
+  for (var i = 0; i < 5; i++) {
+    try {
+      setScriptState(scriptState);
+      break;
+    } catch (e) {
+      Logger.log('Error: Unable to set script state: ' + e.message);
+    }
+  }
   lock.releaseLock();
 }
