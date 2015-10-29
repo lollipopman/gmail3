@@ -25,17 +25,21 @@ function emailReport(scriptState, msgConsumers) {
   }
 
   MailApp.sendEmail({
-    to: "jesse.hathaway@getbraintree.com",
-    subject: "Email Email Email!",
+    to: Session.getActiveUser().getEmail(),
+    subject: "Email3 - " + scriptState.monthToProcess.format('MMM YYYY'),
     htmlBody: htmlBody,
     inlineImages: inlineImages
   });
   scriptState.reportEmailed = true;
 }
 
-function createSpreadSheet(scriptState) {
-  var ssNew = SpreadsheetApp.create("email email email - " + Date());
-  scriptState.ssID = ssNew.getUrl().split('/')[7];
+function createSpreadSheet(monthToProcess) {
+  var ssNew = SpreadsheetApp.create("Email3 - " + monthToProcess.format('MMM YYYY'));
+  var ssID = ssNew.getUrl().split('/')[7];
+  return ssID;
+}
+
+function initializeSpreadSheet(scriptState) {
   var msgConsumers = getMsgConsumers(scriptState);
   for(i = 0; i < msgConsumers.length; i += 1) {
     msgConsumers[i].initSpreadSheet();
@@ -83,41 +87,23 @@ function getScriptState() {
   if (scriptStateString === null) {
     Logger.log('No stored scriptState, creating an empty one');
     scriptState = {};
-  } else {
-    scriptState = JSON.parse(scriptStateString);
-  }
-
-  if ((! scriptState.hasOwnProperty("ssID")) || scriptState.ssID === null) {
-    Logger.log("Spreadsheet ID not set, creating a new one");
-    createSpreadSheet(scriptState);
+    var currentMonth = moment().startOf('month');
+    var nextMonthToProcess = currentMonth.clone().subtract(1, 'days').startOf('month');
+    scriptState.ssID = createSpreadSheet(nextMonthToProcess);
+    initializeSpreadSheet(scriptState);
+    scriptState.monthToProcess = nextMonthToProcess;
     // This is needed so we can use the Google Visualization API Query Language
     // to set the data source URL
     allowPublicViewing(scriptState.ssID);
-  }
-
-  if ((! scriptState.hasOwnProperty("monthToProcess")) || scriptState.monthToProcess === null) {
-    var currentMonth = moment().startOf('month');
-    scriptState.monthToProcess = currentMonth.clone().subtract(1, 'days').startOf('month');
     scriptState.dataPopulated = false;
     scriptState.reportEmailed = false;
     scriptState.threadIndex = 0;
-  } else {
-    scriptState.monthToProcess = moment(scriptState.monthToProcess);
-  }
-
-  if ((! scriptState.hasOwnProperty("triggers")) || scriptState.ssID === null) {
-    Logger.log("Script has no triggers in scriptState");
     scriptState.triggers = [];
-  }
-
-  if ((! scriptState.hasOwnProperty("dailyRunningTimeTotalSeconds")) ||
-      scriptState.dailyRunningTimeTotalSeconds === null) {
     scriptState.dailyRunningTimeTotalSeconds = 0;
-  }
-
-  if ((! scriptState.hasOwnProperty("currentDay")) || scriptState.currentDay === null) {
     scriptState.currentDay = moment().startOf('day');
   } else {
+    scriptState = JSON.parse(scriptStateString);
+    scriptState.monthToProcess = moment(scriptState.monthToProcess);
     scriptState.currentDay = moment(scriptState.currentDay);
   }
   
@@ -156,11 +142,14 @@ function deleteSheet1(scriptState) {
 
 function incrementMonth(scriptState) {
   Logger.log('Processing done for the current month, incrementing the month');
-  scriptState.ssID = null;
-  scriptState.monthToProcess = scriptState.monthToProcess
+  var nextMonthToProcess = scriptState.monthToProcess.clone()
   .endOf('month')
   .add(1, 'days')
   .startOf('month');
+  // This may not suceeed so do it first, before changing the script state
+  scriptState.ssID = createSpreadSheet(nextMonthToProcess);
+  initializeSpreadSheet(scriptState);
+  scriptState.monthToProcess = nextMonthToProcess;
   scriptState.dataPopulated = false;
   scriptState.reportEmailed = false;
   scriptState.threadIndex = 0;
@@ -253,7 +242,11 @@ function main() {
         } catch (e) {
           Logger.log('Error: Unable to delete Sheet1 for the previous month: ' + e.message);
         }
-        incrementMonth(scriptState);
+        try {
+          incrementMonth(scriptState);
+        } catch (e) {
+          Logger.log('Error: Unable to increment month: ' + e.message);
+        }
       } else {
         try {
           emailReport(scriptState, msgConsumers);
