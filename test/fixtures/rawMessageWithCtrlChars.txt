@@ -1,0 +1,72 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: jesse.hathaway@braintreepayments.com
+Received: by 10.36.74.135 with SMTP id k129csp1270230itb;
+        Thu, 28 May 2015 13:38:05 -0700 (PDT)
+X-Received: by 10.66.150.196 with SMTP id uk4mr8977756pab.54.1432845485478;
+        Thu, 28 May 2015 13:38:05 -0700 (PDT)
+Return-Path: <root@liweb3.mia2.plx>
+Received: from lidns1.dca2.plx ([209.200.145.132])
+        by mx.google.com with ESMTPS id xf4si5167063pbc.157.2015.05.28.13.38.04
+        for <jesse.hathaway@braintreepayments.com>
+        (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 28 May 2015 13:38:05 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.200.145.132 is neither permitted nor denied by best guess record for domain of root@liweb3.mia2.plx) client-ip=209.200.145.132;
+Authentication-Results: mx.google.com;
+       spf=neutral (google.com: 209.200.145.132 is neither permitted nor denied by best guess record for domain of root@liweb3.mia2.plx) smtp.mail=root@liweb3.mia2.plx
+Received: from liweb3.mia2.plx (netscaler-mip1.mia2.plx [209.200.133.123])
+	by lidns1.dca2.plx (8.14.4/8.13.8) with ESMTP id t4SKc04B025232
+	for <jesse.hathaway@braintreepayments.com>; Thu, 28 May 2015 20:38:00 GMT
+Received: from liweb3.mia2.plx (localhost [127.0.0.1])
+	by liweb3.mia2.plx (Postfix) with ESMTP id 75767101463
+	for <jesse.hathaway@braintreepayments.com>; Thu, 28 May 2015 20:38:00 +0000 (GMT)
+Received: (from root@localhost)
+	by liweb3.mia2.plx (8.14.4/8.14.4/Submit) id t4SKc07r017127;
+	Thu, 28 May 2015 20:38:00 GMT
+Date: Thu, 28 May 2015 20:38:00 GMT
+Message-Id: <201505282038.t4SKc07r017127@liweb3.mia2.plx>
+From: support@prolexic.com
+To: jesse.hathaway@braintreepayments.com
+Subject: 06-04-2015-AKAMAI TECHNOLOGIES FRA2 PLANNED MAINTENANCE NOTIFICATION  CONTINUED
+
+Subject - AKAMAI TECHNOLOGIES: [ FRA2 ] PLANNED MAINTENANCE NOTIFICATION  CONTINUED
+
+Location(s): Frankfurt, DE (FRA2)
+
+Date: June 4th, 2015 22:00- June 5th,2015 02:00 UTC
+
+Duration: 6 hours
+
+Priority: Normal
+
+Reason: Expansion of scrubbing center
+
+Akamai Technologies will be finalizing an essential maintenance between Thursday night 22:00 UTC and 02:00 UTC on Friday morning June 5th 2015.
+
+During the event window Akamai will be turning-up additional routers and begin advertising traffic in the Frankfurt scrubbing center in order to provide redundancy, added capacity and improve resilience.
+
+The maintenance work planned should not affect any services running from the Frankfurt scrubbing center. Our mitigation capabilities will not be affected and traffic will not be routed off during the maintenance.
+
+Please do not hesitate to contact the Akamai Security Operations Center  should you have any questions or concerns.
+
+Thank you,
+
+Alvaro Cordero
+
+Practice Manager 
+
+Global Security Operations Akamai Technologies
+
+====================================================
+
+Contact Details
+
+====================================================
+
+Security Operations Center
+
+Main: 866-800-0366 (from US)
+
+Direct: 954-620-6002
+
+Email: managedsecurity@akamai.com
+

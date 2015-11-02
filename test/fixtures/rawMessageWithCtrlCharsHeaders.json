@@ -1,0 +1,39 @@
+{
+    "delivered-to": [
+        "jesse.hathaway@braintreepayments.com"
+    ],
+    "received": [
+        "by 10.36.74.135 with SMTP id k129csp1270230itb; Thu, 28 May 2015 13:38:05 -0700 (PDT)",
+        "from lidns1.dca2.plx ([209.200.145.132]) by mx.google.com with ESMTPS id xf4si5167063pbc.157.2015.05.28.13.38.04 for <jesse.hathaway@braintreepayments.com> (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128); Thu, 28 May 2015 13:38:05 -0700 (PDT)",
+        "from liweb3.mia2.plx (netscaler-mip1.mia2.plx [209.200.133.123]) by lidns1.dca2.plx (8.14.4/8.13.8) with ESMTP id t4SKc04B025232 for <jesse.hathaway@braintreepayments.com>; Thu, 28 May 2015 20:38:00 GMT",
+        "from liweb3.mia2.plx (localhost [127.0.0.1]) by liweb3.mia2.plx (Postfix) with ESMTP id 75767101463 for <jesse.hathaway@braintreepayments.com>; Thu, 28 May 2015 20:38:00 +0000 (GMT)",
+        "(from root@localhost) by liweb3.mia2.plx (8.14.4/8.14.4/Submit) id t4SKc07r017127; Thu, 28 May 2015 20:38:00 GMT"
+    ],
+    "x-received": [
+        "by 10.66.150.196 with SMTP id uk4mr8977756pab.54.1432845485478; Thu, 28 May 2015 13:38:05 -0700 (PDT)"
+    ],
+    "return-path": [
+        "<root@liweb3.mia2.plx>"
+    ],
+    "received-spf": [
+        "neutral (google.com: 209.200.145.132 is neither permitted nor denied by best guess record for domain of root@liweb3.mia2.plx) client-ip=209.200.145.132;"
+    ],
+    "authentication-results": [
+        "mx.google.com; spf=neutral (google.com: 209.200.145.132 is neither permitted nor denied by best guess record for domain of root@liweb3.mia2.plx) smtp.mail=root@liweb3.mia2.plx"
+    ],
+    "date": [
+        "Thu, 28 May 2015 20:38:00 GMT"
+    ],
+    "message-id": [
+        "<201505282038.t4SKc07r017127@liweb3.mia2.plx>"
+    ],
+    "from": [
+        "support@prolexic.com"
+    ],
+    "to": [
+        "jesse.hathaway@braintreepayments.com"
+    ],
+    "subject": [
+        "06-04-2015-AKAMAI TECHNOLOGIES FRA2 PLANNED MAINTENANCE NOTIFICATION CONTINUED"
+    ]
+}

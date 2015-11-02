@@ -9,15 +9,19 @@ function unfoldHeaders(foldedHeaders) {
 }
 
 function extractHeaders(rawMessage) {
-  var i;
   var headers = {};
   var parseHeaderRegex = /^[ \n\t]*([^:]+):[ \t]*(.*)$/;
   var extractHeadersRegex = /\r\n\r\n/;
+  var printableRegex = /[^ -~]+/g;
   var foldedHeaders = rawMessage.split(extractHeadersRegex)[0];
   var unfoldedHeaders = unfoldHeaders(foldedHeaders);
   var headerLines = unfoldedHeaders.split(/\r\n/);
-  for (i = 0; i < headerLines.length; i++) {
-    var headerMatch = parseHeaderRegex.exec(headerLines[i]);
+  for (var i = 0; i < headerLines.length; i++) {
+    var printableHeader = headerLines[i].replace(printableRegex, "");
+    var headerMatch = parseHeaderRegex.exec(printableHeader);
+    if (headerMatch === null) {
+      throw new Error("headerMatch returned null");
+    }
     if (headerMatch[1] !== "") {
       var headerField = headerMatch[1].toLowerCase();
       if (headers.hasOwnProperty(headerField)) {
