@@ -36,6 +36,9 @@ function emailReport(scriptState, msgConsumers) {
 function createSpreadSheet(monthToProcess) {
   var ssNew = SpreadsheetApp.create("Email3 - " + monthToProcess.format('MMM YYYY'));
   var ssID = ssNew.getUrl().split('/')[7];
+  // This is needed so we can use the Google Visualization API Query Language
+  // to set the data source URL for graphs
+  allowPublicViewing(ssID);
   return ssID;
 }
 
@@ -92,9 +95,6 @@ function getScriptState() {
     scriptState.ssID = createSpreadSheet(nextMonthToProcess);
     initializeSpreadSheet(scriptState);
     scriptState.monthToProcess = nextMonthToProcess;
-    // This is needed so we can use the Google Visualization API Query Language
-    // to set the data source URL
-    allowPublicViewing(scriptState.ssID);
     scriptState.dataPopulated = false;
     scriptState.reportEmailed = false;
     scriptState.threadIndex = 0;
