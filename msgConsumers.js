@@ -5,10 +5,10 @@ function getMsgConsumers(scriptState) {
   var topSenders = {
     name: "Top Senders",
     db: null,
-    ssID: null,
+    scriptState: null,
     chart: null,
     initSpreadSheet: function () {
-      var ss = SpreadsheetApp.openById(this.ssID);
+      var ss = SpreadsheetApp.openById(this.scriptState.ssID);
       var sheet = ss.insertSheet(this.name);
       sheet.appendRow(["From", "Count"]);
     },
@@ -24,10 +24,10 @@ function getMsgConsumers(scriptState) {
       }
     },
     graphFunction: function () {
-      var ss = SpreadsheetApp.openById(this.ssID);
+      var ss = SpreadsheetApp.openById(this.scriptState.ssID);
       var sheetID = ss.getSheetByName(this.name).getSheetId();
       var encodedQuery = encodeURIComponent("select A,B order by B desc limit 10");
-      var dataSourceURL = 'https://docs.google.com/spreadsheet/tq?key=' + this.ssID;
+      var dataSourceURL = 'https://docs.google.com/spreadsheet/tq?key=' + this.scriptState.ssID;
       dataSourceURL += '&tq=' + encodedQuery;
       dataSourceURL += '&gid=' + sheetID;
       dataSourceURL += '&headers=-1';
@@ -45,10 +45,10 @@ function getMsgConsumers(scriptState) {
   var topMailingLists = {
     name: "Top Mailing Lists",
     db: null,
-    ssID: null,
+    scriptState: null,
     chart: null,
     initSpreadSheet: function () {
-      var ss = SpreadsheetApp.openById(this.ssID);
+      var ss = SpreadsheetApp.openById(this.scriptState.ssID);
       var sheet = ss.insertSheet(this.name);
       sheet.appendRow(["MailingList", "Count"]);
     },
@@ -66,10 +66,10 @@ function getMsgConsumers(scriptState) {
       }
     },
     graphFunction: function () {
-      var ss = SpreadsheetApp.openById(this.ssID);
+      var ss = SpreadsheetApp.openById(this.scriptState.ssID);
       var sheetID = ss.getSheetByName(this.name).getSheetId();
       var encodedQuery = encodeURIComponent("select A,B order by B desc limit 10");
-      var dataSourceURL = 'https://docs.google.com/spreadsheet/tq?key=' + this.ssID;
+      var dataSourceURL = 'https://docs.google.com/spreadsheet/tq?key=' + this.scriptState.ssID;
       dataSourceURL += '&tq=' + encodedQuery;
       dataSourceURL += '&gid=' + sheetID;
       dataSourceURL += '&headers=-1';
@@ -87,10 +87,10 @@ function getMsgConsumers(scriptState) {
   var topNonMailingListSenders = {
     name: "Top Non Mailing List Senders",
     db: null,
-    ssID: null,
+    scriptState: null,
     chart: null,
     initSpreadSheet: function () {
-      var ss = SpreadsheetApp.openById(this.ssID);
+      var ss = SpreadsheetApp.openById(this.scriptState.ssID);
       var sheet = ss.insertSheet(this.name);
       sheet.appendRow(["From", "Count"]);
     },
@@ -109,10 +109,10 @@ function getMsgConsumers(scriptState) {
       }
     },
     graphFunction: function () {
-      var ss = SpreadsheetApp.openById(this.ssID);
+      var ss = SpreadsheetApp.openById(this.scriptState.ssID);
       var sheetID = ss.getSheetByName(this.name).getSheetId();
       var encodedQuery = encodeURIComponent("select A,B order by B desc limit 10");
-      var dataSourceURL = 'https://docs.google.com/spreadsheet/tq?key=' + this.ssID;
+      var dataSourceURL = 'https://docs.google.com/spreadsheet/tq?key=' + this.scriptState.ssID;
       dataSourceURL += '&tq=' + encodedQuery;
       dataSourceURL += '&gid=' + sheetID;
       dataSourceURL += '&headers=-1';
@@ -130,10 +130,10 @@ function getMsgConsumers(scriptState) {
   var topRobotSenders = {
     name: "Top Robot Senders",
     db: null,
-    ssID: null,
+    scriptState: null,
     chart: null,
     initSpreadSheet: function () {
-      var ss = SpreadsheetApp.openById(this.ssID);
+      var ss = SpreadsheetApp.openById(this.scriptState.ssID);
       var sheet = ss.insertSheet(this.name);
       sheet.appendRow(["From", "Count"]);
     },
@@ -151,10 +151,10 @@ function getMsgConsumers(scriptState) {
       }
     },
     graphFunction: function () {
-      var ss = SpreadsheetApp.openById(this.ssID);
+      var ss = SpreadsheetApp.openById(this.scriptState.ssID);
       var sheetID = ss.getSheetByName(this.name).getSheetId();
       var encodedQuery = encodeURIComponent("select A,B order by B desc limit 10");
-      var dataSourceURL = 'https://docs.google.com/spreadsheet/tq?key=' + this.ssID;
+      var dataSourceURL = 'https://docs.google.com/spreadsheet/tq?key=' + this.scriptState.ssID;
       dataSourceURL += '&tq=' + encodedQuery;
       dataSourceURL += '&gid=' + sheetID;
       dataSourceURL += '&headers=-1';
@@ -172,10 +172,10 @@ function getMsgConsumers(scriptState) {
   var topHumanSenders = {
     name: "Top Human Senders",
     db: null,
-    ssID: null,
+    scriptState: null,
     chart: null,
     initSpreadSheet: function () {
-      var ss = SpreadsheetApp.openById(this.ssID);
+      var ss = SpreadsheetApp.openById(this.scriptState.ssID);
       var sheet = ss.insertSheet(this.name);
       sheet.appendRow(["From", "Count"]);
     },
@@ -193,10 +193,10 @@ function getMsgConsumers(scriptState) {
       }
     },
     graphFunction: function () {
-      var ss = SpreadsheetApp.openById(this.ssID);
+      var ss = SpreadsheetApp.openById(this.scriptState.ssID);
       var sheetID = ss.getSheetByName(this.name).getSheetId();
       var encodedQuery = encodeURIComponent("select A,B order by B desc limit 10");
-      var dataSourceURL = 'https://docs.google.com/spreadsheet/tq?key=' + this.ssID;
+      var dataSourceURL = 'https://docs.google.com/spreadsheet/tq?key=' + this.scriptState.ssID;
       dataSourceURL += '&tq=' + encodedQuery;
       dataSourceURL += '&gid=' + sheetID;
       dataSourceURL += '&headers=-1';
@@ -214,10 +214,10 @@ function getMsgConsumers(scriptState) {
   var topApplicationErrors = {
     name: "Top Application Errors",
     db: null,
-    ssID: null,
+    scriptState: null,
     chart: null,
     initSpreadSheet: function () {
-      var ss = SpreadsheetApp.openById(this.ssID);
+      var ss = SpreadsheetApp.openById(this.scriptState.ssID);
       var sheet = ss.insertSheet(this.name);
       sheet.appendRow(["Subject", "Count"]);
     },
@@ -239,10 +239,10 @@ function getMsgConsumers(scriptState) {
       }
     },
     graphFunction: function () {
-      var ss = SpreadsheetApp.openById(this.ssID);
+      var ss = SpreadsheetApp.openById(this.scriptState.ssID);
       var sheetID = ss.getSheetByName(this.name).getSheetId();
       var encodedQuery = encodeURIComponent("select A,B order by B desc limit 10");
-      var dataSourceURL = 'https://docs.google.com/spreadsheet/tq?key=' + this.ssID;
+      var dataSourceURL = 'https://docs.google.com/spreadsheet/tq?key=' + this.scriptState.ssID;
       dataSourceURL += '&tq=' + encodedQuery;
       dataSourceURL += '&gid=' + sheetID;
       dataSourceURL += '&headers=-1';
@@ -266,7 +266,7 @@ function getMsgConsumers(scriptState) {
 
   for(i = 0; i < msgConsumers.length; i += 1) {
     msgConsumers[i].db = db;
-    msgConsumers[i].ssID = scriptState.ssID;
+    msgConsumers[i].scriptState = scriptState;
   }
 
   return msgConsumers;
