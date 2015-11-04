@@ -257,6 +257,74 @@ function getMsgConsumers(scriptState) {
     },
   };
 
+  var historicalEmailVolume = {
+    name: "Historical Email Volume",
+    db: null,
+    scriptState: null,
+    chart: null,
+    initSpreadSheet: function () {
+      var ss = SpreadsheetApp.openById(this.scriptState.ssID);
+      var sheet = ss.insertSheet(this.name);
+      sheet.appendRow(["MailingList", "Human"]);
+    },
+    msgFunction: function (msg) {
+      var rows = objDB.getRows(this.db, this.name, ['MailingList','Human']);
+      var headers = extractHeaders(msg.getRawContent());
+      if (headers.hasOwnProperty("list-id") && headers["list-id"].length === 1) {
+        if (rows.length === 0) {
+          objDB.insertRow(this.db, this.name, {MailingList:1, Human:0} );
+        } else {
+          objDB.updateRow(this.db, this.name, {MailingList:(rows[0].MailingList + 1), Human:rows[0].Human});
+        }
+      } else {
+        if (rows.length === 0) {
+          objDB.insertRow(this.db, this.name, {MailingList:0, Human:1} );
+        } else {
+          objDB.updateRow(this.db, this.name, {MailingList:rows[0].MailingList, Human:(rows[0].Human + 1)});
+        }
+      }
+    },
+    graphFunction: function () {
+      var historicalData = Charts.newDataTable()
+        .addColumn(Charts.ColumnType.STRING, "Month")
+        .addColumn(Charts.ColumnType.NUMBER, "MailingList")
+        .addColumn(Charts.ColumnType.NUMBER, "Human");
+      var rows;
+      var file;
+      var monthDatabase;
+      var months = 0;
+      var month = scriptState.monthToProcess.clone();
+      var files = DriveApp.getFilesByName("Email3 Data - " + month.format('MMM YYYY'));
+      while (months < 11 && files.hasNext()) {
+        file = files.next();
+        if (file.isTrashed()) {
+          continue;
+        }
+        Logger.log(file.getName());
+        monthDatabase = objDB.open(file.getId());
+        rows = objDB.getRows(monthDatabase, this.name, ['MailingList','Human']);
+        if (rows.length === 1) {
+          Logger.log("MailingList: " + rows[0].MailingList + " Human: " + rows[0].Human);
+          historicalData.addRow([month.format('MMM YYYY'), rows[0].MailingList, rows[0].Human]);
+        }
+        months += 1;
+        month = month.subtract(1, 'days').startOf('month');
+        files = DriveApp.getFilesByName("Email3 Data - " + month.format('MMM YYYY'));
+      }
+
+      var chartBuilder = Charts.newAreaChart()
+        .setTitle(this.name)
+        .setXAxisTitle('Month')
+        .setYAxisTitle('Message Count')
+        .setDimensions(1024, 768)
+        .setStacked()
+        .setPointStyle(Charts.PointStyle.MEDIUM)
+        .setDataTable(historicalData);
+      this.chart = chartBuilder.build();
+    },
+  };
+
+  msgConsumers.push(historicalEmailVolume);
   msgConsumers.push(topSenders);
   msgConsumers.push(topMailingLists);
   msgConsumers.push(topNonMailingListSenders);
