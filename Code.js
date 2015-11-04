@@ -1,5 +1,15 @@
 var moment = Moment.load();
 
+function enableDebugMode() {
+  PropertiesService.getUserProperties().setProperty("debugEnabled", "true");
+  Logger.log("Debugging enabled");
+}
+
+function disableDebugMode() {
+  PropertiesService.getUserProperties().setProperty("debugEnabled", "false");
+  Logger.log("Debugging disabled");
+}
+
 function resetScriptState() {
   var userProperties = PropertiesService.getUserProperties();
   userProperties.deleteAllProperties();
@@ -69,12 +79,17 @@ function populateData(scriptState, msgConsumers) {
 
   Logger.log('Searching: ' + query);
   var threads = GmailApp.search(query, scriptState.threadIndex, batchSize);
-  if (threads.length === 0) {
+  if (scriptState.debugEnabled && scriptState.threadIndex > 200) {
+    scriptState.dataPopulated = true;
+  } else if (threads.length === 0) {
     scriptState.dataPopulated = true;
   } else {
     for (thread = 0; thread < threads.length; thread += 1) {
       var msg = threads[thread].getMessages()[0];
       for(var i = 0; i < msgConsumers.length; i += 1) {
+        if (scriptState.debugEnabled) {
+          Logger.log('Calling Message function for, ' + msgConsumers[i].name);
+        }
         msgConsumers[i].msgFunction(msg);
       }
     }
@@ -91,13 +106,27 @@ function setScriptState(scriptState) {
 
 function getScriptState() {
   var scriptState = null;
+  var nextMonthToProcess;
   var scriptStateString = PropertiesService.getUserProperties().getProperty("scriptState");
+  var debugEnabledUserProperty = PropertiesService.getUserProperties().getProperty("debugEnabled");
+  if (debugEnabledUserProperty === "true") {
+    debugEnabled = true;
+    Logger.log("Debugging enabled");
+  } else {
+    debugEnabled = false;
+    Logger.log("Debugging disabled");
+  }
   Logger.log("Retrieved scriptState: " + scriptStateString);
   if (scriptStateString === null) {
     Logger.log('No stored scriptState, creating an empty one');
     scriptState = {};
+    scriptState.debugEnabled = debugEnabled;
     var currentMonth = moment().startOf('month');
-    var nextMonthToProcess = currentMonth.clone().subtract(1, 'days').startOf('month');
+    if (scriptState.debugEnabled) {
+      nextMonthToProcess = currentMonth.clone().startOf('year');
+    } else {
+      nextMonthToProcess = currentMonth.clone().subtract(1, 'days').startOf('month');
+    }
     scriptState.ssID = createSpreadSheet(nextMonthToProcess);
     initializeSpreadSheet(scriptState);
     scriptState.monthToProcess = nextMonthToProcess;
@@ -109,6 +138,7 @@ function getScriptState() {
     scriptState.currentDay = moment().startOf('day');
   } else {
     scriptState = JSON.parse(scriptStateString);
+    scriptState.debugEnabled = debugEnabled;
     scriptState.monthToProcess = moment(scriptState.monthToProcess);
     scriptState.currentDay = moment(scriptState.currentDay);
   }
