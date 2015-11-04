@@ -34,7 +34,7 @@ function emailReport(scriptState, msgConsumers) {
 }
 
 function createSpreadSheet(monthToProcess) {
-  var ssNew = SpreadsheetApp.create("Email3 - " + monthToProcess.format('MMM YYYY'));
+  var ssNew = SpreadsheetApp.create("Email3 Data - " + monthToProcess.format('MMM YYYY'));
   var ssID = ssNew.getUrl().split('/')[7];
   // This is needed so we can use the Google Visualization API Query Language
   // to set the data source URL for graphs
