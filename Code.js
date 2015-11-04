@@ -234,7 +234,7 @@ function main() {
   }
 
   if (scriptState.monthToProcess.isBefore(currentMonth)) {
-    Logger.log('Beginning processing of month: ' + currentMonth.month());
+    Logger.log("Beginning processing of: Email3 - " + scriptState.monthToProcess.format('MMM YYYY'));
     if (scriptState.dataPopulated) {
       if (scriptState.reportEmailed) {
         try {
