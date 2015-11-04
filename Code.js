@@ -7,6 +7,12 @@ function resetScriptState() {
   for (var i = 0; i < projectTriggers.length; i++) {
     ScriptApp.deleteTrigger(projectTriggers[i]);
   }
+  var files = DriveApp.searchFiles("title contains 'Email3 Data'");
+  while (files.hasNext()) {
+    var file = files.next();
+    Logger.log("Trashing: " + file.getName());
+    file.setTrashed(true);
+  }
 }
 
 function emailReport(scriptState, msgConsumers) {
