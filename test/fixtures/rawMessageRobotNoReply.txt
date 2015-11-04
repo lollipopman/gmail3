@@ -1,0 +1,87 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: jesse.hathaway@example.com
+Received: by 10.36.77.67 with SMTP id l64csp1112832itb;
+        Fri, 16 Oct 2015 05:47:23 -0700 (PDT)
+X-Received: by 10.107.25.71 with SMTP id 68mr12962510ioz.46.1444999643606;
+        Fri, 16 Oct 2015 05:47:23 -0700 (PDT)
+Return-Path: <foo+bncBDL4ZN5JXUARBW7DQOYQKGQEJ3KKLVA@example.com>
+Received: from mail-ig0-f200.google.com (mail-ig0-f200.google.com. [209.85.213.200])
+        by mx.google.com with ESMTPS id 28si16243315ioq.76.2015.10.16.05.47.23
+        for <jesse.hathaway@example.com>
+        (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 16 Oct 2015 05:47:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of foo+bncBDL4ZN5JXUARBW7DQOYQKGQEJ3KKLVA@example.com designates 209.85.213.200 as permitted sender) client-ip=209.85.213.200;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of foo+bncBDL4ZN5JXUARBW7DQOYQKGQEJ3KKLVA@example.com designates 209.85.213.200 as permitted sender) smtp.mailfrom=foo+bncBDL4ZN5JXUARBW7DQOYQKGQEJ3KKLVA@example.com;
+       dmarc=fail (p=NONE dis=NONE) header.from=statuspage.io
+Received: by igbxf8 with SMTP id xf8sf38056448igb.1
+        for <jesse.hathaway@example.com>; Fri, 16 Oct 2015 05:47:23 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20130820;
+        h=x-gm-message-state:content-transfer-encoding:content-type:date:from
+         :message-id:mime-version:subject:to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=PhXhcY1rB1BAJ4XvSsw3+RAVOe2HnYACmbxoWnqtdRo=;
+        b=cgDYgarLWGA+vKp2lVamWXqtQMNxHYRekPiSKMSbsJmxBPN6b7IbNFT+L+Ymry47Zy
+         SuD0GQ2t8jAkCj5cEn272YOY3SatNKLOmBcNbRr2FN5HXjGqWT02X+d2uAGd2ETEdlTk
+         WPhK3wfCnyRFUpj5xW8k+FrXL6RkdiCwaKR37hQCQOSq3jE2LZ3q6GJ9xT6X9by+fRUf
+         MS3R1egJZ+nTO/7aMLXOF8bfESGcdz1Q0oFFBj/9Fb7McIWOEKaNeE0Y/M+/Wonrdna2
+         OkcIx3amgh9wQHbZaCtJLw0yyFNmiEqtJn8xQxDoKWUf3b47a9hUZ+790vGoe9I8tSoF
+         gckg==
+X-Gm-Message-State: ALoCoQmX4JR9sMxKiwypn5tuT97wAJ3n+j9mCKQWUvFPiz8RgKUyAYrA+xAeM/arA6xBAWPE8r+6
+X-Received: by 10.50.28.71 with SMTP id z7mr3083628igg.8.1444999643224;
+        Fri, 16 Oct 2015 05:47:23 -0700 (PDT)
+X-BeenThere: foo@example.com
+Received: by 10.107.5.139 with SMTP id 133ls107309iof.107.gmail; Fri, 16 Oct
+ 2015 05:47:23 -0700 (PDT)
+X-Received: by 10.50.61.148 with SMTP id p20mr5168858igr.81.1444999642818;
+        Fri, 16 Oct 2015 05:47:22 -0700 (PDT)
+Received: from o1.notifications-sendgrid.statuspage.io ([167.89.65.53])
+        by mx.google.com with ESMTPS id cr8si3717123igb.1.2015.10.16.05.47.22
+        for <foo+statuspage@example.com>
+        (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 16 Oct 2015 05:47:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of noreply@statuspage.io designates 167.89.65.53 as permitted sender) client-ip=167.89.65.53;
+Received: by filter0643p1mdw1.sendgrid.net with SMTP id filter0643p1mdw1.2582.5620F1D618
+        2015-10-16 12:47:18.527349582 +0000 UTC
+Received: from MTgzNDM5Mw (ec2-54-200-202-146.us-west-2.compute.amazonaws.com [54.200.202.146])
+	by ismtpd0036p1mdw1.sendgrid.net (SG) with HTTP id IeQ8yOvQR1O-qZjUfU_pjA
+	for <foo+statuspage@example.com>; Fri, 16 Oct 2015 12:47:18.627 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Date: Fri, 16 Oct 2015 12:47:18 +0000
+From: noreply@statuspage.io
+Message-ID: <8ca58087-e68a-4715-916c-457041901832@notifications.statuspage.io>
+Mime-Version: 1.0
+Subject: StatusPage.io
+To: foo@bar.com
+X-SG-EID: lmRxm6e55BZXi7tFkdFToj9m7nKbLjOkXEX7o/xLQ2xfs4wFF24VTws6RxW26ZgjkEJL6e8LvDB0AP
+ lssKlQnAkNBSv74aMet9s8yC5Z2WBsJo+bJLO9Olbv4PlkQEMlLtqfTpkmAZPgIpN6f5hFPEKxzdii
+ lU22X7IpEDrcOLYL347QlztLcPcg0tNiFxFR
+X-Original-Sender: noreply@statuspage.io
+X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
+ domain of noreply@statuspage.io designates 167.89.65.53 as permitted sender)
+ smtp.mailfrom=noreply@statuspage.io;       dkim=pass header.i=@statuspage.io;
+       dmarc=pass (p=NONE dis=NONE) header.from=statuspage.io
+Precedence: list
+Mailing-list: list foo@example.com; contact foo+owners@example.com
+List-ID: <foo.example.com>
+X-Spam-Checked-In-Group: foo@example.com
+X-Google-Group-Id: 537625018563
+List-Post: <http://groups.google.com/a/example.com/group/foo/post>, <mailto:foo@example.com>
+List-Help: <http://support.google.com/a/example.com/bin/topic.py?topic=25838>,
+ <mailto:foo+help@example.com>
+List-Archive: <http://groups.google.com/a/example.com/group/foo/>
+List-Subscribe: <http://groups.google.com/a/example.com/group/foo/subscribe>,
+ <mailto:foo+subscribe@example.com>
+List-Unsubscribe: <mailto:googlegroups-manage+537625018563+unsubscribe@googlegroups.com>,
+ <http://groups.google.com/a/example.com/group/foo/subscribe>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+  </body>
+</html>

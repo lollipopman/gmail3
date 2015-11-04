@@ -39,11 +39,25 @@ function allowPublicViewing(ID) {
   file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
 }
 
+// These are admittedly swiss cheese tests for robots, but I am at loss to
+// find better methods.
 function emailSentByRobot(rawMessage) {
+  var msgFromRobot = false;
   var headers = extractHeaders(rawMessage);
-  // This is admittedly a swiss cheese test for robots, but I am at loss to
-  // find a better method.
-  var robotRegex = /\s\(Postfix/;
+  var robotMailerRegex = /\s\(Postfix/;
+  var fromRobots = [
+    /^no-?reply@.*$/,
+    /^alert@pingdom.com$/,
+  ];
   var firstHop = headers.received[headers.received.length - 1];
-  return robotRegex.test(firstHop);
+  if (robotMailerRegex.test(firstHop)) {
+    msgFromRobot = true;
+  }
+  for (var i = 0; i < fromRobots.length; i++) {
+    if (fromRobots[i].test(headers.from)) {
+      msgFromRobot = true;
+      break;
+    }
+  }
+  return msgFromRobot;
 }
