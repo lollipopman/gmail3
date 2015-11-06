@@ -88,7 +88,11 @@ function populateData(scriptState, msgConsumers) {
         if (scriptState.debugEnabled) {
           Logger.log('Calling Message function for, ' + msgConsumers[i].name);
         }
-        msgConsumers[i].msgFunction(msg);
+        try {
+          msgConsumers[i].msgFunction(msg);
+        } catch (e) {
+          throw new Error("msgConsumer, " + msgConsumers[i].name + ", threw error: " + e.message);
+        }
       }
     }
   }
