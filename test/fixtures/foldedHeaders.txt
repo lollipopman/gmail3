@@ -1,5 +1,5 @@
                                                                                                                                                                                                                                                                
-Delivered-To: jesse@mbuki-mvuki.org
+Delivered-To: potto@foo.com
 Received: by 10.50.124.73 with SMTP id mg9csp4112291igb;
         Wed, 7 Oct 2015 08:09:06 -0700 (PDT)
 X-Received: by 10.60.179.170 with SMTP id dh10mr1010494oec.86.1444230546892;
@@ -7,6 +7,6 @@ X-Received: by 10.60.179.170 with SMTP id dh10mr1010494oec.86.1444230546892;
 Return-Path: <romanceintheestates@gmail.com>
 Received: from mail-ob0-x232.google.com (mail-ob0-x232.google.com. [2607:f8b0:4003:c01::232])
         by mx.google.com with ESMTPS id ky4si19414867obb.14.2015.10.07.08.09.06
-        for <jesse@mbuki-mvuki.org>
+        for <potto@foo.com>
         (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
         Wed, 07 Oct 2015 08:09:06 -0700 (PDT)

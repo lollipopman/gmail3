@@ -1,20 +1,20 @@
                                                                                                                                                                                                                                                                
-Delivered-To: jesse@getbraintree.com
+Delivered-To: potto@foo.com
 Received: by 10.36.77.67 with SMTP id l64csp1996042itb;
         Tue, 13 Oct 2015 04:37:34 -0700 (PDT)
 X-Received: by 10.107.156.14 with SMTP id f14mr34166372ioe.32.1444736254479;
         Tue, 13 Oct 2015 04:37:34 -0700 (PDT)
-Return-Path: <auto-root-mail+bncBAABB7WZ6OYAKGQE4YZPVZI@getbraintree.com>
+Return-Path: <auto-root-mail+bncBAABB7WZ6OYAKGQE4YZPVZI@foo.com>
 Received: from mail-pa0-f69.google.com (mail-pa0-f69.google.com. [209.85.220.69])
         by mx.google.com with ESMTPS id mf6si2569519igb.11.2015.10.13.04.37.34
-        for <jesse@getbraintree.com>
+        for <potto@foo.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
         Tue, 13 Oct 2015 04:37:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of auto-root-mail+bncBAABB7WZ6OYAKGQE4YZPVZI@getbraintree.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Received-SPF: pass (google.com: domain of auto-root-mail+bncBAABB7WZ6OYAKGQE4YZPVZI@foo.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
 Authentication-Results: mx.google.com;
-       spf=pass (google.com: domain of auto-root-mail+bncBAABB7WZ6OYAKGQE4YZPVZI@getbraintree.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=auto-root-mail+bncBAABB7WZ6OYAKGQE4YZPVZI@getbraintree.com
+       spf=pass (google.com: domain of auto-root-mail+bncBAABB7WZ6OYAKGQE4YZPVZI@foo.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=auto-root-mail+bncBAABB7WZ6OYAKGQE4YZPVZI@foo.com
 Received: by pacru14 with SMTP id ru14sf27804921pac.0
-        for <jesse@getbraintree.com>; Tue, 13 Oct 2015 04:37:34 -0700 (PDT)
+        for <potto@foo.com>; Tue, 13 Oct 2015 04:37:34 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20130820;
         h=x-gm-message-state:mime-version:delivered-to:from:to:subject
@@ -33,52 +33,52 @@ X-Gm-Message-State: ALoCoQnMI+Pt01JDJ0dr+JXWBAa7bq0j/P7pvyc8kpYjRW2iJxLiX+l/FB1o
 X-Received: by 10.66.168.12 with SMTP id zs12mr29518024pab.37.1444736254211;
         Tue, 13 Oct 2015 04:37:34 -0700 (PDT)
 MIME-Version: 1.0
-X-BeenThere: auto-root-mail@getbraintree.com
+X-BeenThere: auto-root-mail@foo.com
 Received: by 10.140.82.102 with SMTP id g93ls3737376qgd.19.gmail; Tue, 13 Oct
  2015 04:37:33 -0700 (PDT)
 X-Received: by 10.13.214.140 with SMTP id y134mr23349572ywd.318.1444736253870;
         Tue, 13 Oct 2015 04:37:33 -0700 (PDT)
-Received: from mail4.braintreepayments.com (mail4.braintreepayments.com. [209.117.187.240])
+Received: from mail4.foo.com (mail4.foo.com. [209.117.187.240])
         by mx.google.com with ESMTP id l75si1191818ywe.130.2015.10.13.04.37.33
-        for <auto-root-mail@getbraintree.com>;
+        for <auto-root-mail@foo.com>;
         Tue, 13 Oct 2015 04:37:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of root@log01.sav.braintreepayments.com designates 209.117.187.240 as permitted sender) client-ip=209.117.187.240;
-Received: from log01.sav.braintreepayments.com (log01.sav [10.1.10.114])
-	by mail4.braintreepayments.com (Postfix) with ESMTPSA id A3AF122288
-	for <auto-root-mail@getbraintree.com>; Tue, 13 Oct 2015 11:37:33 +0000 (UTC)
-Received: by log01.sav.braintreepayments.com (Postfix)
+Received-SPF: pass (google.com: domain of root@log01.sav.foo.com designates 209.117.187.240 as permitted sender) client-ip=209.117.187.240;
+Received: from log01.sav.foo.com (log01.sav [10.1.10.114])
+	by mail4.foo.com (Postfix) with ESMTPSA id A3AF122288
+	for <auto-root-mail@foo.com>; Tue, 13 Oct 2015 11:37:33 +0000 (UTC)
+Received: by log01.sav.foo.com (Postfix)
 	id 961DAB464; Tue, 13 Oct 2015 11:37:33 +0000 (UTC)
-Delivered-To: root@log01.sav.braintreepayments.com
-Received: by log01.sav.braintreepayments.com (Postfix, from userid 0)
+Delivered-To: root@log01.sav.foo.com
+Received: by log01.sav.foo.com (Postfix, from userid 0)
 	id 954A9B459; Tue, 13 Oct 2015 11:37:33 +0000 (UTC)
-From: root@log01.sav.braintreepayments.com (Cron Daemon)
-To: root@log01.sav.braintreepayments.com
+From: root@log01.sav.foo.com (Cron Daemon)
+To: root@log01.sav.foo.com
 Subject: [sav] [production] Cron <root@log01> /usr/sbin/logster --output=graphite --graphite-host=172.23.16.210:2003 PostgresLogster /var/log/combined/postgresql/pgcluster01.log
 Content-Type: text/plain; charset=UTF-8
 X-Cron-Env: <SHELL=/bin/sh>
 X-Cron-Env: <HOME=/root>
 X-Cron-Env: <PATH=/usr/bin:/bin>
 X-Cron-Env: <LOGNAME=root>
-Message-Id: <20151013113733.954A9B459@log01.sav.braintreepayments.com>
+Message-Id: <20151013113733.954A9B459@log01.sav.foo.com>
 Date: Tue, 13 Oct 2015 11:37:33 +0000 (UTC)
-X-Original-Sender: root@log01.sav.braintreepayments.com
+X-Original-Sender: root@log01.sav.foo.com
 X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
- domain of root@log01.sav.braintreepayments.com designates 209.117.187.240 as
- permitted sender) smtp.mailfrom=root@log01.sav.braintreepayments.com
+ domain of root@log01.sav.foo.com designates 209.117.187.240 as
+ permitted sender) smtp.mailfrom=root@log01.sav.foo.com
 Precedence: list
-Mailing-list: list auto-root-mail@getbraintree.com; contact auto-root-mail+owners@getbraintree.com
-List-ID: <auto-root-mail.getbraintree.com>
-X-Spam-Checked-In-Group: auto-root-mail@getbraintree.com
+Mailing-list: list auto-root-mail@foo.com; contact auto-root-mail+owners@foo.com
+List-ID: <auto-root-mail.foo.com>
+X-Spam-Checked-In-Group: auto-root-mail@foo.com
 X-Google-Group-Id: 76684080296
-List-Post: <http://groups.google.com/a/getbraintree.com/group/auto-root-mail/post>,
- <mailto:auto-root-mail@getbraintree.com>
-List-Help: <http://support.google.com/a/getbraintree.com/bin/topic.py?topic=25838>,
- <mailto:auto-root-mail+help@getbraintree.com>
-List-Archive: <http://groups.google.com/a/getbraintree.com/group/auto-root-mail/>
-List-Subscribe: <http://groups.google.com/a/getbraintree.com/group/auto-root-mail/subscribe>,
- <mailto:auto-root-mail+subscribe@getbraintree.com>
+List-Post: <http://groups.google.com/a/foo.com/group/auto-root-mail/post>,
+ <mailto:auto-root-mail@foo.com>
+List-Help: <http://support.google.com/a/foo.com/bin/topic.py?topic=25838>,
+ <mailto:auto-root-mail+help@foo.com>
+List-Archive: <http://groups.google.com/a/foo.com/group/auto-root-mail/>
+List-Subscribe: <http://groups.google.com/a/foo.com/group/auto-root-mail/subscribe>,
+ <mailto:auto-root-mail+subscribe@foo.com>
 List-Unsubscribe: <mailto:googlegroups-manage+76684080296+unsubscribe@googlegroups.com>,
- <http://groups.google.com/a/getbraintree.com/group/auto-root-mail/subscribe>
+ <http://groups.google.com/a/foo.com/group/auto-root-mail/subscribe>
 
 Traceback (most recent call last):
   File "/usr/sbin/logster", line 305, in main

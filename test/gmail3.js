@@ -5,8 +5,8 @@ eval(fs.readFileSync('gmail3.js').toString());
 
 describe('extractEmailAddress', function() {
   it('should strip out everything but the email address', function () {
-    assert.equal('jesse@mbuki-mvuki.org', gmail3.extractEmailAddress('Jesse W. Hathaway <jesse@mbuki-mvuki.org>'));
-    assert.equal('jesse@mbuki-mvuki.org', gmail3.extractEmailAddress('jesse@mbuki-mvuki.org'));
+    assert.equal('potto@foo-bar.org', gmail3.extractEmailAddress('Potto J. Monkey <potto@foo-bar.org>'));
+    assert.equal('potto@foo-bar.org', gmail3.extractEmailAddress('potto@foo-bar.org'));
   });
 });
 
