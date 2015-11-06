@@ -264,6 +264,11 @@ function main() {
     msgConsumers = getMsgConsumers(scriptState);
   } catch (e) {
     Logger.log('Error: ' + e.message);
+    try {
+      setupNextAtTrigger(scriptState);
+    } catch (e) {
+      Logger.log('Error: Unable to schedule next at trigger: ' + e.message);
+    }
     return;
   }
 
@@ -286,7 +291,6 @@ function main() {
           emailReport(scriptState, msgConsumers);
         } catch (e) {
           Logger.log('Error: Unable to email report for the previous month: ' + e.message);
-          return;
         }
       }
     } else {
@@ -294,7 +298,6 @@ function main() {
         populateData(scriptState, msgConsumers);
       } catch (e) {
         Logger.log('Error: Unable to populate data: ' + e.message);
-        return;
       }
     }
     scriptState.dailyRunningTimeTotalSeconds += moment().diff(scriptStartTime, 'seconds');
@@ -302,7 +305,6 @@ function main() {
       setupNextAtTrigger(scriptState);
     } catch (e) {
       Logger.log('Error: Unable to schedule next at trigger: ' + e.message);
-      return;
     }
   } else {
     Logger.log('Previous month processed complete, nothing todo');
