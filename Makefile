@@ -1,3 +1,4 @@
+.PHONY: upload jshint test
 MAKEFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 SRC_DIR := $(dir $(MAKEFILE_PATH))
 
@@ -9,3 +10,9 @@ SRC_FILES += vendor-lodash:$(SRC_DIR)vendor/lodash.js
 
 upload: jshint
 	gas upload -S "$(SRC_FILES)"
+
+jshint:
+	jshint *.js
+
+test:
+	mocha
