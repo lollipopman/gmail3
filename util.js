@@ -49,9 +49,11 @@ function emailSentByRobot(rawMessage) {
     /^no-?reply@.*$/,
     /^alert@pingdom.com$/,
   ];
-  var firstHop = headers.received[headers.received.length - 1];
-  if (robotMailerRegex.test(firstHop)) {
-    msgFromRobot = true;
+  if (headers.hasOwnProperty("received")) {
+    var firstHop = headers.received[headers.received.length - 1];
+    if (robotMailerRegex.test(firstHop)) {
+      msgFromRobot = true;
+    }
   }
   for (var i = 0; i < fromRobots.length; i++) {
     if (fromRobots[i].test(headers.from)) {
