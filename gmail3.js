@@ -16,7 +16,7 @@ var gmail3 = function () {
     var blob;
 
     for(i = 0; i < msgConsumers.length; i += 1) {
-      htmlBody += msgConsumers[i].name + " <img src='cid:" + i + "'> <br>\n";
+      htmlBody += "<img src='cid:" + i + "'> <br>\n";
       blob = msgConsumers[i].chart.getAs('image/png').setName(msgConsumers[i].name + ".png");
       inlineImages[i] = blob;
     }
