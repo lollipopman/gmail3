@@ -5,5 +5,7 @@ SRC_FILES += Code:$(SRC_DIR)Code.js
 SRC_FILES += msgConsumers:$(SRC_DIR)msgConsumers.js
 SRC_FILES += util:$(SRC_DIR)util.js
 SRC_FILES += vendor-moment:$(SRC_DIR)vendor/moment.js
-upload:
+SRC_FILES += vendor-lodash:$(SRC_DIR)vendor/lodash.js
+
+upload: jshint
 	gas upload -S "$(SRC_FILES)"

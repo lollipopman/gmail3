@@ -148,7 +148,7 @@ function getScriptState() {
   }
 
   // Create a daily trigger if it does not exist
-  dailyTrigger = underscoreGS._find(scriptState.triggers, function (trigger) {
+  dailyTrigger = _.find(scriptState.triggers, function (trigger) {
     return trigger.type === "atHour";
   });
   if (dailyTrigger === undefined) {
@@ -208,7 +208,7 @@ function deleteAtTriggers(scriptState) {
   }
   var projectTriggers = ScriptApp.getProjectTriggers();
   for (var i = 0; i < projectTriggers.length; i++) {
-    trigger = underscoreGS._find(scriptState.triggers, uniqueIdMatchProjectTrigger(projectTriggers[i]));
+    trigger = _.find(scriptState.triggers, uniqueIdMatchProjectTrigger(projectTriggers[i]));
     if (trigger === undefined) {
       // We have no record of this trigger, so delete it
       ScriptApp.deleteTrigger(projectTriggers[i]);
@@ -216,7 +216,7 @@ function deleteAtTriggers(scriptState) {
       if (trigger.type === "at") {
         var uniqueId = projectTriggers[i].getUniqueId();
         ScriptApp.deleteTrigger(projectTriggers[i]);
-        scriptState.triggers = underscoreGS._reject(scriptState.triggers, uniqueIdMatch(uniqueId));
+        scriptState.triggers = _.reject(scriptState.triggers, uniqueIdMatch(uniqueId));
       }
     }
   }
