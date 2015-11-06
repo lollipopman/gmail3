@@ -1,10 +1,15 @@
 var gmail3 = function () {
   var gmail3 = {};
+  var msgConsumers = [];
+
+  function addMsgConsumer(msgConsumer) {
+    msgConsumers.push(msgConsumer);
+  }
 
   function emailReport(scriptState, msgConsumers) {
     Logger.log('Sending last months report via Email');
     for(i = 0; i < msgConsumers.length; i += 1) {
-      msgConsumers[i].graphFunction();
+      msgConsumers[i].graphFunction(scriptState);
     }
     var htmlBody = "";
     var inlineImages = {};
@@ -35,13 +40,14 @@ var gmail3 = function () {
   }
 
   function initializeSpreadSheet(scriptState) {
-    var msgConsumers = getMsgConsumers(scriptState);
+    var ss = SpreadsheetApp.openById(scriptState.ssID);
     for(i = 0; i < msgConsumers.length; i += 1) {
-      msgConsumers[i].initSpreadSheet();
+      msgConsumers[i].initSpreadSheet(ss);
     }
   }
 
   function populateData(scriptState, msgConsumers) {
+    var db = objDB.open(scriptState.ssID);
     Logger.log('Populating Data');
     // Process up to 100 gmail threads at once
     var batchSize = 100;
@@ -71,7 +77,7 @@ var gmail3 = function () {
             Logger.log('Calling Message function for, ' + msgConsumers[i].name);
           }
           try {
-            msgConsumers[i].msgFunction(msg);
+            msgConsumers[i].msgFunction(msg, db);
           } catch (e) {
             throw new Error("msgConsumer, " + msgConsumers[i].name + ", threw error: " + e.message);
           }
@@ -303,24 +309,11 @@ var gmail3 = function () {
     var currentMonth = moment().startOf('month');
     var scriptStartTime = moment();
     var scriptState = null;
-    var msgConsumers = null;
 
     try {
       scriptState = getScriptState();
     } catch (e) {
       Logger.log('Error: ' + e.message);
-      return;
-    }
-
-    try {
-      msgConsumers = getMsgConsumers(scriptState);
-    } catch (e) {
-      Logger.log('Error: ' + e.message);
-      try {
-        setupNextAtTrigger(scriptState);
-      } catch (ee) {
-        Logger.log('Error: Unable to schedule next at trigger: ' + ee.message);
-      }
       return;
     }
 
@@ -374,6 +367,7 @@ var gmail3 = function () {
   }
 
   gmail3.emailReport = emailReport;
+  gmail3.addMsgConsumer = addMsgConsumer;
   gmail3.createSpreadSheet = createSpreadSheet;
   gmail3.initializeSpreadSheet = initializeSpreadSheet;
   gmail3.populateData = populateData;

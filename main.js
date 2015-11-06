@@ -1,4 +1,5 @@
 function main() {
+  gmail3AddMsgConsumers();
   gmail3.main();
 }
 
