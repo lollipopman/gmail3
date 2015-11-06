@@ -1,5 +1,3 @@
-var moment = Moment.load();
-
 function enableDebugMode() {
   PropertiesService.getUserProperties().setProperty("debugEnabled", "true");
   Logger.log("Debugging enabled");
