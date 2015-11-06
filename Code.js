@@ -266,8 +266,8 @@ function main() {
     Logger.log('Error: ' + e.message);
     try {
       setupNextAtTrigger(scriptState);
-    } catch (e) {
-      Logger.log('Error: Unable to schedule next at trigger: ' + e.message);
+    } catch (ee) {
+      Logger.log('Error: Unable to schedule next at trigger: ' + ee.message);
     }
     return;
   }
