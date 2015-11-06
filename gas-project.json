@@ -1,19 +1,5 @@
 {
   "src": {
-    "fileId": "1lHxE7xmJACdZvXNygX57hu3OGr3NbzPiy3wAMSwmvlY7u_gC43TRRO-x",
-    "files": {
-      "Code": {
-        "path": "/home/jhathaway/email_email_email/gmail-gmail-gmail/Code.js",
-        "type": "server_js"
-      },
-      "msgConsumers": {
-        "path": "/home/jhathaway/email_email_email/gmail-gmail-gmail/msgConsumers.js",
-        "type": "server_js"
-      },
-      "util": {
-        "path": "/home/jhathaway/email_email_email/gmail-gmail-gmail/util.js",
-        "type": "server_js"
-      }
-    }
+    "fileId": "1lHxE7xmJACdZvXNygX57hu3OGr3NbzPiy3wAMSwmvlY7u_gC43TRRO-x"
   }
 }
