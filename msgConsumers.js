@@ -14,7 +14,7 @@ function getMsgConsumers(scriptState) {
     },
     msgFunction: function (msg) {
       var rawFrom = msg.getFrom();
-      var from = extractEmailAddress(rawFrom);
+      var from = gmail3.extractEmailAddress(rawFrom);
       var rows = objDB.getRows(this.db, this.name, ['From','Count'], {From:from});
       if ( rows.length === 0) {
         objDB.insertRow(this.db, this.name, {From:from, Count:1} );
@@ -53,9 +53,9 @@ function getMsgConsumers(scriptState) {
       sheet.appendRow(["MailingList", "Count"]);
     },
     msgFunction: function (msg) {
-      var headers = extractHeaders(msg.getRawContent());
+      var headers = gmail3.extractHeaders(msg.getRawContent());
       if (headers.hasOwnProperty("list-id") && headers["list-id"].length === 1) {
-        var listId = extractEmailAddress(headers["list-id"]);
+        var listId = gmail3.extractEmailAddress(headers["list-id"]);
         var rows = objDB.getRows(this.db, this.name, ['MailingList','Count'], {MailingList:listId});
         if ( rows.length === 0) {
           objDB.insertRow(this.db, this.name, {MailingList:listId, Count:1} );
@@ -95,10 +95,10 @@ function getMsgConsumers(scriptState) {
       sheet.appendRow(["From", "Count"]);
     },
     msgFunction: function (msg) {
-      var headers = extractHeaders(msg.getRawContent());
+      var headers = gmail3.extractHeaders(msg.getRawContent());
       if (! headers.hasOwnProperty("list-id")) {
         var rawFrom = msg.getFrom();
-        var from = extractEmailAddress(rawFrom);
+        var from = gmail3.extractEmailAddress(rawFrom);
         var rows = objDB.getRows(this.db, this.name, ['From','Count'], {From:from});
         if ( rows.length === 0) {
           objDB.insertRow(this.db, this.name, {From:from, Count:1} );
@@ -138,9 +138,9 @@ function getMsgConsumers(scriptState) {
       sheet.appendRow(["From", "Count"]);
     },
     msgFunction: function (msg) {
-      if (emailSentByRobot(msg.getRawContent())) {
+      if (gmail3.emailSentByRobot(msg.getRawContent())) {
         var rawFrom = msg.getFrom();
-        var from = extractEmailAddress(rawFrom);
+        var from = gmail3.extractEmailAddress(rawFrom);
         var rows = objDB.getRows(this.db, this.name, ['From','Count'], {From:from});
         if ( rows.length === 0) {
           objDB.insertRow(this.db, this.name, {From:from, Count:1} );
@@ -180,9 +180,9 @@ function getMsgConsumers(scriptState) {
       sheet.appendRow(["From", "Count"]);
     },
     msgFunction: function (msg) {
-      if (! emailSentByRobot(msg.getRawContent())) {
+      if (! gmail3.emailSentByRobot(msg.getRawContent())) {
         var rawFrom = msg.getFrom();
-        var from = extractEmailAddress(rawFrom);
+        var from = gmail3.extractEmailAddress(rawFrom);
         var rows = objDB.getRows(this.db, this.name, ['From','Count'], {From:from});
         if ( rows.length === 0) {
           objDB.insertRow(this.db, this.name, {From:from, Count:1} );
@@ -269,7 +269,7 @@ function getMsgConsumers(scriptState) {
     },
     msgFunction: function (msg) {
       var rows = objDB.getRows(this.db, this.name, ['MailingList','Human']);
-      var headers = extractHeaders(msg.getRawContent());
+      var headers = gmail3.extractHeaders(msg.getRawContent());
       if (headers.hasOwnProperty("list-id") && headers["list-id"].length === 1) {
         if (rows.length === 0) {
           objDB.insertRow(this.db, this.name, {MailingList:1, Human:0} );
