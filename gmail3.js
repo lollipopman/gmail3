@@ -79,7 +79,7 @@ var gmail3 = function () {
 
     Logger.log('Searching: ' + query);
     var threads = GmailApp.search(query, scriptState.threadIndex, batchSize);
-    if (scriptState.debugEnabled && scriptState.threadIndex > 200) {
+    if (scriptState.debugEnabled && scriptState.threadIndex >= 40) {
       scriptState.dataPopulated = true;
     } else if (threads.length === 0) {
       scriptState.dataPopulated = true;
