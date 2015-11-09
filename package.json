@@ -1,0 +1,7 @@
+{ "name": "email3",
+  "version": "1.0.0",
+  "devDependencies": {
+    "jshint": "*",
+    "gas-manager": "*"
+  }
+}
