@@ -31,6 +31,7 @@ function gmail3AddMsgConsumers() {
         .addColumn(Charts.ColumnType.STRING, "Month")
         .addColumn(Charts.ColumnType.NUMBER, "MailingList")
         .addColumn(Charts.ColumnType.NUMBER, "Human");
+      var historicalDataArray = [];
       var rows;
       var file;
       var monthDatabase;
@@ -46,12 +47,14 @@ function gmail3AddMsgConsumers() {
         monthDatabase = objDB.open(file.getId());
         rows = objDB.getRows(monthDatabase, this.name, ['MailingList','Human']);
         if (rows.length === 1) {
-          Logger.log("MailingList: " + rows[0].MailingList + " Human: " + rows[0].Human);
-          historicalData.addRow([month.format('MMM YYYY'), rows[0].MailingList, rows[0].Human]);
+          historicalDataArray.push([month.format('MMM YYYY'), rows[0].MailingList, rows[0].Human]);
         }
         months += 1;
         month = month.subtract(1, 'days').startOf('month');
         files = DriveApp.getFilesByName("gmail3 Data - " + month.format('MMM YYYY'));
+      }
+      while (historicalDataArray.length > 0) {
+        historicalData.addRow(historicalDataArray.pop());
       }
 
       var chartBuilder = Charts.newAreaChart()
