@@ -1,6 +1,7 @@
 .PHONY: upload jshint test
 MAKEFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 SRC_DIR := $(dir $(MAKEFILE_PATH))
+export PATH := $(SRC_DIR)node_modules/.bin:$(PATH)
 
 SRC_FILES += main:$(SRC_DIR)main.js
 SRC_FILES += gmail3:$(SRC_DIR)gmail3.js
