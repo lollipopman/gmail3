@@ -6,6 +6,9 @@ function gmail3AddMsgConsumers() {
       var sheet = ss.insertSheet(this.name);
       sheet.appendRow(["MailingList", "Human"]);
     },
+    isEmpty: function (db) {
+      return gmail3.isEmpty(db, this.name);
+    },
     msgFunction: function (msg, db) {
       var rows = objDB.getRows(db, this.name, ['MailingList','Human']);
       var headers = gmail3.extractHeaders(msg.getRawContent());
@@ -70,6 +73,9 @@ function gmail3AddMsgConsumers() {
       var sheet = ss.insertSheet(this.name);
       sheet.appendRow(["From", "Count"]);
     },
+    isEmpty: function (db) {
+      return gmail3.isEmpty(db, this.name);
+    },
     msgFunction: function (msg, db) {
       var rawFrom = msg.getFrom();
       var from = gmail3.extractEmailAddress(rawFrom);
@@ -106,6 +112,9 @@ function gmail3AddMsgConsumers() {
     initSpreadSheet: function (ss) {
       var sheet = ss.insertSheet(this.name);
       sheet.appendRow(["MailingList", "Count"]);
+    },
+    isEmpty: function (db) {
+      return gmail3.isEmpty(db, this.name);
     },
     msgFunction: function (msg, db) {
       var headers = gmail3.extractHeaders(msg.getRawContent());
@@ -145,6 +154,9 @@ function gmail3AddMsgConsumers() {
     initSpreadSheet: function (ss) {
       var sheet = ss.insertSheet(this.name);
       sheet.appendRow(["From", "Count"]);
+    },
+    isEmpty: function (db) {
+      return gmail3.isEmpty(db, this.name);
     },
     msgFunction: function (msg, db) {
       var headers = gmail3.extractHeaders(msg.getRawContent());
@@ -186,6 +198,9 @@ function gmail3AddMsgConsumers() {
       var sheet = ss.insertSheet(this.name);
       sheet.appendRow(["From", "Count"]);
     },
+    isEmpty: function (db) {
+      return gmail3.isEmpty(db, this.name);
+    },
     msgFunction: function (msg, db) {
       if (gmail3.emailSentByRobot(msg.getRawContent())) {
         var rawFrom = msg.getFrom();
@@ -225,6 +240,9 @@ function gmail3AddMsgConsumers() {
       var sheet = ss.insertSheet(this.name);
       sheet.appendRow(["From", "Count"]);
     },
+    isEmpty: function (db) {
+      return gmail3.isEmpty(db, this.name);
+    },
     msgFunction: function (msg, db) {
       if (! gmail3.emailSentByRobot(msg.getRawContent())) {
         var rawFrom = msg.getFrom();
@@ -263,6 +281,9 @@ function gmail3AddMsgConsumers() {
     initSpreadSheet: function (ss) {
       var sheet = ss.insertSheet(this.name);
       sheet.appendRow(["Subject", "Count"]);
+    },
+    isEmpty: function (db) {
+      return gmail3.isEmpty(db, this.name);
     },
     msgFunction: function (msg, db) {
       var fullSubject = msg.getSubject();

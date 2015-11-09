@@ -6,19 +6,33 @@ var gmail3 = function () {
     msgConsumers.push(msgConsumer);
   }
 
+  function isEmpty(db, sheet) {
+    var rows = objDB.getRows(db, sheet, [], {}, 1);
+    if (rows.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   function emailReport(scriptState, msgConsumers) {
+    var db = objDB.open(scriptState.ssID);
     Logger.log('Sending last months report via Email');
     for(i = 0; i < msgConsumers.length; i += 1) {
-      msgConsumers[i].graphFunction(scriptState);
+      if (! msgConsumers[i].isEmpty(db)) {
+        msgConsumers[i].graphFunction(scriptState);
+      }
     }
     var htmlBody = "";
     var inlineImages = {};
     var blob;
 
     for(i = 0; i < msgConsumers.length; i += 1) {
-      htmlBody += "<img src='cid:" + i + "'> <br>\n";
-      blob = msgConsumers[i].chart.getAs('image/png').setName(msgConsumers[i].name + ".png");
-      inlineImages[i] = blob;
+      if (! msgConsumers[i].isEmpty(db)) {
+        htmlBody += "<img src='cid:" + i + "'> <br>\n";
+        blob = msgConsumers[i].chart.getAs('image/png').setName(msgConsumers[i].name + ".png");
+        inlineImages[i] = blob;
+      }
     }
 
     MailApp.sendEmail({
@@ -370,6 +384,7 @@ var gmail3 = function () {
   gmail3.addMsgConsumer = addMsgConsumer;
   gmail3.createSpreadSheet = createSpreadSheet;
   gmail3.initializeSpreadSheet = initializeSpreadSheet;
+  gmail3.isEmpty = isEmpty;
   gmail3.populateData = populateData;
   gmail3.setScriptState = setScriptState;
   gmail3.getScriptState = getScriptState;
