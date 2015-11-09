@@ -36,7 +36,7 @@ function gmail3AddMsgConsumers() {
       var monthDatabase;
       var months = 0;
       var month = scriptState.monthToProcess.clone();
-      var files = DriveApp.getFilesByName("Email3 Data - " + month.format('MMM YYYY'));
+      var files = DriveApp.getFilesByName("gmail3 Data - " + month.format('MMM YYYY'));
       while (months < 11 && files.hasNext()) {
         file = files.next();
         if (file.isTrashed()) {
@@ -51,7 +51,7 @@ function gmail3AddMsgConsumers() {
         }
         months += 1;
         month = month.subtract(1, 'days').startOf('month');
-        files = DriveApp.getFilesByName("Email3 Data - " + month.format('MMM YYYY'));
+        files = DriveApp.getFilesByName("gmail3 Data - " + month.format('MMM YYYY'));
       }
 
       var chartBuilder = Charts.newAreaChart()

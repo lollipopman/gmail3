@@ -37,7 +37,7 @@ var gmail3 = function () {
 
     MailApp.sendEmail({
       to: Session.getActiveUser().getEmail(),
-      subject: "Email3 - " + scriptState.monthToProcess.format('MMM YYYY'),
+      subject: "[gmail3] - " + "Gmail usage analysis for " + scriptState.monthToProcess.format('MMMM YYYY'),
       htmlBody: htmlBody,
       inlineImages: inlineImages
     });
@@ -45,7 +45,7 @@ var gmail3 = function () {
   }
 
   function createSpreadSheet(monthToProcess) {
-    var ssNew = SpreadsheetApp.create("Email3 Data - " + monthToProcess.format('MMM YYYY'));
+    var ssNew = SpreadsheetApp.create("gmail3 Data - " + monthToProcess.format('MMM YYYY'));
     var ssID = ssNew.getUrl().split('/')[7];
     // This is needed so we can use the Google Visualization API Query Language
     // to set the data source URL for graphs
@@ -332,7 +332,7 @@ var gmail3 = function () {
     }
 
     if (scriptState.monthToProcess.isBefore(currentMonth)) {
-      Logger.log("Beginning processing of: Email3 - " + scriptState.monthToProcess.format('MMM YYYY'));
+      Logger.log("Beginning processing of: gmail3 - " + scriptState.monthToProcess.format('MMM YYYY'));
       if (scriptState.dataPopulated) {
         if (scriptState.reportEmailed) {
           try {
