@@ -1,7 +1,7 @@
 ## gmail3 - Gmail Usage Analysis
 
 This is script analyzes your Gmail usage and provides a monthly report of where
-you email comes from.
+your email comes from.
 
 ### Usage
 
