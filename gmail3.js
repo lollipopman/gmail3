@@ -315,7 +315,7 @@ var gmail3 = function () {
   }
 
   function main() {
-    var lock = LockService.getScriptLock();
+    var lock = LockService.getUserLock();
     if (!lock.tryLock(1000)) {
       Logger.log('Could not obtain lock after a second');
       return;
