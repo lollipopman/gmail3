@@ -5,7 +5,7 @@ your email comes from.
 
 ### Usage
 
-1. Add the script to your Google Drive: [email3](https://script.google.com/d/1zTItVofASkaDrLxX8ot-A_HpahnTLWL7v4RHIIYzWgUFbs0EC6zV4j5_/edit?usp=sharing)
+1. Add the script to your Google Drive: [gmail3](https://script.google.com/d/1zTItVofASkaDrLxX8ot-A_HpahnTLWL7v4RHIIYzWgUFbs0EC6zV4j5_/edit?usp=sharing)
 
 1. Open up main.gs and run the main function, this will kick off the first run
    and when finished schedule a trigger in the future. Once the first run is
@@ -24,8 +24,8 @@ from your Drive.
 npm install
 ```
 
-1. Create a script project in your Google Drive called email3
-  - Create the following files in the email3 project, their contents do not
+1. Create a script project in your Google Drive called gmail3
+  - Create the following files in the gmail3 project, their contents do not
     matter, but the file must exist for gas-manager to upload successfully.
       - main
       - gmail3
