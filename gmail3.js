@@ -36,7 +36,7 @@ var gmail3 = function () {
     }
 
     MailApp.sendEmail({
-      to: Session.getActiveUser().getEmail(),
+      to: Session.getEffectiveUser().getEmail(),
       subject: "[gmail3] - " + "Gmail usage analysis for " + scriptState.monthToProcess.format('MMMM YYYY'),
       htmlBody: htmlBody,
       inlineImages: inlineImages
