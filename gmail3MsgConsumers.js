@@ -323,7 +323,7 @@ function gmail3AddMsgConsumers() {
       .setTitle(this.name)
       .setDimensions(1024, 768)
       .setOption('fontSize', 18)
-      .setOption('vAxis', {title: "Application Error Partial Subject", textStyle: {fontSize: 10}})
+      .setOption('vAxis', {title: "Application Error Partial Subject", textStyle: {fontSize: 12}})
       .setOption('hAxis', {title: "Message Count", format: "decimal"})
       .setOption('chartArea', {left: '50%'})
       .setDataSourceUrl(dataSourceURL);
