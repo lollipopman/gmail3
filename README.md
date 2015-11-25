@@ -8,17 +8,16 @@ your email comes from.
 
 ### Usage
 
-1. Add the script to your Google Drive: [gmail3](https://script.google.com/d/1zTItVofASkaDrLxX8ot-A_HpahnTLWL7v4RHIIYzWgUFbs0EC6zV4j5_/edit?usp=sharing)
+1. Open the script: [gmail3](https://script.google.com/d/1zTItVofASkaDrLxX8ot-A_HpahnTLWL7v4RHIIYzWgUFbs0EC6zV4j5_/edit?usp=sharing)
 
-1. Open up main.gs and run the main function, this will kick off the first run
-   and when finished schedule a trigger in the future. Once the first run is
-   completed you can close the script and it should continue to run at regular
-   intervals in Google's datacenters.
+1. Open up the main.gs file and run the main function, this will kick off the
+   first run and when finished schedule a trigger in the future to run the
+   script again. Once the first run is completed you can close the script and it
+   should continue to run at regular intervals in Google's datacenters.
 
 ### Removal
 
-To remove the script run the resetScriptState function and then delete the file
-from your Drive.
+To remove the script open it up and run the resetScriptState function.
 
 ### Development
 
@@ -50,3 +49,7 @@ gas init
 1. Make some changes
 
 1. Run `make` to upload your changes.
+
+1. Test you changes
+
+1. Submit a pull request
