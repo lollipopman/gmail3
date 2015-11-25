@@ -3,6 +3,9 @@
 This script analyzes your Gmail usage and provides a monthly report of where
 your email comes from.
 
+![Historical Email Volume](https://raw.github.com/lollipopman/gmail3/master/images/historical_email_volume.png)
+![Top Mailing Lists](https://raw.github.com/lollipopman/gmail3/master/images/top_mailing_lists.png)
+
 ### Usage
 
 1. Add the script to your Google Drive: [gmail3](https://script.google.com/d/1zTItVofASkaDrLxX8ot-A_HpahnTLWL7v4RHIIYzWgUFbs0EC6zV4j5_/edit?usp=sharing)
