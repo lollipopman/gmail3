@@ -1,0 +1,49 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: bar@foo.com
+Received: by 10.36.1.207 with SMTP id 198csp1231863itk;
+        Sun, 29 Nov 2015 22:58:54 -0800 (PST)
+X-Received: by 10.140.159.206 with SMTP id f197mr19926643qhf.72.1448866734765;
+        Sun, 29 Nov 2015 22:58:54 -0800 (PST)
+Return-Path: <no-reply@pagerduty.com>
+Received: from mail-p1.pagerduty.com (mail-p1.pagerduty.com. [184.173.153.23])
+        by mx.google.com with ESMTPS id 94si44234914qkt.38.2015.11.29.22.58.54
+        for <bar@foo.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 29 Nov 2015 22:58:54 -0800 (PST)
+Received-SPF: pass (google.com: domain of no-reply@pagerduty.com designates 184.173.153.23 as permitted sender) client-ip=184.173.153.23;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of no-reply@pagerduty.com designates 184.173.153.23 as permitted sender) smtp.mailfrom=no-reply@pagerduty.com;
+       dkim=pass header.i=@pagerduty.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=pagerduty.com; q=dns/txt;
+ s=k1; t=1448866734; h=Content-Transfer-Encoding: Mime-Version:
+ Content-Type: Subject: From: To: Message-Id: Date;
+ bh=fI6y3epUun+x/bYOSVXrmF9gWjUCzM39iSWZOQ/TyVw=; b=ekd/b5RC1MgyB44VQco6lEVVufm78g3gM5hzfBRifZmqCYY7qBF98pfA1KSBLQ4ycaukRqCS
+ Bb3U8VxP9BU9HslBS3lhHE3KlH8vMFzrCHnW+Ep8i4xR+N8ATFFqpTW1JwBhQxHE3rd3Hswz
+ yV3GDwzqGS1ZlbjBTkmcrCWBvAI=
+DomainKey-Signature: a=rsa-sha1; c=nofws; d=pagerduty.com; s=k1; q=dns;
+ h=Date: Message-Id: To: From: Subject: Content-Type: Mime-Version:
+ Content-Transfer-Encoding;
+ b=J+Dl7xmcyIFaU8USgU8blf/6okJ2DZ3xKu28E2q+P2Nhk1ZPGx/tNthFrxYpHhdXg+f5Mm
+ F0nTqvP1LpHx2BxpcyvcLpaL62gB8fLCEIrafaQX1ink5K11g6wM6JUtNuEMJxeRDTSJKgOY
+ DPvU0dW77up5cnyOIXOCO3iEqiaI0=
+Date: Mon, 30 Nov 2015 06:58:54 +0000
+X-Mailgun-Sid: WyJkY2EzMCIsICJqZXNzZS5oYXRoYXdheUBnZXRicmFpbnRyZWUuY29tIiwgIjU1ZSJd
+Received: by luna.mailgun.net with HTTP; Mon, 30 Nov 2015 06:58:54 +0000
+Message-Id: <20151130065854.22394.8914@pagerduty.com>
+Auto-Submitted: auto-generated
+X-Mailgun-Native-Send: true
+To: bar@foo.com
+From: PagerDuty ALERT <no-reply@pagerduty.com>
+Subject: [PagerDuty ALERT] You have 1 TRIGGERED Incident (bb8e8)
+Content-Type: text/plain; charset="ascii"
+Mime-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+Hello bar,
+
+You are assigned 1 triggered incident in PagerDuty:
+Please visit the following URL to manage this incident.
+https://foo.pagerduty.com/dashboard
+
+You can disable these messages by adjusting your notification methods:
+https://foo.pagerduty.com/users/PCU9YSA

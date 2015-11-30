@@ -294,6 +294,7 @@ var gmail3 = function () {
   function emailSentByRobot(rawMessage) {
     var msgFromRobot = false;
     var headers = extractHeaders(rawMessage);
+    var from = extractEmailAddress(headers.from);
     var robotMailerRegex = /\s\(Postfix/;
     var fromRobots = [
       /^no-?reply@.*$/,
@@ -306,7 +307,7 @@ var gmail3 = function () {
       }
     }
     for (var i = 0; i < fromRobots.length; i++) {
-      if (fromRobots[i].test(headers.from)) {
+      if (fromRobots[i].test(from)) {
         msgFromRobot = true;
         break;
       }
