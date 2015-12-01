@@ -1,0 +1,62 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: jesse.hathaway@braintreepayments.com
+Received: by 10.36.73.150 with SMTP id e22csp214498itd;
+        Wed, 29 Jul 2015 12:39:41 -0700 (PDT)
+X-Received: by 10.67.8.71 with SMTP id di7mr98462806pad.46.1438198780586;
+        Wed, 29 Jul 2015 12:39:40 -0700 (PDT)
+Return-Path: <apache@liweb3.mia2.plx>
+Received: from lidns1.mia2.plx (rt.prolexic.com. [209.200.133.176])
+        by mx.google.com with ESMTPS id 8si2594338pdi.42.2015.07.29.12.39.39
+        for <jesse.hathaway@braintreepayments.com>
+        (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 29 Jul 2015 12:39:40 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.200.133.176 is neither permitted nor denied by best guess record for domain of apache@liweb3.mia2.plx) client-ip=209.200.133.176;
+Authentication-Results: mx.google.com;
+       spf=neutral (google.com: 209.200.133.176 is neither permitted nor denied by best guess record for domain of apache@liweb3.mia2.plx) smtp.mail=apache@liweb3.mia2.plx
+Received: from liweb3.mia2.plx (netscaler-mip1.mia2.plx [209.200.133.123])
+	by lidns1.mia2.plx (8.14.4/8.13.1) with ESMTP id t6TJcMKt008022
+	for <jesse.hathaway@braintreepayments.com>; Wed, 29 Jul 2015 19:39:35 GMT
+Received: from liweb3.mia2.plx (localhost [127.0.0.1])
+	by liweb3.mia2.plx (Postfix) with ESMTP id 67F40101810
+	for <jesse.hathaway@braintreepayments.com>; Wed, 29 Jul 2015 19:39:35 +0000 (GMT)
+Received: (from apache@localhost)
+	by liweb3.mia2.plx (8.14.4/8.14.4/Submit) id t6TJdZXe015110;
+	Wed, 29 Jul 2015 19:39:35 GMT
+Date: Wed, 29 Jul 2015 19:39:35 GMT
+Message-Id: <201507291939.t6TJdZXe015110@liweb3.mia2.plx>
+To: jesse.hathaway@braintreepayments.com
+Subject: 08-05-2015 - AKAMAI TECHNOLOGIES – FRA2 – PLANNED MAINTENANCE NOTIFICATION
+X-PHP-Originating-Script: 0:ccMailCron.php
+From: support@prolexic.com
+Reply-To: support@prolexic.com
+Organization: Akamai Technologies 
+MIME-Version: 1.0
+Content-type: text=plain; charset=iso-8859-1
+Content-Transfer-Encoding: binary
+X-Priority: 3
+X-Mailer: PHP5.5.11
+
+
+Location(s): Frankfurt (FRA2)
+Date: Wednesday Aug 5, 2015 22:00:00 UTC to Thursday, Aug 6, 2015 02:00 UTC 
+Duration: 4 hours
+Priority: Normal
+Reason:  Preparation to add equipment to the Frankfurt scrubbing center that will facilitate Akamai’s expansion of production traffic handling capacity.
+Description:  Akamai Technologies will be carrying out maintenance between Wednesday Aug 5, 2015 22:00:00 UTC to Thursday, Aug 6, 2015 02:00 UTC.
+During the maintenance Anycast will be pulled from the Frankfurt scrubbing center. Customer may see tunnel flaps however these alerts can be safely ignored as the corresponding BGP session will be down in the Frankfurt scrubbing center.
+Once the Frankfurt scrubbing center has Anycast removed, customers will see a re-convergence of sessions to the nearest relevant scrubbing centers which in this case will most likely be LON and DCA. At the end of this maintenance window the FRA2 site will re-announce Anycast and route traffic normally. Please do not hesitate to contact the Akamai Security Operations Center should you have any questions or concerns.
+
+Samir Wong
+Escalation Manager
+Global Security Operations
+Akamai Technologies
+====================================================
+Contact Details
+====================================================
+Security Operations Center
+Main: 866-800-0366 (from US)
+Direct: 954-620-6002
+Email: managedsecurity@akamai.com
+
+
+
