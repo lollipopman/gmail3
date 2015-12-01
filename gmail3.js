@@ -298,6 +298,7 @@ var gmail3 = function () {
     var robotMailerRegex = /\s\(Postfix/;
     var fromRobots = [
       /^no-?reply@.*$/,
+      /^do-?not-?reply@.*$/,
       /^alert@pingdom.com$/,
     ];
     if (headers.hasOwnProperty("received")) {
