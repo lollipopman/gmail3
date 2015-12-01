@@ -1,3 +1,5 @@
+![Travis](https://travis-ci.org/lollipopman/gmail3.svg?branch=master)
+
 ## gmail3 - Gmail Usage Analysis
 
 This script analyzes your Gmail usage and provides a monthly report of where
