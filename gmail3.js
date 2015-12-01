@@ -299,6 +299,7 @@ var gmail3 = function () {
     var robotMailers = [
       /\s\(Postfix/,
       /mailgun.net/,
+      /sendgrid.net/,
     ];
     var fromRobots = [
       /^no-?reply@.*$/,
