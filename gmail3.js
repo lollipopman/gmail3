@@ -306,7 +306,10 @@ var gmail3 = function () {
       /^do-?not-?reply@.*$/,
       /^alert@pingdom.com$/,
     ];
-    if (headers.hasOwnProperty("received")) {
+    if (headers.hasOwnProperty("x-php-originating-script")) {
+      msgFromRobot = true;
+    }
+    if (! msgFromRobot && headers.hasOwnProperty("received")) {
       var firstHop = headers.received[headers.received.length - 1];
       for (i = 0; i < robotMailers.length; i++) {
         if (robotMailers[i].test(firstHop)) {
@@ -315,10 +318,12 @@ var gmail3 = function () {
         }
       }
     }
-    for (i = 0; i < fromRobots.length; i++) {
-      if (fromRobots[i].test(from)) {
-        msgFromRobot = true;
-        break;
+    if (! msgFromRobot) {
+      for (i = 0; i < fromRobots.length; i++) {
+        if (fromRobots[i].test(from)) {
+          msgFromRobot = true;
+          break;
+        }
       }
     }
     return msgFromRobot;
