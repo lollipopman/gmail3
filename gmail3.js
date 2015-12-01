@@ -311,6 +311,7 @@ var gmail3 = function () {
       /\s\(Postfix/,
       /mailgun.net/,
       /sendgrid.net/,
+      /smtp-out.amazonses.com/,
     ];
     var fromRobots = [
       /^no-?reply@.*$/,
