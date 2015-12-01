@@ -14,9 +14,15 @@ your email comes from.
 
 1. Open up the main.gs file and run the main function, this will kick off the
    first run and when finished schedule a trigger in the future to run the
-  script again. Once the first run is completed you can close the script and it
-  should continue to run at regular intervals in Google's datacenters. Think of
-  it as a cron job running at Google.
+   script again. Once the first run is completed you can close the script and it
+   should continue to run at regular intervals in Google's datacenters. Think of
+   it as a cron job running at Google.
+
+1. Wait for the report to arrive in your inbox. How long this will take depends
+   on your email volume. For example if you receive 6000 emails a month, it may
+   take two or more days to process your inbox and receive a report, this is
+   because, Google restricts the amount of processing time you are allowed per
+   day.
 
 ### Removal
 
