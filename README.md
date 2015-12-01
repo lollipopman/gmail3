@@ -12,8 +12,9 @@ your email comes from.
 
 1. Open up the main.gs file and run the main function, this will kick off the
    first run and when finished schedule a trigger in the future to run the
-   script again. Once the first run is completed you can close the script and it
-   should continue to run at regular intervals in Google's datacenters.
+  script again. Once the first run is completed you can close the script and it
+  should continue to run at regular intervals in Google's datacenters. Think of
+  it as a cron job running at Google.
 
 ### Removal
 
