@@ -1,0 +1,466 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: jesse.hathaway@getbraintree.com
+Received: by 10.36.104.69 with SMTP id v66csp520365itb;
+        Sat, 21 Nov 2015 09:03:05 -0800 (PST)
+X-Received: by 10.13.251.2 with SMTP id l2mr18012194ywf.44.1448125385895;
+        Sat, 21 Nov 2015 09:03:05 -0800 (PST)
+Return-Path: <devs+bncBCVPDA6D24PBBSOHYKZAKGQEGSTGB3A@getbraintree.com>
+Received: from mail-vk0-x246.google.com (mail-vk0-x246.google.com. [2607:f8b0:400c:c05::246])
+        by mx.google.com with ESMTPS id c64si3236888ywd.410.2015.11.21.09.03.05
+        for <jesse.hathaway@getbraintree.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 21 Nov 2015 09:03:05 -0800 (PST)
+Received-SPF: pass (google.com: domain of devs+bncBCVPDA6D24PBBSOHYKZAKGQEGSTGB3A@getbraintree.com designates 2607:f8b0:400c:c05::246 as permitted sender) client-ip=2607:f8b0:400c:c05::246;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of devs+bncBCVPDA6D24PBBSOHYKZAKGQEGSTGB3A@getbraintree.com designates 2607:f8b0:400c:c05::246 as permitted sender) smtp.mailfrom=devs+bncBCVPDA6D24PBBSOHYKZAKGQEGSTGB3A@getbraintree.com;
+       dkim=pass header.i=@statuspage-io.20150623.gappssmtp.com;
+       dmarc=fail (p=NONE dis=NONE) header.from=statuspage.io
+Received: by vkfr145 with SMTP id r145sf45319759vkf.1
+        for <jesse.hathaway@getbraintree.com>; Sat, 21 Nov 2015 09:03:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=statuspage-io.20150623.gappssmtp.com; s=20150623;
+        h=sender:date:message-id:to:from:subject:mime-version:content-type
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=3sHPOJ0w5OHwkuBwN5ZQuS/1oWAHtbHcLG5QEk/fCGI=;
+        b=xDVll6xH0EtPG3vpKjAAVNbwku35XMfrRNAtY2Tria9yklN4qXmYkigjLt05kqsLGC
+         I2o99RTad2wDhfUBCpW7xCjEi4Gtzc8EgHijrATzfmgHrTvtri9DibpEosCEp6929X0J
+         hMxH11RLEog5GIuxaudvVhHbprmSDPrDdMxlI9PPkCP20n1R/nD+VnyzWXu+B/QGbGzS
+         o3/jfZB9RLQ0nAE2osYqutcgouAutvM5ooTdUBnzaCqIHT43t3mX3Sx5+cm1JfonbpV1
+         5nSmTEdyd248W/2HqckRjx7JBd7+el/jg1xNUrQkXIJJWXvRjSgULxLrwuxbFeg2Af1T
+         tZCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20130820;
+        h=x-gm-message-state:sender:date:message-id:to:from:subject
+         :mime-version:content-type:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=3sHPOJ0w5OHwkuBwN5ZQuS/1oWAHtbHcLG5QEk/fCGI=;
+        b=aSGjKsDMyrapjiCj/dpOZ4pCDiZAIbV/XHMs2eeeFMjCEQ1tQLgOzpntDyRg0sioXh
+         4WngLNXsFH+gtxGpj8bae8GBDiop7zk4oReAW1c/JQK8MeNFO/62dWviei3mF9ROmJA+
+         8vJ/G1vNdQJs3cX1qtIzHFZFFQvXVOMlHeUjMNNozjNUE//W7SaA8my9kjSrxlzvGAWA
+         bIPhpXvwSbDWz86bbgcFO1Xwjb1ccl39M0bus+ed8RqYO873XrhKCMUdpUqmhoZj6xxc
+         E3deBh0U90e6HW3JoXdUXQOW382xa9Y/24zSVsyY9rWf+3nOzp51/7te3QciXRkjjOv0
+         9r+g==
+X-Gm-Message-State: ALoCoQm0UtBi1aKbnREf6+iTTuGuAAwUbu39IMq4xRXUp9zvnlRAB7hC/bGbDVCNQOZjkJdjBpM8
+X-Received: by 10.129.155.23 with SMTP id s23mr18317062ywg.9.1448125385302;
+        Sat, 21 Nov 2015 09:03:05 -0800 (PST)
+X-BeenThere: devs@getbraintree.com
+Received: by 10.107.157.20 with SMTP id g20ls1293387ioe.74.gmail; Sat, 21 Nov
+ 2015 09:03:04 -0800 (PST)
+X-Received: by 10.107.6.152 with SMTP id f24mr19197658ioi.50.1448125384825;
+        Sat, 21 Nov 2015 09:03:04 -0800 (PST)
+Received: from m69-146.mailgun.net (m69-146.mailgun.net. [166.78.69.146])
+        by mx.google.com with ESMTPS id g2si3920659igc.14.2015.11.21.09.03.04
+        for <devs+statuspage@braintreepayments.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 21 Nov 2015 09:03:04 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce+f42a63.a492a-devs+statuspage=braintreepayments.com@statuspage.io designates 166.78.69.146 as permitted sender) client-ip=166.78.69.146;
+Sender: hi@statuspage.io
+Date: Sat, 21 Nov 2015 17:03:04 +0000
+X-Mailgun-Sid: WyI3ZTUzMiIsICJkZXZzK3N0YXR1c3BhZ2VAYnJhaW50cmVlcGF5bWVudHMuY29tIiwgImE0OTJhIl0=
+Received: by luna.mailgun.net with HTTP; Sat, 21 Nov 2015 17:03:03 +0000
+Message-Id: <7c22bde8-7ccc-4d92-9f28-ff0ba44ec6c6@notifications.statuspage.io>
+To: devs+statuspage@braintreepayments.com
+From: "StatusPage.io" <hi@statuspage.io>
+Subject: StatusPage.io payment receipt
+Mime-Version: 1.0
+Content-Type: multipart/mixed; boundary="dbf31f89c82f4b68a8a0d3e84168edec"
+X-Original-Sender: hi@statuspage.io
+X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
+ domain of bounce+f42a63.a492a-devs+statuspage=braintreepayments.com@statuspage.io
+ designates 166.78.69.146 as permitted sender) smtp.mailfrom=bounce+f42a63.a492a-devs+statuspage=braintreepayments.com@statuspage.io;
+       dkim=pass header.i=@statuspage.io;       dmarc=pass (p=NONE dis=NONE) header.from=statuspage.io
+Precedence: list
+Mailing-list: list devs@getbraintree.com; contact devs+owners@getbraintree.com
+List-ID: <devs.getbraintree.com>
+X-Spam-Checked-In-Group: devs@getbraintree.com
+X-Google-Group-Id: 537625018563
+List-Post: <http://groups.google.com/a/getbraintree.com/group/devs/post>, <mailto:devs@getbraintree.com>
+List-Help: <http://support.google.com/a/getbraintree.com/bin/topic.py?topic=25838>,
+ <mailto:devs+help@getbraintree.com>
+List-Archive: <http://groups.google.com/a/getbraintree.com/group/devs/>
+List-Subscribe: <http://groups.google.com/a/getbraintree.com/group/devs/subscribe>,
+ <mailto:devs+subscribe@getbraintree.com>
+List-Unsubscribe: <mailto:googlegroups-manage+537625018563+unsubscribe@googlegroups.com>,
+ <http://groups.google.com/a/getbraintree.com/group/devs/subscribe>
+
+--dbf31f89c82f4b68a8a0d3e84168edec
+Content-Type: text/html; charset="ascii"
+Mime-Version: 1.0
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>StatusPage.io Tips</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+      /* RESET START *//* RESET START *//* RESET START */
+      /* RESET START *//* RESET START *//* RESET START */
+      /* RESET START *//* RESET START *//* RESET START */
+      #outlook a{padding:0;} 
+      .ReadMsgBody{width:100%;} .ExternalClass{width:100%;} 
+      .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} 
+      body, table, td, a{-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;} 
+      table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;} 
+      img{-ms-interpolation-mode:bicubic;} 
+      a { color: #3498db;}
+      
+      body{margin:0; padding:0;}
+      img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none;}
+      table{border-collapse:collapse !important;}
+      body{height:100% !important; margin:0; padding:0; width:100% !important;}
+      .appleBody a {color:#88b3bf; text-decoration: none;}
+      .appleBody2 a {color:#ffffff; text-decoration: none;}
+      .appleBody3 a {color: #999999; text-decoration: none;}
+      .appleBody4 a {color: #818179; text-decoration: none;}
+      .appleFooter a {color:#999999; text-decoration: none;}
+      .appleEvents a {color: #404141; font-weight:bold; text-decoration: none;}
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+        img[class="img-hide"] {display: none !important;}
+        td[class="display-block"] {display: block !important;}
+        div[class="display-block"] {display: block !important;}
+        td[class="make-it-snow"]{display:none !important;}
+      }
+      /*RESET END *//*RESET END *//*RESET END */
+      /*RESET END *//*RESET END *//*RESET END */
+      /*RESET END *//*RESET END *//*RESET END */
+
+        td[class="logo"] img{
+          margin:0 auto!important;
+        }
+
+      @media screen and (max-width: 525px) {
+        table[class="wrapper"]{
+          width:100% !important;
+        }
+
+        td[class="logo"]{
+          text-align: left;
+          padding: 20px 0 20px 0 !important;
+        }
+
+        td[class="mobile-hide"]{
+          display:none !important;
+        }
+
+        img[class="mobile-hide"]{
+          display: none !important;
+        }
+
+        img[class="img-max"]{
+          max-width: 100%;
+          height:auto;
+        }
+
+        table[class="responsive-table"]{
+          width:100%!important;
+        }
+        
+        td[class="padding"] { 
+          padding: 10px 5% 10px 5% !important;
+          text-align: left;
+        }
+        
+        td[class="section-padding"]{
+          padding: 50px 15px 50px 15px !important;
+        }
+
+        td[class="section-padding2"]{
+          padding: 50px 15px 0 15px !important;
+        }
+      }
+    </style>
+    <meta name="robots" content="noindex,nofollow">
+    <meta property="og:title" content="Be a downtime superhero">
+  </head>
+
+
+  <body style="margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;height:100% !important;width:100% !important;">
+
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse !important;border-bottom:1px solid #ebe8e4;border-top:1px solid #ebe8e4">
+      <tbody>
+        <tr>
+          <td bgcolor="#ffffff" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+            <div align="center" style="padding-top:0px;padding-bottom:0px;padding-right:15px;padding-left:15px;">
+              <table border="0" cellpadding="0" cellspacing="0" width="500" class="wrapper" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse !important;">
+                <tbody>
+                  <tr>
+                    <td class="logo" style="padding-top:20px;padding-bottom:20px;padding-right:0px;padding-left:0px;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse !important;">
+                        <tbody>
+                          <tr>
+                            <td bgcolor="#ffffff" width="254" align="left" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                              <a href="http://www.statuspage.io" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
+                                <img alt="StatusPage.io" src="http://statuspage-email.s3.amazonaws.com/feature-spotlight/top-logo.png" width="254" height="40" border="0" style="display:block;font-family:Georgia;font-style:italic;color:#333333;font-size:19px;-ms-interpolation-mode:bicubic;border-width:0;height:auto;line-height:100%;outline-style:none;text-decoration:none;">
+                              </a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse !important;">
+      <tbody>
+        <tr>
+          <td bgcolor="#f7f5f2" align="center" class="section-padding" style="padding-top:40px;padding-bottom:40px;padding-right:15px;padding-left:15px;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;background:#F7F5F2">
+            <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse !important;">
+              <tbody>
+                <tr>
+                  <td style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse !important;">
+                      <tbody>
+                        <tr>
+                          <td align="left" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;font-size:14px;line-height:21px;color:#333;">
+
+                            <p>Thanks for being a StatusPage.io customer. Your payment is much appreciated! Your account now has no balance, and this payment's receipt PDF is attached.</p>
+
+<p>- The StatusPage.io Team</p>
+                            
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td bgcolor="#ffffff" align="center" class="section-padding" style="padding-top:40px;padding-bottom:40px;padding-right:15px;padding-left:15px;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;background:#ffffff;border-top:1px solid #ebe8e4">
+            <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse !important;">
+              <tbody>
+                <tr>
+                  <td style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse !important;">
+                      <tbody>
+                        <tr>
+                          <td align="left" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;font-size:14px;line-height:21px;color:#333;">
+                            <p style="font-weight:bold;margin-bottom:10px">Here's What We've Been Working On Lately</p>
+<ul style="color:#666666">
+    <li>New Third-Party Components </li>
+    <li>Single Sign-on with SAML </li>
+    <li>Import Subscribers Via CSV </li>
+</ul>                              
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+    
+    
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse !important;">
+      <tbody>
+        <tr>
+          <td bgcolor="#333434" align="center" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse !important;">
+              <tbody>
+                <tr>
+                  <td style="padding-top:20px;padding-bottom:20px;padding-right:0px;padding-left:0px;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                    <table width="500" border="0" cellspacing="0" cellpadding="0" align="center" class="responsive-table" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse !important;">
+                      <tbody>
+                        <tr>
+                          <td width="190" valign="middle" class="mobile-hide" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                            <a href="http://www.statuspage.io" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
+                              <img alt="StatusPage.io" src="http://statuspage-email.s3.amazonaws.com/feature-spotlight/bottom-logo.png" width="190" height="28" border="0" style="display:block;font-family:Arial;color:#ffffff;font-size:14px;-ms-interpolation-mode:bicubic;border-width:0;height:auto;line-height:100%;outline-style:none;text-decoration:none;">
+                            </a>
+                          </td>
+                          <td width="30" style="-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">&nbsp;</td>
+                          <td align="left" width="280" valign="middle" style="font-size:12px;line-height:18px;font-family:Helvetica, Arial, sans-serif;color:#999999;-webkit-text-size-adjust:none;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                            <span class="appleFooter" style="color:#999999;-webkit-text-size-adjust:none;">1644 Platte St, 4th Floor, Denver, CO, 80202</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+  
+  </body>
+</html>
+--dbf31f89c82f4b68a8a0d3e84168edec
+Content-Disposition: attachment; filename="statuspage_2015_11_7OQeLbYSBSEcEI.pdf"
+Content-Type: application/pdf; name="statuspage_2015_11_7OQeLbYSBSEcEI.pdf"
+Mime-Version: 1.0
+Content-Transfer-Encoding: base64
+
+JVBERi0xLjQKJeLjz9MKNCAwIG9iaiA8PC9UeXBlL1hPYmplY3QvQ29sb3JTcGFjZS9EZXZpY2VH
+cmF5L1N1YnR5cGUvSW1hZ2UvQml0c1BlckNvbXBvbmVudCA4L1dpZHRoIDU2Mi9MZW5ndGggNTAy
+OC9IZWlnaHQgOTAvRmlsdGVyL0ZsYXRlRGVjb2RlPj5zdHJlYW0KeJztXX9kI08UD6GEUEIIIZRQ
+jnCEUko5SimllHIc4VhKCKGEUkoopYQSllLKUUoppRyllFKWUkopJZQSSgghhP0mm/3x3sybmU2T
++yb3/e7nv8zOTN7MfmbmzXtvZkOhAAECBAgQIECA/yxi2R5i4xYjwF+A+Frl8tl08HxZWQt4E0CI
+TPnR5PFQnh23YAEmEdGCQdClDyMfHbd4ASYM09sfQr708LE9PW4RA0wQwoWGlC89NPLhcYsZYFIw
+/6Dki6XQzI1b0AATgfCuL7500dkZt6wBJgDJa7+E6eI6MW5xA4wbmfcBCGOatS/jFjjAeLGoVnkx
+PubHLXKAceJba0DCmOZzsGX6HyMtN8JQqM34qTiT/2X0NmCvhr4V7LAmAoaHm09XMv30RwiT2HlD
+ZT70hU+LGGBUAC+k8dk6wpciXhiXuq5fEl6DWkpZ6/QhUeHd4meFnBhQ3XSva9lxy+UXo2DMPsmW
+38WMmyNT/D0oYTbqNAlv/3bO0M0yzffK3zGDjoAxP4jmN8uswSWx1xyEMCVRx5rmL+SZmsk6mPqk
+/BbcWv64f13cMNP4G0bD8IxJ8Fpvp0oZ6BLVjm/C0NOWjbdlkPPeTVbXKkbKreV2iFp8QdYy88rX
+fmCsGJ4xv7hm34vG6ey9T8KsS7vVNMtuzlhnJIzRJoQx5sfETzNDM2aBa/SxeHmIHPsiDDFtIbQ9
+69+qlzoMYzzaj5kxZjv3pwUYEkMz5oZpcackzV569fFi+WkLQ/OyVkfDGI+i42aM2Vn90xIMh2EZ
+w00x3xUFfOinyQ5bKcYRyAvCQ4dgTMarZeyMMZuTrcvoHiqfKX/FNHdrBDIVUY2NqvZdq4Ld+R0g
+XRJkHIIx4B/Hzxjz8k+LME6kmcaeoqepon5jGEd7A2pzyHZTsSODkzu2c/w9CbJ+Hw1jgAny32RM
+p2dqJ6LQ/stO2jJu6gsI/A7/9FaM+sEgZ0+g3qt7ydFyu5vQRnauE5+MyXzXSr15NK9RbyPsmYpG
+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
+++MoML2zYbXxbaBwPZV6fizIGCakc53nzGMOZxmEMaE0eeiovS884JmR7y1ZvCvDqBK7zHrzWhZ9
+U2UDNv4anbWe3oLj9Kz3r8Dhj2qJ7ALWN05Y53miZL+P2p6txS66uZHvOrkDfQN3eSYEADzzca9/
+uuL1a/2oJ/6ie8CI2Gmmteov40qvrNvGDThguFe3dATf2bvOHekYiDFdyTjrRasqc4YnBvlC+q2v
+u2OTP/avjO7QfzCu99akJRZ3b4xOy7irbHDZwt+6zxqmYRyvq66hjmxUjRfzzbjcWSJNlPFsbjXr
+R/LovHbQ3SWWtQW+nsEY08VMbqtbV/GH8k5DHtBV0qIypJatG6B1bYV6tXPgGwS6026Z/Mnta287
+UD//ITlA3kN418cWr4891emBAAMiSt6dAI11XIDcH0I2+0PLa6tZXwTP+osivQ2+QzxyFN7Z84g9
+QJ3q8xFNfxTL6tMNTxP+/aC/Er0g6HNuG4m8bpLjAePFT7lh5o205gQYEtby06hgZSSNNufcyZSJ
+QaQgNvM/FP6tT2z8z+Dszs5XXGUzUkYOFOn9LWPHlzK1OD2VJ5fmfzkWQTff7GrL2ezGPjPXCyKa
+Jgfx9cMrz3n88vtwXXJRVoAhIXctWtrAUF8D//eQsiJEh/nkZwAfSKvNGrlxyxhgkqAINjAndmsd
+YDwQ3/Dk4HmQjy4G+M9D+iGpHl5G8j2/AP8dTBWln5K6Vt2qEOD/h+lt4YV5rZ3AiReAQHjljAoP
+7xwFO9UAIkxrp0wM+30xsIIFkCOxWtb13jeu7/StVZ+fSQ8QIECAAAECBAigwD9fLqUlCmVuZHN0
+cmVhbQplbmRvYmoKNSAwIG9iaiA8PC9UeXBlL1hPYmplY3QvQ29sb3JTcGFjZS9EZXZpY2VSR0Iv
+U01hc2sgNCAwIFIvU3VidHlwZS9JbWFnZS9CaXRzUGVyQ29tcG9uZW50IDgvV2lkdGggNTYyL0xl
+bmd0aCA0MzEvSGVpZ2h0IDkwL0ZpbHRlci9GbGF0ZURlY29kZT4+c3RyZWFtCnic7dWxbQNAEAPB
+yhS4NBXm2qTso4cAR1xYM7gKGNy+XgAAAABA2vP353/femAA/mBeDVUC4JhXQ5UAOObVUCUAjnk1
+VAmAY14NVQLgmFdDlQA45tVQJQCOeTVUCYBjXg1VAuCYV0OVADjm1VAlAI55NSZVegDQo0oAdKgS
+AB2qBECHKgHQoUoAdKgSAB2qBECHKgHQoUoAdKgSAB2qBECHKgHQoUoAdKgSAB2qBECHKgHQoUoA
+dKgSAB2qBECHKgHQoUoAdKgSAB2qBECHKgHQoUoAdKgSAB2qBECHKgHQoUoAdKgSAB2qBECHKgHQ
+oUoAdKgSAB2qBECHKgHQoUoAdKgSAB2qBECHKgHQoUoAdKgSAB2qBECHKgHQoUoAdKgSAB2qBECH
+KgHQoUoAdKgSAB2qBECHKgHQoUoAdKgSAB2qBECHKgHQoUoAdKgSAB2qBECHKgHQoUoAdKgSAB2q
+BEDH9WN/g/XwAFys4zCzHh6Ai3UcZtbDA3CxjsPMengALtZxmFkPD8DFOg4z6+EBuFjHYWY9PAAX
+6zjMrIcH4GIdBwAAAADgkzeVI/ojCmVuZHN0cmVhbQplbmRvYmoKNiAwIG9iaiA8PC9MZW5ndGgg
+NzMzL0ZpbHRlci9GbGF0ZURlY29kZT4+c3RyZWFtCnic7VZLb9pAEL7vr5hDD22lbvZt75EAaanE
+I8RVD1UPFEjiyIaGR5r++4696xdJUBJUiUOw0O4nz3zzzTC7wy05jQiDwAqIZqQbkXNySxhlMtDw
+hwj4ii9vCGfQJz9+MpgRaSDQBlKiA7dL8p00lCncy8bWvb8m38mCcMie1RUxggqNr1hGoiwNHEgK
+8ElziciZNYAzuyaXxOaWRhhqcy08f+9xUmAtNVUZduY7sLR2+rLEy+RqadSzq3J2PoyGXBsLuytm
+6WKoUDQUepxUmNGAl5JKiDl+RHbLbAjNBam9rzSe2/l6mNSg4FWkEufU3ia0DXUeJzsRkiciFNaH
+1G9/hkI2MnQwqcFGhgWuZ6hZM0OHk50IyRMRCuv/2CGShZnqSqHDlUJm6h1Swud0iFAhVWX5HEpK
+FFCjqzglrlVPWJ4FK7V5nDT5k8f5C9tDaieg+GJSeFGdnOEdwqiG6BLvE4YPBxUoKkHgycGbIkrJ
++3fKhpSxD9FNdp8xKrMP7K4FoXhAKI2iVueMjOeMrXS5XWxgNIlnJasyxgSwu1asIbWywaolRgaB
+5MLkrP3JejNftSerGdwbLnlJ/fyspbRUhq/I+iGhb6+K8HS7jhfz9Rra2/VmmcLF9td6uop/b+Ll
+oowSePbmWkWxTc0y7+gAa6NcYfvDb4PIsz3m4lVVHp3uRXvcG0W94WCPm1Ka4iEzXBd+o+64N+zA
+RdQaR3sKjd3QLLPQVHPQVtHQdReezcHyDgTj+pVV0IZyC1qHO9q6g86LlBkqFc60oKasM58eoMyP
+xVrRxt1Ra9yFs+H4Bcr8sK1KdrqaxIvNaj4/RFatXu0vrfHnbgei4ctVVeXqx9PryTyBUZxMNuCZ
+juR/xZGM5yOZoUcxjG5x9LK8l5AZLXCKg8HLHH/4aQoncXqFx28J5081Y/iwGRUK9xOmt7hbxtM5
+XrJpOln9pW/t+NaOe0VkPufkH/jk0KUKZW5kc3RyZWFtCmVuZG9iagoxIDAgb2JqPDwvUGFyZW50
+IDcgMCBSL0NvbnRlbnRzIDYgMCBSL1R5cGUvUGFnZS9SZXNvdXJjZXM8PC9YT2JqZWN0PDwvaW1n
+MSA1IDAgUi9pbWcwIDQgMCBSPj4vUHJvY1NldCBbL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMg
+L0ltYWdlSV0vRm9udDw8L0YxIDIgMCBSL0YyIDMgMCBSPj4+Pi9NZWRpYUJveFswIDAgNjEyIDc5
+Ml0+PgplbmRvYmoKOCAwIG9iaiA8PC9MZW5ndGggNjM3L0ZpbHRlci9GbGF0ZURlY29kZT4+c3Ry
+ZWFtCniczVRdT9swFH33r7hvg614tuPYydtCW7ROlJY204TGHkLiNkEhhjQF8e/nfLRJYWJQXmhU
+2Se59+Scc63coWMfEZAuAz9CQx+doztEMLGkDQ+IwQ/z8BpRAmP0+w+BCFkCpC3gBtmy3qXVzhKY
+cLO3drb18xj9QhmiUF75EgmGmQ2US1KycBfLBqUbxIg0oK7r7puqGC2MRIfawoWnq+F3Kw5JLGyX
+L6BVaw3TFtJySbfFDTTUn5t7gpIuQQ23BJxR3Pbvok1p7bsMdBtaJ55uam2Wdc9/3VkGbKWVIG2B
+KAvSbWEDK2cES8v84OlqeM0x+HpCwQV/YUZFzGVAbU44mFng36CD4ejs0L8ujwnBDDb/trsy/pyA
+O5iKioCLIyaFzbnc8rxJkUUE2MzGrqzopt8nZ0M4+zk+Hs7eJKziIYaHVjxfKFweOLZ9eQjSkUeS
+c7GfvtpwR+Fw7I1OwRsMZsP5fI/sOiLj5NuqCIr16jZYKpzodyRouPkmwYv5qO/tJ7HikoarFkgF
+5zBNg6JQMC96wIsYTlKt84b0JRZhYVEfkYHK7lXeg/6kBw5hhL9rEq3T/mQ2ncw835wXbzzcZxSt
+04FePmgdwWlwterBKAvxyxYbgo7JY89EVA5zujPMj/DpeZ4IA+o8tyMshm27sjNZ59DX+a3OAzP7
+UbbQO4H8u5+5DiZ1vx8HxacVeGn6qiCZ4JtJjBZQxMkKboMkgiS710mowOBQ57kKzSHMNARhkeis
+vJspFakIw4U2gsNcRUkBYZBHEAcruFIqgzAO8qWKeq+SYb5rzTyDLCrftFjnRaxyo+bxRmVF+cpo
+rfCHGW7Zc47+Av7FvAcKZW5kc3RyZWFtCmVuZG9iago5IDAgb2JqPDwvUGFyZW50IDcgMCBSL0Nv
+bnRlbnRzIDggMCBSL1R5cGUvUGFnZS9SZXNvdXJjZXM8PC9Qcm9jU2V0IFsvUERGIC9UZXh0IC9J
+bWFnZUIgL0ltYWdlQyAvSW1hZ2VJXS9Gb250PDwvRjEgMiAwIFIvRjIgMyAwIFI+Pj4+L01lZGlh
+Qm94WzAgMCA2MTIgNzkyXT4+CmVuZG9iagozIDAgb2JqPDwvQmFzZUZvbnQvSGVsdmV0aWNhLUJv
+bGQvVHlwZS9Gb250L0VuY29kaW5nL1dpbkFuc2lFbmNvZGluZy9TdWJ0eXBlL1R5cGUxPj4KZW5k
+b2JqCjIgMCBvYmo8PC9CYXNlRm9udC9IZWx2ZXRpY2EvVHlwZS9Gb250L0VuY29kaW5nL1dpbkFu
+c2lFbmNvZGluZy9TdWJ0eXBlL1R5cGUxPj4KZW5kb2JqCjcgMCBvYmo8PC9UeXBlL1BhZ2VzL0Nv
+dW50IDIvS2lkc1sxIDAgUiA5IDAgUl0+PgplbmRvYmoKMTAgMCBvYmo8PC9UeXBlL0NhdGFsb2cv
+UGFnZXMgNyAwIFI+PgplbmRvYmoKMTEgMCBvYmo8PC9Qcm9kdWNlcihpVGV4dCAyLjAuOCBcKGJ5
+IGxvd2FnaWUuY29tXCkpL01vZERhdGUoRDoyMDE1MTEyMTE3MDMwM1opL0NyZWF0aW9uRGF0ZShE
+OjIwMTUxMTIxMTcwMzAzWik+PgplbmRvYmoKeHJlZgowIDEyCjAwMDAwMDAwMDAgNjU1MzUgZiAK
+MDAwMDAwNjU5NiAwMDAwMCBuIAowMDAwMDA3NzU2IDAwMDAwIG4gCjAwMDAwMDc2NjQgMDAwMDAg
+biAKMDAwMDAwMDAxNSAwMDAwMCBuIAowMDAwMDA1MTk5IDAwMDAwIG4gCjAwMDAwMDU3OTYgMDAw
+MDAgbiAKMDAwMDAwNzg0MyAwMDAwMCBuIAowMDAwMDA2Nzk1IDAwMDAwIG4gCjAwMDAwMDc0OTkg
+MDAwMDAgbiAKMDAwMDAwNzg5OSAwMDAwMCBuIAowMDAwMDA3OTQ0IDAwMDAwIG4gCnRyYWlsZXIK
+PDwvUm9vdCAxMCAwIFIvSUQgWzw4YzY2Y2RlMmE3NzFjODU1Y2M3YzgwZTgwODRiZDYxNz48Njcz
+YjA2OWI4NzFkZDY4MGM3NWE3MWFkODliOTY2YzQ+XS9JbmZvIDExIDAgUi9TaXplIDEyPj4Kc3Rh
+cnR4cmVmCjgwNjQKJSVFT0YK
+
+--dbf31f89c82f4b68a8a0d3e84168edec--
