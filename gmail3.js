@@ -295,7 +295,11 @@ var gmail3 = function () {
     var msgFromRobot = false;
     var headers = extractHeaders(rawMessage);
     var from = extractEmailAddress(headers.from);
-    var robotMailerRegex = /\s\(Postfix/;
+    var i;
+    var robotMailers = [
+      /\s\(Postfix/,
+      /mailgun.net/,
+    ]
     var fromRobots = [
       /^no-?reply@.*$/,
       /^do-?not-?reply@.*$/,
@@ -303,11 +307,14 @@ var gmail3 = function () {
     ];
     if (headers.hasOwnProperty("received")) {
       var firstHop = headers.received[headers.received.length - 1];
-      if (robotMailerRegex.test(firstHop)) {
-        msgFromRobot = true;
+      for (i = 0; i < robotMailers.length; i++) {
+        if (robotMailers[i].test(firstHop)) {
+          msgFromRobot = true;
+          break;
+        }
       }
     }
-    for (var i = 0; i < fromRobots.length; i++) {
+    for (i = 0; i < fromRobots.length; i++) {
       if (fromRobots[i].test(from)) {
         msgFromRobot = true;
         break;
