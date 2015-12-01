@@ -17,15 +17,15 @@ var gmail3 = function () {
 
   function emailReport(scriptState, msgConsumers) {
     var db = objDB.open(scriptState.ssID);
+    var htmlBody = "";
+    var inlineImages = {};
+    var blob;
     Logger.log('Sending last months report via Email');
     for(i = 0; i < msgConsumers.length; i += 1) {
       if (! msgConsumers[i].isEmpty(db)) {
         msgConsumers[i].graphFunction(scriptState);
       }
     }
-    var htmlBody = "";
-    var inlineImages = {};
-    var blob;
 
     for(i = 0; i < msgConsumers.length; i += 1) {
       if (! msgConsumers[i].isEmpty(db)) {
@@ -61,6 +61,8 @@ var gmail3 = function () {
   }
 
   function populateData(scriptState, msgConsumers) {
+    var msg;
+    var i;
     var db = objDB.open(scriptState.ssID);
     Logger.log('Populating Data');
     // Process up to 100 gmail threads at once
@@ -85,8 +87,8 @@ var gmail3 = function () {
       scriptState.dataPopulated = true;
     } else {
       for (thread = 0; thread < threads.length; thread += 1) {
-        var msg = threads[thread].getMessages()[0];
-        for(var i = 0; i < msgConsumers.length; i += 1) {
+        msg = threads[thread].getMessages()[0];
+        for(i = 0; i < msgConsumers.length; i += 1) {
           if (scriptState.debugEnabled) {
             Logger.log('Calling Message function for, ' + msgConsumers[i].name);
           }
@@ -109,6 +111,7 @@ var gmail3 = function () {
   }
 
   function getScriptState() {
+    var currentMonth;
     var scriptState = null;
     var nextMonthToProcess;
     var scriptStateString = PropertiesService.getUserProperties().getProperty("scriptState");
@@ -125,7 +128,7 @@ var gmail3 = function () {
       Logger.log('No stored scriptState, creating an empty one');
       scriptState = {};
       scriptState.debugEnabled = debugEnabled;
-      var currentMonth = moment().startOf('month');
+      currentMonth = moment().startOf('month');
       if (scriptState.debugEnabled) {
         nextMonthToProcess = currentMonth.clone().startOf('year');
       } else {
@@ -200,8 +203,11 @@ var gmail3 = function () {
   }
 
   function deleteAtTriggers(scriptState) {
-    Logger.log("Deleting all existing at triggers");
     var trigger;
+    var projectTriggers;
+    var i;
+    var uniqueId;
+    Logger.log("Deleting all existing at triggers");
     function uniqueIdMatchProjectTrigger(projectTrigger) {
       return function (trigger) {
         return trigger.uniqueId === projectTrigger.getUniqueId();
@@ -212,15 +218,15 @@ var gmail3 = function () {
         return trigger.uniqueId === uniqueId;
       };
     }
-    var projectTriggers = ScriptApp.getProjectTriggers();
-    for (var i = 0; i < projectTriggers.length; i++) {
+    projectTriggers = ScriptApp.getProjectTriggers();
+    for (i = 0; i < projectTriggers.length; i++) {
       trigger = _.find(scriptState.triggers, uniqueIdMatchProjectTrigger(projectTriggers[i]));
       if (trigger === undefined) {
         // We have no record of this trigger, so delete it
         ScriptApp.deleteTrigger(projectTriggers[i]);
       } else {
         if (trigger.type === "at") {
-          var uniqueId = projectTriggers[i].getUniqueId();
+          uniqueId = projectTriggers[i].getUniqueId();
           ScriptApp.deleteTrigger(projectTriggers[i]);
           scriptState.triggers = _.reject(scriptState.triggers, uniqueIdMatch(uniqueId));
         }
@@ -259,6 +265,7 @@ var gmail3 = function () {
   }
 
   function extractHeaders(rawMessage) {
+    var i;
     var headers = {};
     var parseHeaderRegex = /^[ \n\t]*([^:]+):[ \t]*(.*)$/;
     var extractHeadersRegex = /\r\n\r\n/;
@@ -266,14 +273,17 @@ var gmail3 = function () {
     var foldedHeaders = rawMessage.split(extractHeadersRegex)[0];
     var unfoldedHeaders = unfoldHeaders(foldedHeaders);
     var headerLines = unfoldedHeaders.split(/\r\n/);
-    for (var i = 0; i < headerLines.length; i++) {
-      var printableHeader = headerLines[i].replace(printableRegex, "");
-      var headerMatch = parseHeaderRegex.exec(printableHeader);
+    var printableHeader;
+    var headerMatch;
+    var headerField;
+    for (i = 0; i < headerLines.length; i++) {
+      printableHeader = headerLines[i].replace(printableRegex, "");
+      headerMatch = parseHeaderRegex.exec(printableHeader);
       if (headerMatch === null) {
         throw new Error("headerMatch returned null");
       }
       if (headerMatch[1] !== "") {
-        var headerField = headerMatch[1].toLowerCase();
+        headerField = headerMatch[1].toLowerCase();
         if (headers.hasOwnProperty(headerField)) {
           headers[headerField].push(headerMatch[2]);
         } else {
@@ -292,6 +302,7 @@ var gmail3 = function () {
   // These are admittedly swiss cheese tests for robots, but I am at loss to
   // find better methods.
   function emailSentByRobot(rawMessage) {
+    var firstHop;
     var msgFromRobot = false;
     var headers = extractHeaders(rawMessage);
     var from = extractEmailAddress(headers.from);
@@ -310,7 +321,7 @@ var gmail3 = function () {
       msgFromRobot = true;
     }
     if (! msgFromRobot && headers.hasOwnProperty("received")) {
-      var firstHop = headers.received[headers.received.length - 1];
+      firstHop = headers.received[headers.received.length - 1];
       for (i = 0; i < robotMailers.length; i++) {
         if (robotMailers[i].test(firstHop)) {
           msgFromRobot = true;
@@ -330,6 +341,7 @@ var gmail3 = function () {
   }
 
   function main() {
+    var i;
     var lock = LockService.getUserLock();
     if (!lock.tryLock(1000)) {
       Logger.log('Could not obtain lock after a second');
@@ -384,7 +396,7 @@ var gmail3 = function () {
       Logger.log('Previous month processed complete, nothing todo');
     }
 
-    for (var i = 0; i < 5; i++) {
+    for (i = 0; i < 5; i++) {
       try {
         setScriptState(scriptState);
         break;
