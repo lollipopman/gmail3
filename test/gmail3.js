@@ -8,6 +8,7 @@ describe('extractEmailAddress', function() {
     assert.equal('potto@foo-bar.org', gmail3.extractEmailAddress('Potto J. Monkey <potto@foo-bar.org>'));
     assert.equal('potto@foo-bar.org', gmail3.extractEmailAddress('potto@foo-bar.org'));
     assert.equal('barbar@boo.com', gmail3.extractEmailAddress('foo bar <barbar@boo.com> (wheee)'));
+    assert.equal('asdf <> fdsa', gmail3.extractEmailAddress('asdf <> fdsa'));
   });
 });
 
