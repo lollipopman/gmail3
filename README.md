@@ -3,7 +3,11 @@
 ## gmail3 - Gmail Usage Analysis
 
 This script analyzes your Gmail usage and provides a monthly report of where
-your email comes from.
+your email comes from. This is done using [Google Apps
+Script](https://developers.google.com/apps-script/overview) which runs in
+Google's datacenters, consequently your email is not exported out of Google.
+The script populates a Google spreadsheet in your Drive and then performs
+queries against the data and sends you a monthly report.
 
 ![Historical Email Volume](https://raw.github.com/lollipopman/gmail3/master/images/historical_email_volume.png)
 ![Top Mailing Lists](https://raw.github.com/lollipopman/gmail3/master/images/top_mailing_lists.png)
