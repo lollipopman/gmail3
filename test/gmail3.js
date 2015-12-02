@@ -7,6 +7,7 @@ describe('extractEmailAddress', function() {
   it('should strip out everything but the email address', function () {
     assert.equal('potto@foo-bar.org', gmail3.extractEmailAddress('Potto J. Monkey <potto@foo-bar.org>'));
     assert.equal('potto@foo-bar.org', gmail3.extractEmailAddress('potto@foo-bar.org'));
+    assert.equal('barbar@boo.com', gmail3.extractEmailAddress('foo bar <barbar@boo.com> (wheee)'));
   });
 });
 

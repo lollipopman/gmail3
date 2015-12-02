@@ -255,7 +255,7 @@ var gmail3 = function () {
   }
 
   function extractEmailAddress(emailAddress) {
-    var emailAddressRegex = /^(?:.*<)?([^<>]+)(?:>)?$/;
+    var emailAddressRegex = /^(?:.*<)?([^<>]+)(?:>.*)?$/;
     return emailAddressRegex.exec(emailAddress)[1].toLowerCase();
   }
 
