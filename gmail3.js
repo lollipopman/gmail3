@@ -308,6 +308,9 @@ var gmail3 = function () {
     var headers = extractHeaders(rawMessage);
     var from = extractEmailAddress(headers.from);
     var i;
+    var robotMessageIds = [
+      /JavaMail/,
+    ];
     var robotMailers = [
       /\s\(Postfix/,
       /mailgun.net/,
@@ -326,6 +329,14 @@ var gmail3 = function () {
       firstHop = headers.received[headers.received.length - 1];
       for (i = 0; i < robotMailers.length; i++) {
         if (robotMailers[i].test(firstHop)) {
+          msgFromRobot = true;
+          break;
+        }
+      }
+    }
+    if (! msgFromRobot && headers.hasOwnProperty("message-id")) {
+      for (i = 0; i < robotMessageIds.length; i++) {
+        if (robotMessageIds[i].test(headers["message-id"])) {
           msgFromRobot = true;
           break;
         }

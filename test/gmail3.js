@@ -38,6 +38,7 @@ describe('emailSentByRobot', function() {
   var rawMessageRobotMailGun = fs.readFileSync('test/fixtures/rawMessageRobotMailGun.txt').toString();
   var rawMessageRobotNoReplyWithName = fs.readFileSync('test/fixtures/rawMessageRobotNoReplyWithName.txt').toString();
   var rawMessageRobotPHP = fs.readFileSync('test/fixtures/rawMessageRobotPHP.txt').toString();
+  var rawMessageRobotJavaMail = fs.readFileSync('test/fixtures/rawMessageRobotJavaMail.txt').toString();
   it('detects whether the message is from a robot', function() {
     assert.equal(false, gmail3.emailSentByRobot(rawMessage));
     assert.equal(true, gmail3.emailSentByRobot(rawMessageRobot));
@@ -45,5 +46,6 @@ describe('emailSentByRobot', function() {
     assert.equal(true, gmail3.emailSentByRobot(rawMessageRobotNoReplyWithName));
     assert.equal(true, gmail3.emailSentByRobot(rawMessageRobotMailGun));
     assert.equal(true, gmail3.emailSentByRobot(rawMessageRobotPHP));
+    assert.equal(true, gmail3.emailSentByRobot(rawMessageRobotJavaMail));
   });
 });
