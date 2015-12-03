@@ -1,0 +1,127 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: potto@foo.com
+Received: by 10.36.104.69 with SMTP id v66csp2134978itb;
+        Tue, 24 Nov 2015 07:51:20 -0800 (PST)
+X-Received: by 10.98.74.26 with SMTP id x26mr23478809pfa.15.1448380278957;
+        Tue, 24 Nov 2015 07:51:18 -0800 (PST)
+Return-Path: <blue+bncBCBM7WMZ3QFBB5UO2KZAKGQEO2O7KIQ@getfoo.com>
+Received: from mail-pa0-x247.google.com (mail-pa0-x247.google.com. [2607:f8b0:400e:c03::247])
+        by mx.google.com with ESMTPS id o27si27400051pfa.142.2015.11.24.07.51.18
+        for <potto@foo.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 24 Nov 2015 07:51:18 -0800 (PST)
+Received-SPF: pass (google.com: domain of blue+bncBCBM7WMZ3QFBB5UO2KZAKGQEO2O7KIQ@getfoo.com designates 2607:f8b0:400e:c03::247 as permitted sender) client-ip=2607:f8b0:400e:c03::247;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of blue+bncBCBM7WMZ3QFBB5UO2KZAKGQEO2O7KIQ@getfoo.com designates 2607:f8b0:400e:c03::247 as permitted sender) smtp.mailfrom=blue+bncBCBM7WMZ3QFBB5UO2KZAKGQEO2O7KIQ@getfoo.com;
+       dkim=pass header.i=@getfoo.com.20150623.gappssmtp.com
+Received: by pacdm15 with SMTP id dm15sf66119212pac.1
+        for <potto@foo.com>; Tue, 24 Nov 2015 07:51:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=getfoo.com.20150623.gappssmtp.com; s=20150623;
+        h=date:from:to:message-id:subject:mime-version:content-type
+         :content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=LsWKnvM/v7tc5N5VgKguE8XIbpublaKTT/yM4/wtUQM=;
+        b=BDSavg9C7998JK219TM7r/gX8vRCqTDPH2DmzEIMFTKeKuCpc9cM6+YlAebuBExrje
+         j4OnWBTojRo7kjhsWCpABy6bLwJpeZTOvR2leoRTYFGXrqEWHeN9yUv5ko1OS1JpNZJw
+         M1G+Oc8Lud2GBtq42SBh3nrFoJpbRLP1SP+kDLC9F3n0gbg/pTeOAYQuoNIOODtnQGsD
+         1n/321r7x+QArrwgiVGi7TwgJU8qFjXMkX8dtgnSt/NzU7P4LbxhGbp/Svu8YOQmAJ7S
+         cEMQfKisSghzaddpQ0V1BLAoTOLVzzqgFLs8NmCJVsbg8LKY0FJuNYkI5EGij3lNTZMx
+         X2Dg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20130820;
+        h=x-gm-message-state:date:from:to:message-id:subject:mime-version
+         :content-type:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=LsWKnvM/v7tc5N5VgKguE8XIbpublaKTT/yM4/wtUQM=;
+        b=AW608KHEP/3U7fB5xDfbSHCYmME481zo4wt+jdkJ/kZitsuATh73TyJMX9pei7/ZFS
+         2KnF1JQ+4xQkOqMUfsjS4p79gGzBsSy/fmevQX9bPRweHCm6M74XaJOk7gTuD0BW+Ru8
+         Lwf0K703J2NVwUOaPCGFJzRXceL2F+81pOaxcsnA4bTBzy4tp4wo3z8UhDoqFZIwFpCu
+         QtR+oitKLJ1dz6dc7zXQh1Hw4iXXTEcrBB/vPDbxk8ueK+aova5dz8KfepBCMt0MBiPY
+         Jv9y2YKPTcUd7yM0FlvcMZp23kiSohcQddQWGfXQuDDuruVRKYHk1mHXSf7scEJZBlaA
+         dNCg==
+X-Gm-Message-State: ALoCoQmwaLky3wppNQG9diVX8D/iGweBQb/jJl9GaGcQpKcNBoZTG3XN7avsCYjpKGzkgs64Y/rP
+X-Received: by 10.66.254.137 with SMTP id ai9mr29153006pad.40.1448380278820;
+        Tue, 24 Nov 2015 07:51:18 -0800 (PST)
+X-BeenThere: blue@getfoo.com
+Received: by 10.140.107.230 with SMTP id h93ls105861qgf.63.gmail; Tue, 24 Nov
+ 2015 07:51:18 -0800 (PST)
+X-Received: by 10.31.54.88 with SMTP id d85mr17474969vka.7.1448380278477;
+        Tue, 24 Nov 2015 07:51:18 -0800 (PST)
+X-BeenThere: domainmaster@getfoo.com
+Received: by 10.140.98.7 with SMTP id n7ls1827152qge.9.gmail; Tue, 24 Nov 2015
+ 07:51:18 -0800 (PST)
+X-Received: by 10.140.44.8 with SMTP id f8mr10750706qga.106.1448380278167;
+        Tue, 24 Nov 2015 07:51:18 -0800 (PST)
+Received: from authmail1.symauth.com (authmail1.symauth.com. [69.58.183.55])
+        by mx.google.com with ESMTPS id e186si16323952qhd.104.2015.11.24.07.51.18
+        for <domainmaster@foo.com>
+        (version=TLS1 cipher=AES128-SHA bits=128/128);
+        Tue, 24 Nov 2015 07:51:18 -0800 (PST)
+Received-SPF: pass (google.com: domain of sslorders@geotrust.com designates 69.58.183.55 as permitted sender) client-ip=69.58.183.55;
+Received: from smtp5fo-d1-inf.sso-fo.ilg1.vrsn.com (smtp5fo-d1-inf.sso-fo.ilg1.vrsn.com [10.244.24.61])
+	by authmail1.symauth.com (8.13.8/8.13.8) with ESMTP id tAOFpHiB004026;
+	Tue, 24 Nov 2015 15:51:17 GMT
+Date: Tue, 24 Nov 2015 15:51:17 +0000 (GMT)
+From: sslorders@geotrust.com
+To: domainmaster@foo.com
+Message-ID: <1317711483.12841448380277698.JavaMail.support@geotrust.com>
+Subject: RapidSSL Certificate Request Confirmation
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Loop-Check: 
+X-Original-Sender: sslorders@geotrust.com
+X-Original-Authentication-Results: mx.google.com;       spf=pass (google.com:
+ domain of sslorders@geotrust.com designates 69.58.183.55 as permitted sender) smtp.mailfrom=sslorders@geotrust.com
+Precedence: list
+Mailing-list: list blue@getfoo.com; contact blue+owners@getfoo.com
+List-ID: <blue.getfoo.com>
+X-Spam-Checked-In-Group: domainmaster@getfoo.com
+X-Google-Group-Id: 273350326771
+List-Post: <http://groups.google.com/a/getfoo.com/group/blue/post>, <mailto:blue@getfoo.com>
+List-Help: <http://support.google.com/a/getfoo.com/bin/topic.py?topic=25838>,
+ <mailto:blue+help@getfoo.com>
+List-Archive: <http://groups.google.com/a/getfoo.com/group/blue/>
+List-Subscribe: <http://groups.google.com/a/getfoo.com/group/blue/subscribe>,
+ <mailto:blue+subscribe@getfoo.com>
+List-Unsubscribe: <mailto:googlegroups-manage+273350326771+unsubscribe@googlegroups.com>,
+ <http://groups.google.com/a/getfoo.com/group/blue/subscribe>
+
+ORDER APPROVAL
+
+Dear Domain Administrator,
+
+You are receiving this email because you are the Domain Administrator for foo.com and the person identified below has requested a RapidSSL certificate for:
+
+  https://foo.com
+
+Applicant information:
+
+   Name:   Domain Master
+   Email:  domainmaster@foo.com
+   Phone:  +1.8774342894
+
+Domain Master requests that you come to the URL below to review and approve this certificate request:
+
+   https://products.geotrust.com/orders/A.do?p=AVr38eOFq7fio6He5VTeb
+
+Please follow the above link and click either the I APPROVE or I DO NOT APPROVE button.
+
+When you click I APPROVE the certificate will be issued and emailed to the Applicant, Approver, and Technical contacts.
+
+If you click I DO NOT APPROVE the certificate application will be cancelled.
+
+
+Thanks,
+
+RapidSSL Customer Support
+http://www.rapidssl.com/support
+Hours of Operation: Mon - Fri 09:00 - 17:00 (EST)
+Email:     orderprocessing@rapidssl.com
+Live Chat: https://knowledge.rapidssl.com/support/ssl-certificate-support/index.html
+
