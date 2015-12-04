@@ -45,6 +45,7 @@ var gmail3 = function () {
   }
 
   function createSpreadSheet(monthToProcess) {
+    Logger.log("Creating spread sheet: " + monthToProcess);
     var ssNew = SpreadsheetApp.create("gmail3 Data - " + monthToProcess.format('MMM YYYY'));
     var ssID = ssNew.getUrl().split('/')[7];
     // This is needed so we can use the Google Visualization API Query Language
