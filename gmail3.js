@@ -47,7 +47,7 @@ var gmail3 = function () {
   function createSpreadSheet(monthToProcess) {
     Logger.log("gmail3 Data - " + monthToProcess.format('MMM YYYY'));
     var ssNew = SpreadsheetApp.create("gmail3 Data - " + monthToProcess.format('MMM YYYY'));
-    var ssID = ssNew.getUrl().split('/')[7];
+    var ssID = ssNew.getId();
     // This is needed so we can use the Google Visualization API Query Language
     // to set the data source URL for graphs
     allowPublicViewing(ssID);
