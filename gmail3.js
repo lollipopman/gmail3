@@ -149,7 +149,7 @@ var gmail3 = function () {
       scriptState.monthToProcess = moment(scriptState.monthToProcess);
       scriptState.currentDay = moment(scriptState.currentDay);
     }
-    
+
     // Reset the running total, if it is a new day
     if (! moment().startOf('day').isSame(scriptState.currentDay)) {
       scriptState.dailyRunningTimeTotalSeconds = 0;
@@ -189,7 +189,7 @@ var gmail3 = function () {
     .endOf('month')
     .add(1, 'days')
     .startOf('month');
-    // This may not suceeed so do it first, before changing the script state
+    // This may not succeed so do it first, before changing the script state
     scriptState.ssID = createSpreadSheet(nextMonthToProcess);
     initializeSpreadSheet(scriptState);
     scriptState.monthToProcess = nextMonthToProcess;
