@@ -45,7 +45,7 @@ var gmail3 = function () {
   }
 
   function createSpreadSheet(monthToProcess) {
-    Logger.log("Creating spread sheet: " + monthToProcess);
+    Logger.log("gmail3 Data - " + monthToProcess.format('MMM YYYY'));
     var ssNew = SpreadsheetApp.create("gmail3 Data - " + monthToProcess.format('MMM YYYY'));
     var ssID = ssNew.getUrl().split('/')[7];
     // This is needed so we can use the Google Visualization API Query Language
@@ -297,6 +297,7 @@ var gmail3 = function () {
   }
 
   function allowPublicViewing(ID) {
+    Logger.log("Setting drive file public, with ID: " + ID);
     file = DriveApp.getFileById(ID);
     file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
   }
