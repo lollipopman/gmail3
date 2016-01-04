@@ -419,7 +419,11 @@ var gmail3 = function () {
         Logger.log('Error: Unable to set script state: ' + e.message);
       }
     }
-    lock.releaseLock();
+    try {
+      lock.releaseLock();
+    } catch (e) {
+      Logger.log('Error: Unable to release script lock: ' + e.message);
+    }
   }
 
   gmail3.emailReport = emailReport;
