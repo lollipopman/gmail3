@@ -358,8 +358,10 @@ var gmail3 = function () {
   function main() {
     var i;
     var lock = LockService.getUserLock();
-    if (!lock.tryLock(1000)) {
-      Logger.log('Could not obtain lock after a second');
+    try {
+      lock.waitLock(1000);
+    } catch (e) {
+      Logger.log('Error: could not obtain lock after a second: ' + e.message);
       return;
     }
     var currentMonth = moment().startOf('month');
